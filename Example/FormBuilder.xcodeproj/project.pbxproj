@@ -12,9 +12,15 @@
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		90B774142097A74800541E04 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B774132097A74800541E04 /* ContactFormViewController.swift */; };
+		90B774162097A8ED00541E04 /* SwiftHUD in Resources */ = {isa = PBXBuildFile; fileRef = 90B774152097A8ED00541E04 /* SwiftHUD */; };
+		90B7741C2097AAF400541E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90B774172097AAF300541E04 /* Assets.xcassets */; };
+		90B7741D2097AAF400541E04 /* contact.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90B774182097AAF300541E04 /* contact.txt */; };
+		90B7741E2097AAF400541E04 /* Contact.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90B774192097AAF400541E04 /* Contact.plist */; };
+		90B7741F2097AAF400541E04 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7741A2097AAF400541E04 /* Address.swift */; };
+		90D82B1E209B8D2400AF2317 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D82B1D209B8D2400AF2317 /* welcome.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		103843749577DD83F2335B04 /* FormBuilder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FormBuilder.podspec; path = ../FormBuilder.podspec; sourceTree = "<group>"; };
+		103843749577DD83F2335B04 /* FormBuilder.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FormBuilder.podspec; path = ../FormBuilder.podspec; sourceTree = "<group>"; };
 		1915943F8CF7891301C71355 /* Pods-FormBuilder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder_Tests/Pods-FormBuilder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5D320BF4DACE737E5B178476 /* Pods-FormBuilder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder_Example/Pods-FormBuilder_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* FormBuilder_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormBuilder_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,15 +42,21 @@
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* FormBuilder_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormBuilder_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		90B774132097A74800541E04 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
+		90B774152097A8ED00541E04 /* SwiftHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftHUD; sourceTree = "<group>"; };
+		90B774172097AAF300541E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90B774182097AAF300541E04 /* contact.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contact.txt; sourceTree = "<group>"; };
+		90B774192097AAF400541E04 /* Contact.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contact.plist; sourceTree = "<group>"; };
+		90B7741A2097AAF400541E04 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		90D82B1D209B8D2400AF2317 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		A7057D8891A95538DB3267E5 /* Pods_FormBuilder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D902005FE86FE1CE2F2774 /* Pods-FormBuilder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder_Example/Pods-FormBuilder_Example.release.xcconfig"; sourceTree = "<group>"; };
-		BDCA847DC57CDA87FC341A61 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		BEFFD38324BD40A6E937F724 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BDCA847DC57CDA87FC341A61 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		BEFFD38324BD40A6E937F724 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C89474BE7E31AC05ED25B3C0 /* Pods_FormBuilder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB78A78DA102820769BE54AA /* Pods-FormBuilder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder_Tests/Pods-FormBuilder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,10 +114,16 @@
 		607FACD21AFB9204008FA782 /* Example for FormBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				90D82B1D209B8D2400AF2317 /* welcome.png */,
+				90B7741A2097AAF400541E04 /* Address.swift */,
+				90B774172097AAF300541E04 /* Assets.xcassets */,
+				90B774192097AAF400541E04 /* Contact.plist */,
+				90B774182097AAF300541E04 /* contact.txt */,
+				90B774152097A8ED00541E04 /* SwiftHUD */,
+				90B774132097A74800541E04 /* ContactFormViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -210,15 +228,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RM2336EMEF;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RM2336EMEF;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -249,8 +269,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				90D82B1E209B8D2400AF2317 /* welcome.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				90B774162097A8ED00541E04 /* SwiftHUD in Resources */,
+				90B7741D2097AAF400541E04 /* contact.txt in Resources */,
+				90B7741C2097AAF400541E04 /* Assets.xcassets in Resources */,
+				90B7741E2097AAF400541E04 /* Contact.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +399,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B774142097A74800541E04 /* ContactFormViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				90B7741F2097AAF400541E04 /* Address.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,12 +456,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -483,12 +511,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -522,6 +552,7 @@
 			baseConfigurationReference = 5D320BF4DACE737E5B178476 /* Pods-FormBuilder_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RM2336EMEF;
 				INFOPLIST_FILE = FormBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -537,6 +568,7 @@
 			baseConfigurationReference = B3D902005FE86FE1CE2F2774 /* Pods-FormBuilder_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RM2336EMEF;
 				INFOPLIST_FILE = FormBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -551,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB78A78DA102820769BE54AA /* Pods-FormBuilder_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = RM2336EMEF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -572,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1915943F8CF7891301C71355 /* Pods-FormBuilder_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = RM2336EMEF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

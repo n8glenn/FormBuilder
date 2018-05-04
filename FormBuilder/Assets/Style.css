@@ -1,0 +1,89 @@
+#App
+{
+    "background-color":"#cccdc6FF";
+    "border-color":"#cccdc6FF";
+    "alternate-background-color":"#ffffffFF";
+    "alternate-colors":"true";
+    "foreground-color":"#000000FF";
+    "font-face":"system-bold";
+    "font-size":12;
+    "margin":7.5;
+    "border":2.5;
+    "orientation":"horizontal";
+    "date-format":"MM-dd-yyyy";
+    "time-format":"hh:mm:ss a";
+    "date-time-format":"MM-dd-yyyy hh:mm:ss a";
+    "section-header-view":"SectionHeaderView";
+    "heading-view":"HeadingView";
+    "label-view":"LabelView";
+    "text-view":"TextFieldView";
+    "textarea-view":"TextAreaView";
+    "combobox-view":"ComboBoxFieldView";
+    "checkbox-view":"CheckBoxView";
+    "optionset-view":"OptionSetView";
+    "signature-view":"SignatureView";
+    "datepicker-view":"DatePickerView";
+    "image-view":"ImageView";
+    "imagepicker-view":"ImagePickerView";
+}
+#Form
+{
+    "parent":"#App";
+    "font-size":17;
+    "font-family":"system-bold";
+}
+#Section
+{
+    "parent":"#Form";
+    "background-color":"#f5f5eaFF";
+}
+#Line
+{
+    "parent":"#Section";
+}
+#Field
+{
+    "parent":"#Line";
+}
+#Label
+{
+    "parent":"#Field";
+}
+#TextField
+{
+    "parent":"#Field";
+}
+#TextArea
+{
+    "parent":"#Field";
+}
+#ImagePicker
+{
+    "parent":"#ImagePicker";
+}
+#DatePopover
+{
+    "parent":"#Field";
+    "width":300;
+    "height":360;
+    "background-color":"#333333FF";
+    "foreground-color":"#ffffffFF";
+    "button-color":"#444444FF";
+}
+#SignaturePopover
+{
+    "parent":"#Field";
+    "width":350;
+    "height":200;
+    "background-color":"#333333FF";
+    "foreground-color":"#ffffffFF";
+    "button-color":"#444444FF";
+}
+#SignView
+{
+    "parent":"#Field";
+    "width":250;
+    "height":60;
+}
+
+/*    comment here */

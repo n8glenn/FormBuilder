@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'FormBuilder'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of FormBuilder.'
+  s.summary          = 'A library to make building data entry forms fast and simple.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -32,9 +32,12 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'FormBuilder/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'FormBuilder' => ['FormBuilder/Assets/*.png']
-  # }
+  s.resources = ['FormBuilder/Assets/**/*.storyboard', 'FormBuilder/Assets/*']
+
+  #s.resource_bundles = {
+  #  'FormBuilder' => ['FormBuilder/Assets/*']
+  #}
+
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

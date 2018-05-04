@@ -1,0 +1,181 @@
+style #Form
+section
+	id Address
+	style #Section
+	title Address Section
+	collapsible true
+	collapsed false
+	allows-add true
+	add-items
+		section
+		image
+		label
+		signature
+	line
+		id AddressHeading
+		style #Line
+		field
+			id AddressHeading
+			style #Field
+			type heading
+			caption Address
+	line
+		id Street
+		field
+			id Street
+			type text
+			caption Street
+			required true
+	line
+		id City
+		field
+			id City
+			type text
+			caption City
+			required true
+	line
+		id County
+		field
+			id County
+			type text
+			caption County
+	line
+		id Street
+		field
+			id Street
+			type text
+			caption Street
+			required true
+	line
+		id State
+		field
+			id State
+			type text
+			caption State
+			required true
+	line
+		id Province
+		visible false
+		field
+			id Province
+			type text
+			caption Province
+			required true
+	line
+		id ZipCode
+		field
+			id ZipCode
+			type text
+			caption Zip Code
+			required true
+			requirements
+				minimum 5
+	line
+		id Email
+		field
+			id Email
+			type text
+			caption Email
+			required true
+			requirements
+				format email
+	line
+		id PostalCode
+		visible false
+		field
+			id PostalCode
+			type text
+			caption Postal Code
+			required true
+	line
+		id BusinessAddress
+		field
+			id BusinessAddress
+			type checkbox
+			caption Business Address
+			required true
+	line
+		id Country
+		field
+			id Country
+			type combobox
+			caption Country
+			option-set Country
+			value 1
+			required true
+	line
+		id Delivery
+		field
+			id Delivery
+			type optionset
+			caption Delivery Type
+			option-set Delivery
+			value 1
+	line
+		id TextFields
+		field
+			id Text1
+			type label
+			caption Text 1
+			value test text here
+		field
+			id Text2
+			type label
+			caption Text 2
+			value test text here 2
+		field
+			id Text3
+			type label
+			caption Text 3 test text here 3 test test test test test test test test test test test test 2
+			value test text here 3 test test test test test test test test test test test test
+	line
+		id TextAreas
+		field
+			id TextArea1
+			type textarea
+			caption Text Area 1
+			value test text here
+			required true
+		field
+			id TextArea2
+			type textarea
+			caption Text Area 2 test test test test test test test test test test test test test test 2
+			value Text Area 2 test test test test test test test test test test test test test test 2 Text Area 2 test test test test test test test test test test test test test test 2
+			required true
+	line
+		id Image
+		field
+			id welcome
+			type image
+			caption you're welcome!
+			value welcome
+	line
+		id StartDate
+		field
+			id StartDate
+			type datepicker
+			caption Start Date
+			required true
+			date-mode date
+	line 
+		id MyImage
+		field
+			id MyImage
+			type imagepicker
+			caption Select an Image!
+			required true
+			picker-mode album
+	line
+		id Signature
+		field
+			id Signature
+			type signature
+			caption Sign Here!
+			required true
+
+
+
+
+
+
+	

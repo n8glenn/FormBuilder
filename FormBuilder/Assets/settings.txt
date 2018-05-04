@@ -1,0 +1,48 @@
+Format
+	id email
+	value [A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}
+Format
+	id telephone
+	value (\+\d{2}\s*(\(\d{2}\))|(\(\d{2}\)))?\s*\d{4,5}\-?\d{4}
+Format
+	id date
+	value \b(?:20)?(\d\d)[-./](0?[1-9]|1[0-2])[-./](3[0-1]|[1-2][0-9]|0?[1-9])\b
+OptionSet
+	id Country
+	Option
+		id CA
+		value Canada
+	Option
+		id ES
+		value Spain
+	Option
+		id OT
+		value Other
+	Option
+		id US
+		value United States
+OptionSet
+	id State
+	Option
+		id TX
+		value Texas
+	Option
+		id MS
+		value Mississippi
+	Option
+		id AL
+		value Alabama
+	Option
+		id LA
+		value Louisiana
+OptionSet
+	id Delivery
+	Option
+		id USPS
+		value Express Mail
+	Option
+		id UPS
+		value UPS
+	Option
+		id FEDEX
+		value Fed Ex

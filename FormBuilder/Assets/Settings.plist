@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Formats</key>
+	<dict>
+		<key>email</key>
+		<string>[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}</string>
+		<key>telephone</key>
+		<string>(\+\d{2}\s*(\(\d{2}\))|(\(\d{2}\)))?\s*\d{4,5}\-?\d{4}</string>
+		<key>date</key>
+		<string>\b(?:20)?(\d\d)[-./](0?[1-9]|1[0-2])[-./](3[0-1]|[1-2][0-9]|0?[1-9])\b</string>
+	</dict>
+	<key>Options</key>
+	<dict>
+		<key>Country</key>
+		<array>
+			<string>Canada</string>
+			<string>Spain</string>
+			<string>Other</string>
+			<string>United States</string>
+		</array>
+		<key>State</key>
+		<array>
+			<string>TX</string>
+			<string>MS</string>
+			<string>AL</string>
+			<string>LA</string>
+		</array>
+		<key>Delivery</key>
+		<array>
+			<string>Express Mail</string>
+			<string>UPS</string>
+			<string>Fed Ex</string>
+		</array>
+	</dict>
+</dict>
+</plist>
