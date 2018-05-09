@@ -172,6 +172,9 @@ class SectionHeaderView: UIView
     @objc @IBAction func addPressed()
     {
         // show popup dialog here to allow selecting an item.
+        let configuration:FTConfiguration = FTConfiguration.shared
+        configuration.menuWidth = 100.0
+
         FTPopOverMenu.showForSender(sender: self.addButton!,
                                     with: self.addItems,
                                     done: { (selectedIndex) -> () in

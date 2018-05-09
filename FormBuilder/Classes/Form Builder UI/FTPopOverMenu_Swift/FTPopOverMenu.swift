@@ -42,21 +42,21 @@ fileprivate enum FTPopOverMenuArrowDirection {
 }
 
 public class FTPopOverMenu : NSObject {
-
+    
     var sender : UIView?
     var senderFrame : CGRect?
     var menuNameArray : [String]!
     var menuImageArray : [String]!
     var done : ((_ selectedIndex : NSInteger) -> Void)!
     var cancel : (() -> Void)!
-
+    
     fileprivate static var sharedMenu : FTPopOverMenu {
         struct Static {
             static let instance : FTPopOverMenu = FTPopOverMenu()
         }
         return Static.instance
     }
-
+    
     fileprivate lazy var configuration : FTConfiguration = {
         return FTConfiguration.shared
     }()
@@ -84,13 +84,13 @@ public class FTPopOverMenu : NSObject {
             }
         }
     }
-
+    
     fileprivate lazy var tapGesture : UITapGestureRecognizer = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onBackgroudViewTapped(gesture:)))
         gesture.delegate = self
         return gesture
     }()
-
+    
     fileprivate func showForSender(sender: UIView?, or senderFrame: CGRect?, with menuNameArray: [String]!, menuImageArray: [String]?, done: @escaping (NSInteger) -> Void, cancel:@escaping () -> Void){
         
         if sender == nil && senderFrame == nil {
@@ -99,7 +99,7 @@ public class FTPopOverMenu : NSObject {
         if menuNameArray.count == 0 {
             return
         }
-
+        
         self.sender = sender
         self.senderFrame = senderFrame
         self.menuNameArray = menuNameArray
@@ -111,10 +111,10 @@ public class FTPopOverMenu : NSObject {
         
         self.adjustPostionForPopOverMenu()
     }
-
+    
     fileprivate func adjustPostionForPopOverMenu() {
         self.backgroundView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIScreen.ft_height())
-
+        
         self.setupPopOverMenu()
         
         self.showIfNeeded()
@@ -201,8 +201,8 @@ public class FTPopOverMenu : NSObject {
             }
         }
     }
-
-     fileprivate func configureMenuArrowPoint() {
+    
+    fileprivate func configureMenuArrowPoint() {
         var point : CGPoint = CGPoint(x: senderRect.origin.x + (senderRect.size.width)/2, y: 0)
         let menuCenterX : CGFloat = configuration.menuWidth/2 + FT.DefaultMargin
         if senderRect.origin.y + senderRect.size.height/2 < UIScreen.ft_height()/2 {
@@ -219,7 +219,7 @@ public class FTPopOverMenu : NSObject {
         }
         menuArrowPoint = point
     }
-
+    
     @objc fileprivate func onBackgroudViewTapped(gesture : UIGestureRecognizer) {
         self.dismiss()
     }
@@ -227,7 +227,7 @@ public class FTPopOverMenu : NSObject {
     fileprivate func showIfNeeded() {
         if self.isOnScreen == false {
             self.isOnScreen = true
-            popOverMenu.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            popOverMenu.transform = CGAffineTransform(scaleX: 1.0, y: 0.1)
             UIView.animate(withDuration: FT.DefaultAnimationDuration, animations: {
                 self.popOverMenu.alpha = 1
                 self.popOverMenu.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -244,7 +244,7 @@ public class FTPopOverMenu : NSObject {
         UIView.animate(withDuration: FT.DefaultAnimationDuration,
                        animations: {
                         self.popOverMenu.alpha = 0
-                        self.popOverMenu.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                        self.popOverMenu.transform = CGAffineTransform(scaleX: 1.0, y: 0.1)
         }) { (isFinished) in
             if isFinished {
                 self.backgroundView.removeFromSuperview()
@@ -261,7 +261,7 @@ public class FTPopOverMenu : NSObject {
             }
         }
     }
-
+    
 }
 
 extension FTPopOverMenu {
@@ -286,7 +286,7 @@ extension FTPopOverMenu {
 }
 
 extension FTPopOverMenu: UIGestureRecognizerDelegate {
-
+    
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let touchPoint = touch.location(in: backgroundView)
         let touchClass : String = NSStringFromClass((touch.view?.classForCoder)!) as String
@@ -299,7 +299,7 @@ extension FTPopOverMenu: UIGestureRecognizerDelegate {
         }
         return true
     }
-
+    
 }
 
 private class FTPopOverMenuView: UIControl {
@@ -314,7 +314,7 @@ private class FTPopOverMenuView: UIControl {
     }()
     
     lazy var menuTableView : UITableView = {
-       let tableView = UITableView.init(frame: CGRect.zero, style: UITableViewStyle.plain)
+        let tableView = UITableView.init(frame: CGRect.zero, style: UITableViewStyle.plain)
         tableView.backgroundColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -327,7 +327,7 @@ private class FTPopOverMenuView: UIControl {
     fileprivate func showWithAnglePoint(point: CGPoint, frame: CGRect, menuNameArray: [String]!, menuImageArray: [String]!, arrowDirection: FTPopOverMenuArrowDirection, done: @escaping ((NSInteger) -> Void)) {
         
         self.frame = frame
-
+        
         self.menuNameArray = menuNameArray
         self.menuImageArray = menuImageArray
         self.arrowDirection = arrowDirection
@@ -352,7 +352,7 @@ private class FTPopOverMenuView: UIControl {
         }
         self.addSubview(self.menuTableView)
     }
-
+    
     fileprivate lazy var backgroundLayer : CAShapeLayer = {
         let layer : CAShapeLayer = CAShapeLayer()
         return layer
@@ -363,7 +363,7 @@ private class FTPopOverMenuView: UIControl {
         if self.backgroundLayer.superlayer != nil {
             self.backgroundLayer.removeFromSuperlayer()
         }
-    
+        
         backgroundLayer.path = self.getBackgroundPath(arrowPoint: arrowPoint).cgPath
         backgroundLayer.fillColor = configuration.backgoundTintColor.cgColor
         backgroundLayer.strokeColor = configuration.borderColor.cgColor
@@ -449,7 +449,7 @@ private class FTPopOverMenuView: UIControl {
         }
         return path
     }
-
+    
 }
 
 extension FTPopOverMenuView : UITableViewDelegate {
@@ -464,11 +464,11 @@ extension FTPopOverMenuView : UITableViewDelegate {
             self.done(indexPath.row)
         }
     }
-
+    
 }
 
 extension FTPopOverMenuView : UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuNameArray.count
     }
@@ -490,5 +490,5 @@ extension FTPopOverMenuView : UITableViewDataSource {
         cell.selectionStyle = configuration.cellSelectionStyle;
         return cell
     }
-
+    
 }
