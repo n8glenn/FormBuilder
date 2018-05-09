@@ -1,0 +1,22 @@
+PODS:
+  - FormBuilder (0.1.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - FormBuilder (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  FormBuilder:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FormBuilder: 843e7f5e4ec30f1926d1e683e4c9aefdde0689aa
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: a0da062f44020bd21db43dfece862da9d1e045e0
+
+COCOAPODS: 1.3.1

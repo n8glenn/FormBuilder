@@ -1,0 +1,26 @@
+{
+  "name": "FormBuilder",
+  "version": "0.1.0",
+  "summary": "A library to make building data entry forms fast and simple.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/n8glenn/FormBuilder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "n8glenn": "n8glenn@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/n8glenn/FormBuilder.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "FormBuilder/Classes/**/*",
+  "resources": [
+    "FormBuilder/Assets/**/*.storyboard",
+    "FormBuilder/Assets/*"
+  ]
+}
