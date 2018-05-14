@@ -10,44 +10,78 @@ import UIKit
 
 class ComboBoxField: InputField
 {
-    private var _options:Array<String>?
-    override var options:Array<String>?
-    {
+    private var _optionSet:FBOptionSet?
+    override var optionSet:FBOptionSet?
+        {
         get
         {
-            return _options
+            return _optionSet
         }
         set(newValue)
         {
-            _options = newValue
+            _optionSet = newValue
         }
     }
     
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> ComboBoxField
+    override public init()
     {
-        if (dictionary.value(forKey: "value") != nil)
+        super.init()
+    }
+    
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+        
+        let file = self.line!.section!.form!.file!
+        var i:Int = lines.0
+        
+        while (i <= lines.1)
         {
-            self.data = Int(dictionary.value(forKey: "value") as! Int)
-        }
-
-        if (dictionary.value(forKey: "options") != nil)
-        {
-            self.options = Array<String>()
-            for optionString in dictionary.value(forKey: "options") as! Array<String>
+            switch (file.lines[i].keyword)
             {
-                self.options!.append(optionString)
+            case FBKeyWord.Value:
+                self.data = file.lines[i].value
+                i += 1
+                
+                break
+            case FBKeyWord.OptionSet:
+                if (file.lines[i].value != "")
+                {
+                    self.optionSet = FBSettings.sharedInstance.optionSet[file.lines[i].value]
+                    self.optionSet?.field = self
+                }
+                else
+                {
+                    let indentLevel:Int = file.lines[i].indentLevel
+                    let spaceLevel:Int = file.lines[i].spaceLevel
+                    i += 1
+                    var optionRange = (i, i)
+                    while (i <= lines.1)
+                    {
+                        if ((file.lines[i].indentLevel > indentLevel) ||
+                            (file.lines[i].spaceLevel > spaceLevel))
+                        {
+                            i += 1
+                        }
+                        else
+                        {
+                            break
+                        }
+                        optionRange.1 = i - 1
+                        self.optionSet = FBOptionSet(field: self, file: file, lines: optionRange)
+                    }
+                }
+                i += 1
+                
+                break
+            default:
+                i += 1
+                
+                break
             }
         }
-
-        if (dictionary.value(forKey: "option-set") != nil)
-        {
-            let name:String = dictionary.value(forKey: "option-set") as! String
-            self.options = FBSettings.sharedInstance.optionSets.value(forKey: name) as? Array<String>
-        }
-
-        return super.initWith(line: line, dictionary: dictionary) as! ComboBoxField
     }
-    
+
     var viewName:String
     {
         get
