@@ -17,7 +17,7 @@ public class FBLine: NSObject
     var allowsRemove:Bool = false
     public var fields:Array<FBField> = Array<FBField>()
     public var section:FBSection?
-    var dictionary:NSDictionary?
+    var range = (0, 0)
     private var _editable:Bool?
     var editable:Bool?
     {
@@ -42,6 +42,163 @@ public class FBLine: NSObject
         }
     }
 
+    override public init()
+    {
+        super.init()
+    }
+
+    public init(section:FBSection, lines:(Int, Int))
+    {
+        super.init()
+        
+        self.section = section
+        self.style = FBStyleSet.shared.style(named: self.tag!)
+        let file = self.section!.form!.file!
+        self.style!.parent = self.section!.style // override the default parents, our styles always descend from the style of the parent object!
+        
+        var i:Int = lines.0
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Id:
+                self.id = file.lines[i].value
+                i += 1
+                
+                break
+            case FBKeyWord.Visible:
+                self.visible = (file.lines[i].value.lowercased() != "false")
+                i += 1
+                
+                break
+            case FBKeyWord.Style:
+                self.tag = file.lines[i].value
+                self.style = FBStyleSet.shared.style(named: self.tag!)
+                self.style!.parent = self.section!.style // override the default parents, our styles always descend from the style of the parent object!
+                i += 1
+                
+                break
+            case FBKeyWord.Editable:
+                self.editable = (file.lines[i].value.lowercased() != "false")
+                i += 1
+                
+                break
+            case FBKeyWord.Field:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                var fieldRange = (i, i)
+                var fieldType:FBFieldType = FBFieldType.Unknown
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel))
+                    {
+                        if (file.lines[i].keyword == FBKeyWord.FieldType)
+                        {
+                            fieldType = FBField.typeWith(string: file.lines[i].value)
+                        }
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                fieldRange.1 = i - 1
+                
+                switch (fieldType)
+                {
+                case FBFieldType.Section:
+                    break
+                case FBFieldType.Heading:
+                    let field:HeadingField = HeadingField(line: self, lines: fieldRange)
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.Label:
+                    let field:LabelField = LabelField(line: self, lines: fieldRange)
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.Text:
+                    let field:TextField = TextField(line: self, lines: fieldRange)
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.TextArea:
+                    let field:TextAreaField = TextAreaField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.ComboBox:
+                    let field:ComboBoxField = ComboBoxField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.CheckBox:
+                    let field:CheckBoxField = CheckBoxField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.Image:
+                    let field:ImageField = ImageField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.ImagePicker:
+                    let field:ImagePickerField = ImagePickerField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.OptionSet:
+                    let field:OptionSetField = OptionSetField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.DatePicker:
+                    let field:DatePickerField = DatePickerField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.Signature:
+                    let field:SignatureField = SignatureField(line: self, lines: fieldRange)
+                    field.line = self
+                    self.fields.append(field as FBField)
+                    
+                    break
+                case FBFieldType.Unknown:
+                    
+                    break
+                }
+                
+                break
+            default:
+                i += 1
+                break
+            }
+        }
+    }
+    
+    func initWith(section:FBSection, id:String) -> FBLine
+    {
+        self.section = section
+        self.id = id  as String
+        self.visible = true
+        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style!.parent = self.section!.style // override the default parents, our styles always descend from the style of the parent object!
+        
+        return self
+    }
+
+    /*
     func initWith(section:FBSection, id:String) -> FBLine
     {
         self.section = section
@@ -141,6 +298,7 @@ public class FBLine: NSObject
         
         return self
     }
+    */
     
     func equals(value:String) -> Bool
     {

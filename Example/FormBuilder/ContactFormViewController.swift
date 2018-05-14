@@ -38,16 +38,16 @@ class ContactFormViewController: FormViewController
         address.business = false
         address.country = 1
         address.deliveryType = 1
-        self.loadDataFile(named: "Contact")
+        self.loadSpecification(named: "Contact")
     }
 
-    // -- Form delegate methods -------------------------------->
-    // -- populate() --=----------------------------------------> load an object we want to display into the form (called automatically after form is loaded).
-    // -- fieldValueChanged(field: FBField, value: Any?) --------> handle user input into the form (you may need to update form based on user input -- or not).
-    // -- validationFailed(exceptions:Array<FBException>) ------> (!!! optional !!!) handle errors in data input or missing data (maybe show a popup describing errors).
-    // -- save() -----------------------------------------------> save the input data back into our object.
-    // -- discard() --------------------------------------------> dismiss this form without saving any data (our object should not be altered in any way).
-    // -- That's all, folks! ----------------------------------->
+    // -- Form delegate methods --------------------------->
+    // -- populate() --------------------------------------> load an object we want to display into the form (called automatically after form is loaded).
+    // -- fieldValueChanged(field: FBField, value: Any?) --> handle user input into the form (you may need to update form based on user input -- or not).
+    // -- validationFailed(exceptions:Array<FBException>) -> (!!! optional !!!) handle errors in data input or missing data (maybe show a popup describing errors).
+    // -- save() ------------------------------------------> save the input data back into our object.
+    // -- discard() ---------------------------------------> dismiss this form without saving any data (our object should not be altered in any way).
+    // -- That's all, folks! ------------------------------>
     
     // load an object we want to display into the form (called automatically after form is loaded)
     override func populate()
@@ -162,6 +162,7 @@ class ContactFormViewController: FormViewController
             break
         }
     }
+    
     /*
     // handle errors in data input or missing data (maybe show a popup describing errors)
     override func validationFailed(exceptions:Array<FBException>)
@@ -198,6 +199,7 @@ class ContactFormViewController: FormViewController
         hud.hide(message, after: 3)
     }
     */
+    
     // save the input data back into our object.
     override func save()
     {

@@ -25,7 +25,46 @@ class FBRequirement: NSObject
     var type:FBRequirementType = FBRequirementType.Minimum;
     var value:Any? = nil;
     var members:Array<String> = Array<String>()
- 
+
+    override public init()
+    {
+        super.init()
+    }
+    
+    public init(line:FBFileLine)
+    {
+        super.init()
+        
+        switch (line.keyword)
+        {
+        case FBKeyWord.Required:
+            self.type = FBRequirementType.Required
+            
+            break
+        case FBKeyWord.Minimum:
+            self.type = FBRequirementType.Minimum
+            
+            break
+        case FBKeyWord.Maximum:
+            self.type = FBRequirementType.Maximum
+            
+            break
+        case FBKeyWord.Format:
+            self.type = FBRequirementType.Format
+            
+            break
+        case FBKeyWord.MemberOf:
+            self.type = FBRequirementType.MemberOf
+            
+            break
+        default:
+            
+            break
+        }
+        self.value = line.value
+    }
+
+    /*
     func initWith(dictionary:NSDictionary) -> FBRequirement
     {
         self.type = self.requirementTypeWith(string:dictionary.value(forKey: "id") as! String)
@@ -36,6 +75,7 @@ class FBRequirement: NSObject
         }
         return self
     }
+    */
     
     func requirementTypeWith(string:String) -> FBRequirementType
     {
@@ -135,7 +175,7 @@ class FBRequirement: NSObject
             case FBRequirementType.Format:
                 if (field.data != nil)
                 {
-                    let format:String = FBSettings.sharedInstance.formats.value(forKey: self.value as! String) as! String
+                    let format:String = FBSettings.sharedInstance.formats[self.value as! String]!
                     let emailTest = NSPredicate(format:"SELF MATCHES %@", format)
                     let valid:Bool = emailTest.evaluate(with: field.data as! String)
                     if (!valid)
@@ -217,7 +257,7 @@ class FBRequirement: NSObject
             case FBRequirementType.Format:
                 if (field.data != nil)
                 {
-                    let format:String = FBSettings.sharedInstance.formats.value(forKey: self.value as! String) as! String
+                    let format:String = FBSettings.sharedInstance.formats[self.value as! String]!
                     let emailTest = NSPredicate(format:"SELF MATCHES %@", format)
                     let valid:Bool = emailTest.evaluate(with: field.data as! String)
                     if (!valid)

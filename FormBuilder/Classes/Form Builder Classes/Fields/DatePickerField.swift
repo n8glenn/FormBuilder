@@ -12,19 +12,40 @@ class DatePickerField: InputField
 {
     var dateType:FBDateType = FBDateType.Date
 
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> DatePickerField
+    override public init()
     {
-        if (dictionary.value(forKey: "value") != nil)
-        {
-            self.data = dictionary.value(forKey: "value") as! String
-        }
-        if (dictionary.value(forKey: "dateType") != nil)
-        {
-            self.dateType = FBField.dateTypeWith(string: dictionary.value(forKey: "dateType") as! String)
-        }
-        return super.initWith(line: line, dictionary: dictionary) as! DatePickerField
+        super.init()
     }
     
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+        
+        var i:Int = lines.0
+        let file = self.line!.section!.form!.file!
+        
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Value:
+                self.data = file.lines[i].value
+                i += 1
+                
+                break
+            case FBKeyWord.DateMode:
+                self.dateType = FBField.dateTypeWith(string: file.lines[i].value)
+                i += 1
+                
+                break
+            default:
+                i += 1
+                
+                break
+            }
+        }
+    }
+
     var viewName:String
     {
         get

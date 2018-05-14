@@ -151,9 +151,9 @@ class ComboBoxFieldView: FieldView
         let configuration:FTConfiguration = FTConfiguration.shared
         configuration.menuWidth = button!.frame.width
         FTPopOverMenu.showForSender(sender: button!,
-                                    with: field!.options!,
+                                    with: field!.optionSet!.optionArray(),
                                     done: { (selectedIndex) -> () in
-                                        self.dropDownLabel?.text = (self.field?.options![selectedIndex])!
+                                        self.dropDownLabel?.text = (self.field?.optionSet?.options[selectedIndex].value)!
                                         self.field!.data = selectedIndex
         }) {
             

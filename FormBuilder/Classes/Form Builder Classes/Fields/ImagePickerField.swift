@@ -33,19 +33,40 @@ class ImagePickerField: InputField
         }
     }
 
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> ImagePickerField
+    override public init()
     {
-        if (dictionary.value(forKey: "value") != nil)
-        {
-            self.data = dictionary.value(forKey: "value") as! UIImage
-        }
-        if (dictionary.value(forKey: "picker-mode") != nil)
-        {
-            self.imagePickerMode = ImagePickerField.imagePickerModeWith(string: dictionary.value(forKey: "picker-mode") as! String)
-        }
-        return super.initWith(line: line, dictionary: dictionary) as! ImagePickerField
+        super.init()
     }
     
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+        
+        var i:Int = lines.0
+        let file = self.line!.section!.form!.file!
+        
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Value:
+                self.data = file.lines[i].value
+                i += 1
+                
+                break
+            case FBKeyWord.PickerMode:
+                self.imagePickerMode = ImagePickerField.imagePickerModeWith(string: file.lines[i].value)
+                i += 1
+                
+                break
+            default:
+                i += 1
+                
+                break
+            }
+        }
+    }
+
     var viewName:String
     {
         get

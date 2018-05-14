@@ -10,18 +10,19 @@ import UIKit
 
 public enum FBFieldType:Int
 {
-    case Section = 0
-    case Heading = 1
-    case Label = 2
-    case Image = 3
-    case ImagePicker = 4
-    case Text = 5
-    case TextArea = 6
-    case ComboBox = 7
-    case CheckBox = 8
-    case OptionSet = 9
-    case Signature = 10
-    case DatePicker = 11
+    case Unknown = 0
+    case Section = 1
+    case Heading = 2
+    case Label = 3
+    case Image = 4
+    case ImagePicker = 5
+    case Text = 6
+    case TextArea = 7
+    case ComboBox = 8
+    case CheckBox = 9
+    case OptionSet = 10
+    case Signature = 11
+    case DatePicker = 12
 }
 
 public enum FBDateType:Int
@@ -46,7 +47,7 @@ public class FBField: NSObject
     var view:FieldView? = nil
     public var caption:String? = ""
     public var visible:Bool = true
-    var dictionary:NSDictionary? 
+    var range = (0, 0)
     private var _labelHeight:CGFloat = 30.0
     private var _textHeight:CGFloat = 30.0
     var requiredWidth:CGFloat = 5.0
@@ -80,7 +81,7 @@ public class FBField: NSObject
         }
     }
     
-    var options:Array<String>?
+    var optionSet:FBOptionSet?
     {
         get
         {
@@ -169,6 +170,95 @@ public class FBField: NSObject
         }
     }
     
+    override public init()
+    {
+        super.init()
+    }
+
+    public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init()
+        
+        self.line = line
+        self.range = lines
+        let file = self.line!.section!.form!.file!
+        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+        
+        var i:Int = lines.0
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Id:
+                self.id = file.lines[i].value
+                i += 1
+                
+                break
+            case FBKeyWord.Visible:
+                self.visible = (file.lines[i].value.lowercased() != "false")
+                i += 1
+                
+                break
+            case FBKeyWord.Style:
+                self.tag = file.lines[i].value
+                self.style = FBStyleSet.shared.style(named: self.tag!)
+                self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+                i += 1
+                
+                break
+            case FBKeyWord.FieldType:
+                self.fieldType = FBField.typeWith(string: file.lines[i].value)
+                i += 1
+                
+                break
+            case FBKeyWord.Caption:
+                self.caption = file.lines[i].value
+                while (i < lines.1)
+                {
+                    if (file.lines[i].continued)
+                    {
+                        i += 1
+                        if (i <= lines.1)
+                        {
+                            var value:String = file.lines[i].value
+                            value = value.replacingOccurrences(of: "\\n", with: "\n", options: [], range: nil)
+                            value = value.replacingOccurrences(of: "\\t", with: "\t", options: [], range: nil)
+                            value = value.replacingOccurrences(of: "\\r", with: "\r", options: [], range: nil)
+                            value = value.replacingOccurrences(of: "\\\"", with: "\"", options: [], range: nil)
+                            self.caption = (self.caption ?? "") + value
+                        }
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                i += 1
+                
+                break
+            default:
+                i += 1
+                break
+            }
+        }
+    }
+    
+    func initWith(line:FBLine, id:String, label:String, type:FBFieldType) -> FBField
+    {
+        self.line = line
+        self.id = id as String
+        self.fieldType = type
+        self.caption = label
+        self.visible = true
+        
+        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+        
+        return self
+    }
+
+    /*
     func initWith(line:FBLine, id:String, label:String, type:FBFieldType) -> FBField
     {
         self.line = line
@@ -206,6 +296,7 @@ public class FBField: NSObject
 
         return self
     }
+    */
     
     func validate() -> FBException
     {

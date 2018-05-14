@@ -163,16 +163,15 @@ open class FormViewController: UIViewController,
         }
     }
     
-    public func loadDataFile(named:String)
+    public func loadSpecification(named:String)
     {
         // load the sections, lines, fields, requirements, layout, etc for this form from a data file.
-        self.form = FBForm();
+        self.form = FBForm(file: named)
         self.form?.delegate = self
         self.form?.tableView = self.tableView
         self.form?.mode = FBFormMode.View
-        self.form?.load(file: named)
     }
-    
+
     public func formLoaded()
     {
         // when the form is loaded, we should allow the user to add any data they want to display...  I guess...
@@ -317,8 +316,8 @@ open class FormViewController: UIViewController,
         switch (type)
         {
         case FBFieldType.Section:
-            let s:FBSection = FBSection().initWith(form: self.form!, dictionary: self.form!.sections[section].dictionary!)
-            s.allowsRemove = true 
+            let s:FBSection = FBSection(form: self.form!, lines: self.form!.sections[section].range)
+            s.allowsRemove = true
             self.form!.sections.insert(s, at: section + 1)
             self.tableView!.reloadData()
             
@@ -427,14 +426,14 @@ open class FormViewController: UIViewController,
             alert.addAction(action)
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
-
+            
             break
         default:
             
             break
         }
     }
-    
+
     func removeItem(indexPath: IndexPath, type: FBFieldType)
     {
         switch (type)

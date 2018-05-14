@@ -14,11 +14,10 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		90A19A3720A9F23800C2D56B /* Contact.spec in Resources */ = {isa = PBXBuildFile; fileRef = 90A19A3620A9F23800C2D56B /* Contact.spec */; };
 		90B774142097A74800541E04 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B774132097A74800541E04 /* ContactFormViewController.swift */; };
 		90B774162097A8ED00541E04 /* SwiftHUD in Resources */ = {isa = PBXBuildFile; fileRef = 90B774152097A8ED00541E04 /* SwiftHUD */; };
 		90B7741C2097AAF400541E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90B774172097AAF300541E04 /* Assets.xcassets */; };
-		90B7741D2097AAF400541E04 /* contact.txt in Resources */ = {isa = PBXBuildFile; fileRef = 90B774182097AAF300541E04 /* contact.txt */; };
-		90B7741E2097AAF400541E04 /* Contact.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90B774192097AAF400541E04 /* Contact.plist */; };
 		90B7741F2097AAF400541E04 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7741A2097AAF400541E04 /* Address.swift */; };
 		90D82B1E209B8D2400AF2317 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D82B1D209B8D2400AF2317 /* welcome.png */; };
 /* End PBXBuildFile section */
@@ -46,11 +45,10 @@
 		607FACE51AFB9204008FA782 /* FormBuilder_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormBuilder_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		90A19A3620A9F23800C2D56B /* Contact.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Contact.spec; sourceTree = "<group>"; };
 		90B774132097A74800541E04 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		90B774152097A8ED00541E04 /* SwiftHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftHUD; sourceTree = "<group>"; };
 		90B774172097AAF300541E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		90B774182097AAF300541E04 /* contact.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contact.txt; sourceTree = "<group>"; };
-		90B774192097AAF400541E04 /* Contact.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contact.plist; sourceTree = "<group>"; };
 		90B7741A2097AAF400541E04 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		90D82B1D209B8D2400AF2317 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		A7057D8891A95538DB3267E5 /* Pods_FormBuilder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,11 +112,10 @@
 		607FACD21AFB9204008FA782 /* Example for FormBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				90A19A3620A9F23800C2D56B /* Contact.spec */,
 				90D82B1D209B8D2400AF2317 /* welcome.png */,
 				90B7741A2097AAF400541E04 /* Address.swift */,
 				90B774172097AAF300541E04 /* Assets.xcassets */,
-				90B774192097AAF400541E04 /* Contact.plist */,
-				90B774182097AAF300541E04 /* contact.txt */,
 				90B774152097A8ED00541E04 /* SwiftHUD */,
 				90B774132097A74800541E04 /* ContactFormViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -269,12 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				90A19A3720A9F23800C2D56B /* Contact.spec in Resources */,
 				90D82B1E209B8D2400AF2317 /* welcome.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				90B774162097A8ED00541E04 /* SwiftHUD in Resources */,
-				90B7741D2097AAF400541E04 /* contact.txt in Resources */,
 				90B7741C2097AAF400541E04 /* Assets.xcassets in Resources */,
-				90B7741E2097AAF400541E04 /* Contact.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

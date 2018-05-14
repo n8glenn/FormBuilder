@@ -44,6 +44,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
             fieldCount = 1.0
         }
         
+        
         let width:CGFloat = self.contentView.frame.width / fieldCount
         var left:CGFloat = 0.0
         for field in (self.line?.visibleFields())!
@@ -90,7 +91,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
             {
             case FBFieldType.Section:
                 break
-
+                
             case FBFieldType.Heading:
                 // header field
                 let headingView:HeadingView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
@@ -106,9 +107,9 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 headingView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(headingView)
-
+                
                 break
-            
+                
             case FBFieldType.Label:
                 // label field
                 let labelView:LabelView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
@@ -124,9 +125,9 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 labelView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(labelView)
-
+                
                 break
-              
+                
             case FBFieldType.Image:
                 // image field
                 let imageView:ImageView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
@@ -138,16 +139,13 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 imageView.frame = cellFrame
                 left += width
                 imageView.field = field as? ImageField
-                if (field.data != nil)
-                {
-                    imageView.updateDisplay(label: field.caption!, image:UIImage(named:field.data as? String ?? "")!)
-                }
+                imageView.updateDisplay(label: field.caption!, image:UIImage(named:"welcome")!)
                 imageView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(imageView)
-
+                
                 break
-            
+                
             case FBFieldType.ImagePicker:
                 // image picker field
                 // image field
@@ -173,7 +171,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                     imagePickerView.image = field.data as? UIImage
                 }
                 self.contentView.addSubview(imagePickerView)
-
+                
                 break
                 
             case FBFieldType.Text:
@@ -191,7 +189,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 textFieldView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(textFieldView)
-
+                
                 break
                 
             case FBFieldType.TextArea:
@@ -215,9 +213,9 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 textAreaView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(textAreaView)
-
+                
                 break
-            
+                
             case FBFieldType.ComboBox:
                 // combo box for selecting among predefined options
                 let comboboxFieldView:ComboBoxFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))! //"ComboBoxFieldView")!
@@ -237,16 +235,16 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                     index = field.data as? Int
                     if (index != nil)
                     {
-                        data = field.options![index!]
+                        data = (field.optionSet?.options[index!].value)!
                     }
                 }
                 comboboxFieldView.updateDisplay(label: field.caption!, text: data, required: field.required)
                 comboboxFieldView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(comboboxFieldView)
-
+                
                 break
-            
+                
             case FBFieldType.CheckBox:
                 // check box to turn an item on or off
                 let checkBoxView:CheckBoxView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
@@ -278,14 +276,14 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                         }
                     }
                 }
-
+                
                 checkBoxView.updateDisplay(label: field.caption!, state: data, required: field.required)
                 checkBoxView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(checkBoxView)
-
+                
                 break
-            
+                
             case FBFieldType.OptionSet:
                 let optionSetView:OptionSetView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
                 field.view = optionSetView as FieldView
@@ -296,12 +294,12 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 optionSetView.frame = cellFrame
                 left += width
                 optionSetView.field = field as? OptionSetField
-                optionSetView.delegate = self                
-                optionSetView.updateDisplay(label: field.caption!, options: field.options!, index: (field.data as! Int?), required: field.required)
+                optionSetView.delegate = self
+                optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.data as! Int?), required: field.required)
                 optionSetView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(optionSetView)
-
+                
                 break
                 
             case FBFieldType.Signature:
@@ -319,7 +317,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 signatureView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(signatureView)
-
+                
                 break
                 
             case FBFieldType.DatePicker:
@@ -342,12 +340,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 datePickerView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(datePickerView)
-
-                break                
+                
+                break
+            case .Unknown:
+                
+                break
             }
         }
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)

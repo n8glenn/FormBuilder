@@ -28,7 +28,7 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
         {
             let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
             let border:CGFloat = (self.field?.style?.value(forKey: "border") as? CGFloat) ?? 5.0
-
+            
             switch (self.field!.style!.orientation)
             {
             case FBOrientation.Horizontal:
@@ -44,8 +44,8 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
             case FBOrientation.Vertical:
                 if (self.field!.editing)
                 {
-                    return (margin * CGFloat(self.field!.options!.count + 2)) +
-                        (self.field!.labelHeight * CGFloat(self.field!.options!.count + 1)) + border
+                    return (margin * CGFloat(self.field?.optionSet?.options.count ?? 0 + 2)) +
+                        (self.field!.labelHeight * CGFloat(self.field?.optionSet?.options.count ?? 0 + 1)) + border
                 }
                 else
                 {
@@ -71,8 +71,8 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
             case FBOrientation.ReverseVertical:
                 if (self.field!.editing)
                 {
-                    return (margin * CGFloat(self.field!.options!.count + 2)) +
-                        (self.field!.labelHeight * CGFloat(self.field!.options!.count + 1)) + border
+                    return (margin * CGFloat(self.field?.optionSet?.options.count ?? 0 + 2)) +
+                        (self.field!.labelHeight * CGFloat(self.field?.optionSet?.options.count ?? 0 + 1)) + border
                 }
                 else
                 {
@@ -99,8 +99,7 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
         }
     }
 
-    
-    func updateDisplay(label:String, options:Array<String>, index:Int?, required: Bool)
+    func updateDisplay(label:String, optionSet:FBOptionSet, index:Int?, required: Bool)
     {
         self.label = UILabel()
         self.label?.numberOfLines = 0
@@ -110,16 +109,16 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
         self.label?.font = self.field!.style!.font
         self.label!.text = label
         var count:Int = 0
-        for option in self.field!.options!
+        for option in self.field!.optionSet!.options
         {
             let optionView:OptionView = UIView.fromNib(withName: "OptionView")!
-            optionView.text = option
+            optionView.text = option.value
             self.optionViews.append(optionView)
             self.addSubview(optionView)
             optionView.setNeedsDisplay()
             let label:UILabel = UILabel()
             label.font = self.field!.style!.font
-            label.text = option
+            label.text = option.value
             self.optionLabels.append(label)
             let button = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
             button.delegate = self
@@ -171,7 +170,6 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
                 self.optionLabels[index!].isHidden = false
             }
         }
-        
     }
 
     @objc func handleTap(_ sender: UITapGestureRecognizer) 

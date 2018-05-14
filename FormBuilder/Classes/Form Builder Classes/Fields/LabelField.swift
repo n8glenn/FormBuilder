@@ -10,11 +10,16 @@ import UIKit
 
 class LabelField: FBField
 {
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> LabelField
+    override public init()
     {
-        return super.initWith(line: line, dictionary: dictionary) as! LabelField
+        super.init()
     }
     
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+    }
+
     var viewName:String
     {
         get

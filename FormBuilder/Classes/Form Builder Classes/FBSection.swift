@@ -28,7 +28,7 @@ public class FBSection: NSObject
     var addSection:Bool = false
     var addLine:Bool = false
     var fieldsToAdd:Array<FBFieldType> = Array<FBFieldType>()
-    var dictionary:NSDictionary?
+    var range = (0, 0)
     private var _editable:Bool?
     var editable:Bool?
     {
@@ -49,7 +49,113 @@ public class FBSection: NSObject
             _editable = newValue
         }
     }
-    
+
+    public init(form: FBForm, lines:(Int, Int))
+    {
+        super.init()
+        
+        self.form = form
+        let file = form.file!
+        self.range = lines
+        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style!.parent = self.form!.style // override the default parents, our styles always descend from the style of the parent object!
+        
+        var i:Int = lines.0
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Style:
+                self.tag = file.lines[i].value
+                self.style = FBStyleSet.shared.style(named: self.tag!)
+                self.style!.parent = self.form!.style
+                i += 1
+                
+                break
+            case FBKeyWord.Editable:
+                self.editable = (file.lines[i].value.lowercased() != "false")
+                i += 1
+                
+                break
+            case FBKeyWord.Collapsible:
+                self.collapsible = (file.lines[i].value.lowercased() != "false")
+                i += 1
+                
+                break
+            case FBKeyWord.Collapsed:
+                self.collapsed = (file.lines[i].value.lowercased() == "true")
+                i += 1
+                
+                break
+            case FBKeyWord.AllowsAdd:
+                self.allowsAdd = (file.lines[i].value.lowercased() == "true")
+                i += 1
+                
+                break
+            case FBKeyWord.AddItems:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel))
+                    {
+                        switch (file.lines[i].keyword)
+                        {
+                        case FBKeyWord.Section:
+                            self.fieldsToAdd.append(FBFieldType.Section)
+                            break
+                        case FBKeyWord.Image:
+                            self.fieldsToAdd.append(FBFieldType.Image)
+                            break
+                        case FBKeyWord.Label:
+                            self.fieldsToAdd.append(FBFieldType.Label)
+                            break
+                        case FBKeyWord.Signature:
+                            self.fieldsToAdd.append(FBFieldType.Signature)
+                            break
+                        default:
+                            break
+                        }
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                
+                break
+            case FBKeyWord.Line:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                var lineRange = (i, i)
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                lineRange.1 = i - 1
+                self.lines?.append(FBLine(section: self, lines: lineRange))
+                
+                break
+            default:
+                i += 1
+                break
+            }
+        }
+    }
+
+    /*
     func initWith(form:FBForm, dictionary:NSDictionary) -> FBSection
     {
         self.dictionary = dictionary 
@@ -110,6 +216,7 @@ public class FBSection: NSObject
         
         return self
     }
+    */
     
     func equals(value:String) -> Bool
     {

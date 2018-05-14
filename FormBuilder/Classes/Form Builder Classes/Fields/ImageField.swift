@@ -23,15 +23,35 @@ class ImageField: FBField
         }
     }
 
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> ImageField
+    override public init()
     {
-        if (dictionary.value(forKey: "value") != nil)
-        {
-            self.data = dictionary.value(forKey: "value")! as! String
-        }
-        return super.initWith(line: line, dictionary: dictionary) as! ImageField
+        super.init()
     }
     
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+        
+        var i:Int = lines.0
+        let file = self.line!.section!.form!.file!
+        
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Value:
+                self.data = file.lines[i].value
+                i += 1
+                
+                break
+            default:
+                i += 1
+                
+                break
+            }
+        }
+    }
+
     var viewName:String
     {
         get

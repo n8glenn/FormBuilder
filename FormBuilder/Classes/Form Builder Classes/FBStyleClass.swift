@@ -114,6 +114,8 @@ public class FBStyleClass: NSObject
         case FBFieldType.Signature:
             return self.value(forKey: "signature-view") as? String ?? "SignatureView"
 
+        case FBFieldType.Unknown:
+            return ""
         }
     }
 }

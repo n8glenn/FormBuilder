@@ -42,7 +42,7 @@ public class FBForm: NSObject
     public var sections:Array<FBSection> = Array<FBSection>()
     var mode:FBFormMode = FBFormMode.View
     var width:CGFloat = 0.0
-    var dictionary:NSDictionary?
+    var file:FBFile? = nil
     var tableView:UITableView?
     private var _editable:Bool?
     var editable:Bool?
@@ -64,6 +64,55 @@ public class FBForm: NSObject
 
     weak var delegate:FormDelegate?
     
+    public init(file:String)
+    {
+        super.init()
+        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style!.parent = FBStyleSet.shared.style(named: "#App") // override the default parents, our styles always descend from the style of the parent object!
+        
+        self.file = FBFile(file: file)
+        
+        var i:Int = 0
+        while (i < self.file!.lines.count)
+        {
+            switch (self.file!.lines[i].keyword)
+            {
+            case FBKeyWord.Style:
+                self.tag = self.file!.lines[i].value
+                self.style = FBStyleSet.shared.style(named: self.tag!)
+                i += 1
+                
+                break
+            case FBKeyWord.Editable:
+                self.editable = (self.file!.lines[i].value.lowercased() != "false")
+                i += 1
+                break
+            case FBKeyWord.Section:
+                let indentLevel:Int = self.file!.lines[i].indentLevel
+                let spaceLevel:Int = self.file!.lines[i].spaceLevel
+                i += 1
+                var range = (i, i)
+                while ((i < self.file!.lines.count) &&
+                    ((self.file!.lines[i].indentLevel > indentLevel) ||
+                        (self.file!.lines[i].spaceLevel > spaceLevel)))
+                {
+                    i += 1
+                }
+                range.1 = i - 1
+                self.sections.append(FBSection(form: self, lines: range))
+                break
+            default:
+                i += 1
+                break
+            }
+        }
+        if (delegate != nil)
+        {
+            delegate?.formLoaded()
+        }
+    }
+
+    /*
     func load(file:String)
     {        
         // load the form, populate all of the sections, lines, fields, requirements, data, layout, etc.
@@ -103,6 +152,7 @@ public class FBForm: NSObject
             delegate?.formLoaded()
         }
     }
+    */
     
     func validate() -> Array<FBException>
     {
@@ -209,19 +259,5 @@ public class FBForm: NSObject
             count += section.lineCount()
         }
         return count
-    }
-    
-    func parseJSON(inputData: NSData) -> NSDictionary?
-    {
-        do
-        {
-            let dictionary: NSDictionary = try JSONSerialization.jsonObject(with: inputData as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-            return dictionary
-        }
-        catch
-        {
-            
-            return nil
-        }
-    }
+    }    
 }

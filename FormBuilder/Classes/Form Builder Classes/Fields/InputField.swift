@@ -109,6 +109,60 @@ class InputField: FBField
         }
     }
     
+    override public init()
+    {
+        super.init()
+    }
+    
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+        
+        var i:Int = lines.0
+        self.range = lines
+        let file = self.line!.section!.form!.file!
+        
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Required:
+                self.required = (file.lines[i].value.lowercased() == "true")
+                i += 1
+                
+                break
+            case FBKeyWord.Editable:
+                self.editable = (file.lines[i].value.lowercased() != "false")
+                i += 1
+                
+                break
+            case FBKeyWord.Requirements:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel))
+                    {
+                        self.requirements?.append(FBRequirement(line: file.lines[i]))
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                break
+            default:
+                i += 1
+                
+                break
+            }
+        }
+    }
+
+    /*
     override func initWith(line:FBLine, dictionary:NSDictionary) -> InputField
     {
         if (dictionary.value(forKey: "required") != nil)
@@ -132,6 +186,7 @@ class InputField: FBField
         }
         return super.initWith(line: line, dictionary: dictionary) as! InputField
     }
+    */
     
     override func validate() -> FBException
     {

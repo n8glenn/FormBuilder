@@ -10,16 +10,55 @@ import UIKit
 
 class TextField : InputField
 {
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> TextField
+    override public init()
     {
-        if (dictionary.value(forKey: "value") != nil)
-        {
-            self.data = dictionary.value(forKey: "value") as! String
-        }
-        
-        return super.initWith(line: line, dictionary: dictionary) as! TextField
+        super.init()
     }
     
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
+        
+        let file = self.line!.section!.form!.file!
+        var i:Int = lines.0
+        
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Value:
+                self.data = file.lines[i].value
+                while (i < lines.1)
+                {
+                    if (file.lines[i].continued)
+                    {
+                        i += 1
+                        if (i <= lines.1)
+                        {
+                            var value:String = file.lines[i].value
+                            value = value.replacingOccurrences(of: "\\n", with: "\n", options: [], range: nil)
+                            value = value.replacingOccurrences(of: "\\t", with: "\t", options: [], range: nil)
+                            value = value.replacingOccurrences(of: "\\r", with: "\r", options: [], range: nil)
+                            value = value.replacingOccurrences(of: "\\\"", with: "\"", options: [], range: nil)
+                            self.data = ((self.data ?? "") as! String) + value
+                        }
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                i += 1
+                
+                break
+            default:
+                i += 1
+                
+                break
+            }
+        }
+    }
+
     var viewName:String
     {
         get

@@ -10,9 +10,14 @@ import UIKit
 
 class HeadingField: FBField
 {
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> HeadingField
+    override public init()
     {
-        return super.initWith(line: line, dictionary: dictionary) as! HeadingField 
+        super.init()
+    }
+    
+    override public init(line:FBLine, lines:(Int, Int))
+    {
+        super.init(line:line, lines:lines)
     }
 
     var viewName:String

@@ -51,9 +51,7 @@
 		3B3A88E074630B1EBC2139F4F70F0443 /* ThrowAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0094EAAC3C18B000459B228F01637 /* ThrowAssertion.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		3C66D2692E811DAE57A244A67E7AC555 /* BeVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31FA66A5FC0844A36FC1358ACE2220C /* BeVoid.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		3C9EF716B9A6E625A3D822C1C0D9C2B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD309FE2AE5B447F4C8EF1A516A3F1C1 /* Main.storyboard */; };
-		3CF721BC8AD612CBA9F9C171ABC76732 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A7E94F51DBCAC65F120F135778838 /* Settings.plist */; };
 		3D1A89FDD6B579BAA92AD398E5C019F9 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7B55BBFC51CA440749FF23010D40E /* EndWith.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
-		3D7D821C91BD6980CCB6392925FEEA38 /* settings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65D93507D63BD3196232356A838F9503 /* settings.txt */; };
 		3E04D23B2995705A6106D41F3E3E4E33 /* ExpectationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4273097B1D0DCCA1E22978B03474F2F /* ExpectationMessage.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		410CA2887268C9DF37506C15AB24C6B8 /* FBStyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F6CC760C370C7B63159A51B8EC6A48 /* FBStyleClass.swift */; };
 		419A7CEE85DC3F8661B7486342C81AF7 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7D6328493B73EF741AC61F4CEF01E /* QuickSelectedTestSuiteBuilder.swift */; };
@@ -130,6 +128,11 @@
 		8D8CA032BE70A91116D1C2DA23323FBB /* FTPopOverMenu_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6F2E210D40357AAD6E30CCB1C3D6FF /* FTPopOverMenu_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E55D6E624F631A050D786E8BB28E3D1 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685C0D509328CD8778F99DD53A49A48 /* Closures.swift */; };
 		901106E286E959BC06A18F5C6CFFE4BD /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8315675F3D2B2385E834043F85C676 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90A19A2D20A9EE9F00C2D56B /* Settings.spec in Resources */ = {isa = PBXBuildFile; fileRef = 90A19A2C20A9EE9F00C2D56B /* Settings.spec */; };
+		90A19A3220A9F0CF00C2D56B /* FBOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2E20A9F0CE00C2D56B /* FBOption.swift */; };
+		90A19A3320A9F0CF00C2D56B /* FBFileLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */; };
+		90A19A3420A9F0CF00C2D56B /* FBOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A3020A9F0CE00C2D56B /* FBOptionSet.swift */; };
+		90A19A3520A9F0CF00C2D56B /* FBFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A3120A9F0CE00C2D56B /* FBFile.swift */; };
 		9232A48C7E03742F3537A2D15A1BE6DE /* LabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744158BBF9DA0BB954A61F04FFF90269 /* LabelView.xib */; };
 		94824FDB90D53A5922F8507A173D54D2 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B648309CB0D33780939B9A3879385 /* String+Height.swift */; };
 		94E49367D7353BB61EB131749C9B7035 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9E93FDAF76CEA15A9E23CC159DED1 /* Callsite.swift */; };
@@ -299,7 +302,6 @@
 		276BCB343DAD2F145BEFA79A40A2AA35 /* FTPopOverMenuCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FTPopOverMenuCell.swift; sourceTree = "<group>"; };
 		28D3D6E03E0EB9BA2268D23CDD2EABB8 /* SignatureViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SignatureViewController.m; sourceTree = "<group>"; };
 		2B199B2C323CBAC96A87B1EDF02189B1 /* FormViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
-		2C4A7E94F51DBCAC65F120F135778838 /* Settings.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Settings.plist; path = FormBuilder/Assets/Settings.plist; sourceTree = "<group>"; };
 		2DD6CC02AD6D4C0E7D1169EF9ECB3706 /* ContainElementSatisfying.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContainElementSatisfying.swift; path = Sources/Nimble/Matchers/ContainElementSatisfying.swift; sourceTree = "<group>"; };
 		2E8E430D83F3CC7F72E348A0B222C46F /* QuickTestSuite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickTestSuite.swift; path = Sources/Quick/QuickTestSuite.swift; sourceTree = "<group>"; };
 		301223B3EB74E21CDB1303C459B57231 /* ExampleHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleHooks.swift; path = Sources/Quick/Hooks/ExampleHooks.swift; sourceTree = "<group>"; };
@@ -347,7 +349,6 @@
 		649BB68BA39EB65A13ED58C01EDACF47 /* ImageView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ImageView.xib; path = FormBuilder/Assets/ImageView.xib; sourceTree = "<group>"; };
 		64E84D61A7272B00CB01DB1DDAC41D06 /* Pods-FormBuilder_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FormBuilder_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		65B4CDEF78BF13177A9303C1E765E5F6 /* World+DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "World+DSL.swift"; path = "Sources/Quick/DSL/World+DSL.swift"; sourceTree = "<group>"; };
-		65D93507D63BD3196232356A838F9503 /* settings.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = settings.txt; path = FormBuilder/Assets/settings.txt; sourceTree = "<group>"; };
 		6642EE042EBCD8FB5BA4D88BAF4EAB36 /* NimbleEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleEnvironment.swift; path = Sources/Nimble/Adapters/NimbleEnvironment.swift; sourceTree = "<group>"; };
 		67820261E96D7E6BF2C850DF114133BE /* CheckBoxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		679FFD5386CAB1887F96D8FF6D84B7B8 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
@@ -391,6 +392,11 @@
 		8DA9864E77C0B85470ACC368B32A41F4 /* DropDownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		8EF0EA564D82AB46B710DC6096C1EA6B /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
 		8F4384CDA1479E6D88E3486B78FD7485 /* MatcherProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherProtocols.swift; path = Sources/Nimble/Matchers/MatcherProtocols.swift; sourceTree = "<group>"; };
+		90A19A2C20A9EE9F00C2D56B /* Settings.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Settings.spec; path = FormBuilder/Assets/Settings.spec; sourceTree = "<group>"; };
+		90A19A2E20A9F0CE00C2D56B /* FBOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBOption.swift; sourceTree = "<group>"; };
+		90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFileLine.swift; sourceTree = "<group>"; };
+		90A19A3020A9F0CE00C2D56B /* FBOptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBOptionSet.swift; sourceTree = "<group>"; };
+		90A19A3120A9F0CE00C2D56B /* FBFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFile.swift; sourceTree = "<group>"; };
 		91159A66B51439581BA8B32CB8E4AEBD /* OptionSetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionSetView.swift; sourceTree = "<group>"; };
 		9245B48A46AAC45502A6B8A2AB745038 /* HooksPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HooksPhase.swift; path = Sources/Quick/Hooks/HooksPhase.swift; sourceTree = "<group>"; };
 		9382818A858037C49A39E597243AD874 /* camera.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = camera.png; path = FormBuilder/Assets/camera.png; sourceTree = "<group>"; };
@@ -637,6 +643,7 @@
 		44FDFABF08F48C27DA2E2B8D32CCB70D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90A19A2C20A9EE9F00C2D56B /* Settings.spec */,
 				32911CB4197C6041B8CFD48C23DABC42 /* Assets.xcassets */,
 				888E112915E6FE743F12FEF927CECDD0 /* BottomCell.xib */,
 				9382818A858037C49A39E597243AD874 /* camera.png */,
@@ -663,8 +670,6 @@
 				8CFA7409F5ECAFEDD33624A268FB1CEB /* RequiredView.xib */,
 				A0A6A0AB33824508F02605FF24B77E7F /* right.png */,
 				B6DAA695A801C46FBD185ADDA2CBD258 /* SectionHeaderView.xib */,
-				2C4A7E94F51DBCAC65F120F135778838 /* Settings.plist */,
-				65D93507D63BD3196232356A838F9503 /* settings.txt */,
 				7987AF27BE076B6D595B781B479C773F /* SignatureView.xib */,
 				1D7957EFD6270A1EB2E73E414079B930 /* SignView.xib */,
 				A76E879A0CA47E81443EB175F90C2E83 /* SnapKit */,
@@ -968,6 +973,10 @@
 		CBAD7877C035F3374D9F607A7AE0EE22 /* Form Builder Classes */ = {
 			isa = PBXGroup;
 			children = (
+				90A19A3120A9F0CE00C2D56B /* FBFile.swift */,
+				90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */,
+				90A19A2E20A9F0CE00C2D56B /* FBOption.swift */,
+				90A19A3020A9F0CE00C2D56B /* FBOptionSet.swift */,
 				7FE7B42DBE9D0DB01D4A4EAC29245A2D /* FBException.swift */,
 				67DB54DD1EC08403FF56D134E74DB7A7 /* FBField.swift */,
 				4EF176CE451328AA0AE3C134A42768A6 /* FBForm.swift */,
@@ -1327,6 +1336,7 @@
 				B6675C41715FBD7E1F90FF823C315611 /* down.png in Resources */,
 				57058985DD2A1DE58864EFC7CAA90FBB /* DropDownView.xib in Resources */,
 				090CE2F77DF4E368E2145C10E006494B /* FBPopOverMenu in Resources */,
+				90A19A2D20A9EE9F00C2D56B /* Settings.spec in Resources */,
 				BF038408A6C51E155FB71D110E860AB6 /* FormCell.xib in Resources */,
 				8B60EF1A8BE24C1AC298955CBA1B4492 /* FTPopOverMenu_Swift in Resources */,
 				223703668FA9C9A8E8AA048833C4A1B3 /* HeadingView.xib in Resources */,
@@ -1342,8 +1352,6 @@
 				746FC4A5A9630182962C6D1822A083BA /* RequiredView.xib in Resources */,
 				84351D45D6CD29B7B2F0D28C801A359A /* right.png in Resources */,
 				24FD267D7EBFC936E9DB3A53A1E76714 /* SectionHeaderView.xib in Resources */,
-				3CF721BC8AD612CBA9F9C171ABC76732 /* Settings.plist in Resources */,
-				3D7D821C91BD6980CCB6392925FEEA38 /* settings.txt in Resources */,
 				075AC1396E2D7535FF1525C2F6472BF3 /* SignatureView.xib in Resources */,
 				FD8BD524ED4A5406265D7FD42582D714 /* SignView.xib in Resources */,
 				C5766DEFCA6FF85F527CD8AC81FF490F /* SnapKit in Resources */,
@@ -1382,16 +1390,19 @@
 				6923F842D989EAE7AA1239DADACF247C /* FBRequirement.swift in Sources */,
 				9E0F5AFEB033C62AFDB45E3E3AEA5143 /* FBSection.swift in Sources */,
 				854819294D09AF43EE9ABEFB10248997 /* FBSettings.swift in Sources */,
+				90A19A3420A9F0CF00C2D56B /* FBOptionSet.swift in Sources */,
 				410CA2887268C9DF37506C15AB24C6B8 /* FBStyleClass.swift in Sources */,
 				21D22019E0BD7983B1BD5DAD375BBC76 /* FBStyleSet.swift in Sources */,
 				5D23B84648CCFA501BC00650D867CA03 /* FieldView.swift in Sources */,
 				CC072496A862BC054FB760C2D5AF71C8 /* FormBuilder-dummy.m in Sources */,
 				46B3B39B8B9875351FE99DE0E383DBBC /* FormLineTableViewCell.swift in Sources */,
+				90A19A3220A9F0CF00C2D56B /* FBOption.swift in Sources */,
 				85FF5AA2380216E1584BFF6FAF1389AE /* FormViewController.swift in Sources */,
 				BBA0ACC4065DFE1DCE2F258EB0820511 /* FTConfiguration.swift in Sources */,
 				71EFD0A5543044956931A69D4BE3358C /* FTConstants.swift in Sources */,
 				057041CE9A13A6C63056A31A2F97CE3C /* FTPopOverMenu.swift in Sources */,
 				22F8AFF88296FC345947BD0C82FDF319 /* FTPopOverMenuCell.swift in Sources */,
+				90A19A3520A9F0CF00C2D56B /* FBFile.swift in Sources */,
 				FBD349F893C497236EED04FED9868A53 /* HeadingField.swift in Sources */,
 				ECC30C6DBCCFA6E1E8D6AD153DA55397 /* HeadingView.swift in Sources */,
 				A357A841A33EF5601F07C4204B1F377F /* ImageField.swift in Sources */,
@@ -1409,6 +1420,7 @@
 				0112FFB865056ED7100967AB6E53E98E /* RequiredView.swift in Sources */,
 				970AF96D97EB114656E7016DC42207EA /* SectionHeaderView.swift in Sources */,
 				CCDD4F310368064F7424E913D8BC1DF4 /* SignatureField.swift in Sources */,
+				90A19A3320A9F0CF00C2D56B /* FBFileLine.swift in Sources */,
 				47E0B889D7825B47929C63642ABE2B84 /* SignatureView.m in Sources */,
 				9DA6E115C38521A8E86651359BF71176 /* SignatureView.swift in Sources */,
 				FBC6DE2C49365E499C732FB21BF5AE22 /* SignatureViewController.m in Sources */,
