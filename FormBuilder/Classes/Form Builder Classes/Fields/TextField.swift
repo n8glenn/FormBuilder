@@ -81,9 +81,9 @@ class TextField : InputField
         {
         get
         {
-            let height:CGFloat = (self.data as! String).height(withConstrainedWidth:
+            let height:CGFloat = ((self.data ?? "") as! String).height(withConstrainedWidth:
                 self.width - (((self.style?.value(forKey: "margin") as! CGFloat) * 2) + self.borderWidth),
-                                                      font: self.style!.font)
+                                                                       font: self.style!.font)
             if (height < 20.0)
             {
                 return 20.0

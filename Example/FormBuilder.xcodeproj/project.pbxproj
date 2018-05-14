@@ -112,7 +112,6 @@
 		607FACD21AFB9204008FA782 /* Example for FormBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				90A19A3620A9F23800C2D56B /* Contact.spec */,
 				90D82B1D209B8D2400AF2317 /* welcome.png */,
 				90B7741A2097AAF400541E04 /* Address.swift */,
 				90B774172097AAF300541E04 /* Assets.xcassets */,
@@ -122,6 +121,7 @@
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				90A19A3620A9F23800C2D56B /* Contact.spec */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for FormBuilder";

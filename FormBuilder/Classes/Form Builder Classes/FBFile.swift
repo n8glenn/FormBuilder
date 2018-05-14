@@ -26,13 +26,20 @@ public class FBFile: NSObject
     
     public func load(file: String)
     {
-        let podBundle = Bundle.init(for: self.classForCoder)
-        guard let path = podBundle.url(forResource: file, withExtension: "spec")
-            else {
+        var path:String? = nil
+        path = Bundle.main.path(forResource: file, ofType: "spec")
+        if (path == nil)
+        {
+            let bundle = Bundle.init(for: self.classForCoder)
+            path = bundle.path(forResource: file, ofType: "spec")
+        }
+        if (path == nil)
+        {
             return
         }
+        
         do {
-            let content:String = try String(contentsOf: path, encoding: String.Encoding.utf8)
+            let content:String = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
             var textlines = content.split(separator: "\n")
             var continued:Bool = false
             while (textlines.count > 0)

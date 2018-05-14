@@ -131,7 +131,7 @@ section                             // start the first section
 			type label
 			caption Text 1 222 _ // this is how you continue a value block on the next line, with an "_" character.
                         3333 _ // you can do it as many times as you want.
-                        \r\t"4444" // notice the \r and \t to format text, you can also use \n, quotes aren't escaped.
+                        \n\t"4444" // notice the \r and \t to format text, you can also use \n, quotes aren't escaped.
 		field
 			id Text2
 			type label
