@@ -161,32 +161,6 @@ class InputField: FBField
             }
         }
     }
-
-    /*
-    override func initWith(line:FBLine, dictionary:NSDictionary) -> InputField
-    {
-        if (dictionary.value(forKey: "required") != nil)
-        {
-            self.required = (dictionary.value(forKey: "required") as? Bool)!
-        }
-        if (dictionary.value(forKey: "editable") != nil)
-        {
-            self.editable = (dictionary.value(forKey: "editable") as? Bool)!
-        }
-        if (dictionary.value(forKey: "Requirements") != nil)
-        {
-            let requirementsArray:Array<NSDictionary>? = dictionary.value(forKey: "Requirements") as? Array<NSDictionary>
-            if (requirementsArray != nil)
-            {
-                for requirementDict in requirementsArray!
-                {
-                    requirements?.append(FBRequirement().initWith(dictionary: requirementDict))
-                }
-            }
-        }
-        return super.initWith(line: line, dictionary: dictionary) as! InputField
-    }
-    */
     
     override func validate() -> FBException
     {

@@ -257,46 +257,6 @@ public class FBField: NSObject
         
         return self
     }
-
-    /*
-    func initWith(line:FBLine, id:String, label:String, type:FBFieldType) -> FBField
-    {
-        self.line = line
-        self.id = id as String
-        self.fieldType = type
-        self.caption = label
-        self.visible = true
-        
-        self.style = FBStyleSet.shared.style(named: self.tag!)
-        self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
-        
-        return self
-    }
-
-    func initWith(line:FBLine, dictionary:NSDictionary) -> FBField
-    {
-        self.dictionary = dictionary
-        self.line = line
-        self.id = dictionary.value(forKey: "id") as! String
-        self.fieldType = FBField.typeWith(string: (dictionary.value(forKey: "type") as? String)!)
-        if (dictionary.value(forKey: "caption") != nil)
-        {
-            self.caption = (dictionary.value(forKey: "caption") as? String)!
-        }
-        if (dictionary.value(forKey: "visible") != nil)
-        {
-            self.visible = (dictionary.value(forKey: "visible") as? Bool)!
-        }
-        if (dictionary.value(forKey: "style") != nil)
-        {
-            self.tag = (dictionary.value(forKey: "style") as? String)!
-        }
-        self.style = FBStyleSet.shared.style(named: self.tag!)
-        self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
-
-        return self
-    }
-    */
     
     func validate() -> FBException
     {

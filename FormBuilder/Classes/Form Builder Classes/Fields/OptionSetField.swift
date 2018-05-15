@@ -33,6 +33,7 @@ class OptionSetField: InputField
         super.init(line:line, lines:lines)
         
         let file = self.line!.section!.form!.file!
+        var optionSetId:String? = nil
         var i:Int = lines.0
         
         while (i <= lines.1)
@@ -44,11 +45,17 @@ class OptionSetField: InputField
                 i += 1
                 
                 break
+            case FBKeyWord.Id:
+                optionSetId = file.lines[i].value
+                i += 1
+                
+                break
             case FBKeyWord.OptionSet:
                 if (file.lines[i].value != "")
                 {
                     self.optionSet = FBSettings.sharedInstance.optionSet[file.lines[i].value]
                     self.optionSet?.field = self
+                    i += 1
                 }
                 else
                 {
@@ -69,9 +76,17 @@ class OptionSetField: InputField
                         }
                     }
                     optionRange.1 = i - 1
-                    self.optionSet = FBOptionSet(field: self, file: file, lines: optionRange)
+                    if (optionSetId != nil)
+                    {
+                        FBSettings.sharedInstance.optionSet[optionSetId!] = FBOptionSet(field: self, file: file, lines: optionRange)
+                        self.optionSet = FBSettings.sharedInstance.optionSet[optionSetId!]
+                    }
+                    else
+                    {
+                        self.optionSet = FBOptionSet(field: self, file: file, lines: optionRange)
+                    }
+                    self.optionSet?.field = self
                 }
-                i += 1
                 
                 break
             default:

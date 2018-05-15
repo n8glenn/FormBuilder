@@ -11,9 +11,9 @@ import UIKit
 class FBSettings: NSObject
 {
     var editable:Bool = true
-    var dateFormat:String = "yyyy-MM-dd"
-    var timeFormat:String = "hh:mm:ss a"
-    var dateTimeFormat:String = "yyyy-MM-dd hh:mm:ss a"
+    //var dateFormat:String = "yyyy-MM-dd"
+    //var timeFormat:String = "hh:mm:ss a"
+    //var dateTimeFormat:String = "yyyy-MM-dd hh:mm:ss a"
     
     var formats:Dictionary<String, String> = Dictionary<String, String>()
     var optionSet:Dictionary<String, FBOptionSet> = Dictionary<String, FBOptionSet>()
@@ -108,44 +108,4 @@ class FBSettings: NSObject
             }
         }
     }
-
-    /*
-    func load(file: String)
-    {
-        var formDict: NSDictionary?
-        let podBundle = Bundle.init(for: self.classForCoder)
-        if let path = podBundle.path(forResource: file, ofType: "spec")
-        {
-            formDict = NSDictionary(contentsOfFile: path)
-        }
-        if let dict = formDict
-        {
-            // get sections of form here
-            if (dict.value(forKey: "editable") != nil)
-            {
-                self.editable = dict.value(forKey: "editable") as! Bool
-            }
-            if (dict.value(forKey: "date-format") != nil)
-            {
-                self.dateFormat = (dict.value(forKey: "date-format") as? String)!
-            }
-            if (dict.value(forKey: "time-format") != nil)
-            {
-                self.timeFormat = (dict.value(forKey: "time-format") as? String)!
-            }
-            if (dict.value(forKey: "date-time-format") != nil)
-            {
-                self.dateTimeFormat = (dict.value(forKey: "date-time-format") as? String)!
-            }
-            if (dict.value(forKey: "Formats") != nil)
-            {
-                self.formats = dict.value(forKey: "Formats") as! NSDictionary
-            }
-            if (dict.value(forKey: "Options") != nil)
-            {
-                self.optionSets = dict.value(forKey: "Options") as! NSDictionary
-            }
-        }
-    }
-     */
 }

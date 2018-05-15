@@ -1,6 +1,38 @@
 // this is a sample form specification file which shows all of the different fields and attributes you can set.
 // you may want to use this as a guide to build your own form spec.  notice that the file format is thus:
 // [keyword] [value block] // comment
+// here are the keywords you can use... (keywords are case insensitive)
+// ====================================
+// Style
+// Editable
+// Visible
+// Section
+// Line
+// Field
+// Id
+// Title
+// Collapsible
+// Collapsed
+// AllowsAdd
+// AddItems
+// FieldType
+// Caption
+// Required
+// Value
+// Requirements
+// Minimum
+// Maximum
+// Format
+// DataType
+// MemberOf
+// OptionSet
+// Option
+// PickerMode
+// DateMode
+// Image
+// Label
+// Signature
+// ====================================
 // the value block is everything after the keyword and before the comment or newline character,
 // excluding the whitespace before the first character and after the last character.
 // you don't need to surround your value block in quotes, but you do need to pay close attention to tabs or spaces which specify indentation.
@@ -14,7 +46,7 @@
 // you can also put a comment after the trailing underscore if you want.
 // quotation marks do not have to be escaped in value blocks, and if you want to format text with newlines or tabs,
 // just use the "\t" or "\n" or "\r" character sequences.
-
+//
 style #Form                         // the default form style class, you can use a custom style class here if you want.
 section                             // start the first section
 	id Address                      // each element must have an id so we can refer back to it later
@@ -125,13 +157,28 @@ section                             // start the first section
 			option-set Delivery
 			value 1
 	line
+		id LikeMe
+		field
+			id LikeMe
+			type optionset
+			caption Do you like me?
+			option-set
+				id LikeMe
+				option
+					id YES
+					value Yes!
+				option
+					id NO
+					value No, I do not.
+			value 1
+	line
 		id TextFields
 		field
 			id Text1
 			type label
-			caption Text 1 222 _ // this is how you continue a value block on the next line, with an "_" character.
-                        3333 _ // you can do it as many times as you want.
-                        \n\t"4444" // notice the \r and \t to format text, you can also use \n, quotes aren't escaped.
+			caption Text 1 222 _    // this is how you continue a value block on the next line, with an "_" character.
+                        3333 _      // you can do it as many times as you want.
+                        \n\t"4444"  // notice the \r and \t to format text, you can also use \n, quotes aren't escaped.
 		field
 			id Text2
 			type label

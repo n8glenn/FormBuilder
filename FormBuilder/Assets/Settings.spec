@@ -7,6 +7,15 @@ format
 format
 	id date
 	value \b(?:20)?(\d\d)[-./](0?[1-9]|1[0-2])[-./](3[0-1]|[1-2][0-9]|0?[1-9])\b
+format
+    id date-display
+    value yyyy-MM-dd
+format
+    id time-display
+    value hh:mm:ss a
+format
+    id date-time-display
+    value yyyy-MM-dd hh:mm:ss a
 option-set
 	id Country
 	option

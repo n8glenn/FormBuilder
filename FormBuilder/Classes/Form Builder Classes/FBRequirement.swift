@@ -21,7 +21,6 @@ public enum FBRequirementType:Int
 class FBRequirement: NSObject
 {
     // Requirement -- Represents a condition that can be placed on a field.
-    
     var type:FBRequirementType = FBRequirementType.Minimum;
     var value:Any? = nil;
     var members:Array<String> = Array<String>()
@@ -63,19 +62,6 @@ class FBRequirement: NSObject
         }
         self.value = line.value
     }
-
-    /*
-    func initWith(dictionary:NSDictionary) -> FBRequirement
-    {
-        self.type = self.requirementTypeWith(string:dictionary.value(forKey: "id") as! String)
-        self.value = dictionary.value(forKey: "value")
-        if (dictionary.value(forKey: "members") != nil)
-        {
-            self.members = dictionary.value(forKey: "members") as! Array<String>
-        }
-        return self
-    }
-    */
     
     func requirementTypeWith(string:String) -> FBRequirementType
     {

@@ -127,6 +127,11 @@ public class FBSection: NSObject
                 }
                 
                 break
+            case FBKeyWord.Title:
+                self.title = file.lines[i].value
+                i += 1
+                
+                break
             case FBKeyWord.Line:
                 let indentLevel:Int = file.lines[i].indentLevel
                 let spaceLevel:Int = file.lines[i].spaceLevel
@@ -154,69 +159,6 @@ public class FBSection: NSObject
             }
         }
     }
-
-    /*
-    func initWith(form:FBForm, dictionary:NSDictionary) -> FBSection
-    {
-        self.dictionary = dictionary 
-        self.form = form
-        self.id = dictionary.value(forKey: "id") as! String
-        self.title = dictionary.value(forKey: "title") as? String
-        if (dictionary.value(forKey: "visible") != nil)
-        {
-            self.visible = (dictionary.value(forKey: "visible") as? Bool)!
-        }
-        
-        if (dictionary.value(forKey: "style") != nil)
-        {
-            self.tag = (dictionary.value(forKey: "style") as? String)!
-        }
-        
-        self.style = FBStyleSet.shared.style(named: self.tag!)
-        self.style!.parent = self.form!.style // override the default parents, our styles always descend from the style of the parent object!
-
-        if (dictionary.value(forKey: "editable") != nil)
-        {
-            self.editable = (dictionary.value(forKey: "editable") as? Bool)!
-        }
-        if (dictionary.value(forKey: "collapsible") != nil)
-        {
-            self.collapsible = (dictionary.value(forKey: "collapsible") as? Bool)!
-        }
-        if (dictionary.value(forKey: "collapsed") != nil)
-        {
-            self.collapsed = (dictionary.value(forKey: "collapsed") as? Bool)!
-        }
-        if (dictionary.value(forKey: "allows-add") != nil)
-        {
-            self.allowsAdd = (dictionary.value(forKey: "allows-add") as? Bool)!
-        }
-        if (dictionary.value(forKey: "editable") != nil)
-        {
-            self.editable = (dictionary.value(forKey: "editable") as? Bool)!
-        }
-        if (dictionary.value(forKey: "add-items") != nil)
-        {
-            let fields:Array<String> = (dictionary.value(forKey: "add-items") as? Array<String>)!
-            for field in fields
-            {
-                self.fieldsToAdd.append(FBField.typeWith(string: field))
-            }
-        }
-        let linesArray:Array<NSDictionary>? = dictionary.value(forKey: "Lines") as? Array<NSDictionary>
-        if (linesArray != nil)
-        {
-            for lineDict in linesArray!
-            {
-                let line:FBLine = FBLine().initWith(section:self, dictionary: lineDict)
-                line.section = self 
-                lines?.append(line)
-            }
-        }
-        
-        return self
-    }
-    */
     
     func equals(value:String) -> Bool
     {

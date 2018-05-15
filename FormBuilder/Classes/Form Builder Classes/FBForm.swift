@@ -111,48 +111,6 @@ public class FBForm: NSObject
             delegate?.formLoaded()
         }
     }
-
-    /*
-    func load(file:String)
-    {        
-        // load the form, populate all of the sections, lines, fields, requirements, data, layout, etc.
-        var formDict: NSDictionary?
-        if let path = Bundle.main.path(forResource: file, ofType: "plist")
-        {
-            formDict = NSDictionary(contentsOfFile: path)
-        }
-        if let dict = formDict
-        {
-            //self.style = FBStyle().initWith(parent: nil, item: self, dictionary: dict)
-            if (dict.value(forKey: "style") != nil)
-            {
-                self.tag = (dict.value(forKey: "style") as? String)!
-            }
-            
-            self.style = FBStyleSet.shared.style(named: self.tag!)
-
-            if (dict.value(forKey: "editable") != nil)
-            {
-                self.editable = (dict.value(forKey: "editable") as? Bool)!
-            }
-
-            // get sections of form here
-            let sectionArray:Any? = dict.value(forKey: "Sections")
-            if (sectionArray != nil)
-            {
-                for sectionDict in (sectionArray as! Array<NSDictionary>)
-                {
-                    let section = FBSection().initWith(form:self, dictionary: sectionDict)
-                    sections.append(section)
-                }
-            }
-        }
-        if (delegate != nil)
-        {
-            delegate?.formLoaded()
-        }
-    }
-    */
     
     func validate() -> Array<FBException>
     {
