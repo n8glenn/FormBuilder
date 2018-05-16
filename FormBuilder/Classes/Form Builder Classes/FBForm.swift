@@ -38,7 +38,7 @@ public class FBForm: NSObject
     
     var tag:String? = "#Form"
     var style:FBStyleClass? = nil
-    public var fields:Array<FBField> = Array<FBField>()
+    //public var fields:Array<FBField> = Array<FBField>()
     public var sections:Array<FBSection> = Array<FBSection>()
     var mode:FBFormMode = FBFormMode.View
     var width:CGFloat = 0.0
@@ -134,6 +134,14 @@ public class FBForm: NSObject
         return exceptions
     }
     
+    func save()
+    {
+        for field in self.fields()
+        {
+            field.data = field.input
+        }
+    }
+    
     public func line(section:String, name:String) -> FBLine
     {
         return (self.section(named: section)?.line(named: name))!
@@ -217,5 +225,21 @@ public class FBForm: NSObject
             count += section.lineCount()
         }
         return count
-    }    
+    }
+    
+    public func fields() -> Array<FBField>
+    {
+        var fields:Array<FBField> = Array<FBField>()
+        for section:FBSection in self.sections
+        {
+            for line:FBLine in section.lines!
+            {
+                for field:FBField in line.fields
+                {
+                    fields.append(field)
+                }
+            }
+        }
+        return fields
+    }
 }

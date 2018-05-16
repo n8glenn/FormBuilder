@@ -142,7 +142,7 @@ class TextFieldView: FieldView, UITextFieldDelegate
                 return
             }
         }
-        self.field?.data = self.textField?.text
+        self.field?.input = self.textField?.text
     }
     
     func textFieldDidEndEditing(_ textField: UITextField)

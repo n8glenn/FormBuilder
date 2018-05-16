@@ -52,6 +52,14 @@
 #TextField
 {
     "parent":"#Field";
+    "orientation":"reverse-horizontal";
+}
+#MyText
+{
+    "parent":"#Field";
+    "orientation":"vertical";
+    "background-color":"#999999FF";
+    "alternate-background-color":"#999999FF";
 }
 #TextArea
 {

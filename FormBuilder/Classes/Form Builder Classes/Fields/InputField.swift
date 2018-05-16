@@ -13,7 +13,7 @@ class InputField: FBField
     private var _textViewHeight:CGFloat = 90.0
     var requirements:Array<FBRequirement>? = Array<FBRequirement>()
     var valid:Bool = true
-
+    
     private var _required:Bool = false
     override var required:Bool
     {
@@ -37,10 +37,27 @@ class InputField: FBField
         set(newValue)
         {
             _data = newValue
+            hasData = (newValue != nil)
+            _input = newValue
+            //self.line?.section?.form?.delegate?.updated(field: self, withValue: newValue)
+        }
+    }
+
+    private var _input:Any? = nil
+    override var input:Any?
+        {
+        get
+        {
+            return _input
+        }
+        set(newValue)
+        {
+            _input = newValue
+            hasInput = (newValue != nil)
             self.line?.section?.form?.delegate?.updated(field: self, withValue: newValue)
         }
     }
-    
+
     private var _editable:Bool?
     var editable:Bool?
     {
@@ -168,7 +185,7 @@ class InputField: FBField
         exception.field = self
         if (self.required == true)
         {
-            if (!self.hasValue())
+            if (!self.hasInput)
             {
                 exception.errors.append(FBRequirementType.Required)
                 return exception
@@ -187,27 +204,32 @@ class InputField: FBField
         return exception
     }
     
+    override public func clear()
+    {
+        _input = nil
+        hasInput = false
+    }
+    
     func hasValue() -> Bool
     {
-        if (isNil(someObject: self.data))
+        if (isNil(someObject: self.input))
         {
             return false
         }
         switch (self.fieldType)
         {
         case FBFieldType.CheckBox:
-            return ((self.data is Bool) && (self.data as! Bool) == true)
+            return ((self.input is Bool) && (self.input as! Bool) == true)
             
         case FBFieldType.OptionSet, FBFieldType.ComboBox:
-            return (self.data is Int)
+            return (self.input is Int)
             
         case FBFieldType.Text, FBFieldType.TextArea:
-            return ((self.data is String) &&
-                !(self.data as! String).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)
+            return ((self.input is String) &&
+                !(self.input as! String).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)
             
         default:
-            return self.data != nil
+            return self.input != nil
         }
     }
-
 }

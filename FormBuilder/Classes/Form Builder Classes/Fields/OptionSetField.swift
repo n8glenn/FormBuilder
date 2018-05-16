@@ -32,6 +32,13 @@ class OptionSetField: InputField
     {
         super.init(line:line, lines:lines)
         
+        self.tag = "#OptionSet"
+        if (FBStyleSet.shared.style(named: self.tag!) != nil)
+        {
+            self.style = FBStyleSet.shared.style(named: self.tag!)
+            self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+        }
+
         let file = self.line!.section!.form!.file!
         var optionSetId:String? = nil
         var i:Int = lines.0
@@ -87,6 +94,14 @@ class OptionSetField: InputField
                     }
                     self.optionSet?.field = self
                 }
+                
+                break
+            case FBKeyWord.Style:
+                if (FBStyleSet.shared.style(named: file.lines[i].value) != nil)
+                {
+                    self.style = FBStyleSet.shared.style(named: file.lines[i].value)
+                }
+                i += 1
                 
                 break
             default:

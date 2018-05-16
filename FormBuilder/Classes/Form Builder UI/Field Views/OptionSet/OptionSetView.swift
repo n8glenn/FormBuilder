@@ -198,7 +198,7 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
             {
                 option.setNeedsDisplay()
             }
-            self.field!.data = index
+            self.field!.input = index
             //self.delegate?.optionSelected(field: self.field!, option: index)
         }
     }
@@ -229,7 +229,7 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
             {
                 option.setNeedsDisplay()
             }
-            self.field!.data = index
+            self.field!.input = index
             //self.delegate?.optionSelected(field: self.field!, option: index)
         }
     }

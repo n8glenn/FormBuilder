@@ -158,17 +158,31 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 imagePickerView.frame = cellFrame
                 left += width
                 imagePickerView.field = field as? ImagePickerField
-                imagePickerView.updateDisplay(label: field.caption!, image: field.data as? UIImage)
+                if (field.editing)
+                {
+                    if (field.hasInput)
+                    {
+                        imagePickerView.updateDisplay(label: field.caption!, image: field.input as? UIImage)
+                    }
+                    else
+                    {
+                        imagePickerView.updateDisplay(label: field.caption!, image: nil)
+                    }
+                }
+                else
+                {
+                    imagePickerView.updateDisplay(label: field.caption!, image: field.data as? UIImage)
+                }
                 //imageView.updateDisplay(label: field.caption!, image:UIImage(named:"welcome")!)
                 imagePickerView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 imagePickerView.delegate = self
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     //let margin:CGFloat = field.style!.value(forKey: "margin") as? CGFloat ?? 5.0
                     //let width:CGFloat = field.caption!.width(withConstrainedHeight: (field.labelHeight), font: field.style!.font)
                     //imagePickerView.image = (field.data as! UIImage).resize(width: Double(self.field!.width - ((margin * 3) + width)))
-                    imagePickerView.image = field.data as? UIImage
+                    //imagePickerView.image = field.input as? UIImage
                 }
                 self.contentView.addSubview(imagePickerView)
                 
@@ -185,7 +199,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 textFieldView.frame = cellFrame
                 left += width
                 textFieldView.field = field as? TextField
-                textFieldView.updateDisplay(label: field.caption!, text: field.data as? String ?? "", required: field.required)
+                textFieldView.updateDisplay(label: field.caption!, text: field.input as? String ?? "", required: field.required)
                 textFieldView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(textFieldView)
@@ -205,9 +219,9 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 textAreaView.field = field as? TextAreaField
                 textAreaView.delegate = self
                 var text:String = ""
-                if (field.data != nil)
+                if (field.input != nil)
                 {
-                    text = field.data as! String
+                    text = field.input as! String
                 }
                 textAreaView.updateDisplay(label: field.caption!, text: text, required: field.required)
                 textAreaView.backgroundColor = backgroundColor
@@ -229,10 +243,10 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 comboboxFieldView.field = field as? ComboBoxField
                 comboboxFieldView.delegate = self
                 var data:String = ""
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     var index:Int?
-                    index = field.data as? Int
+                    index = field.input as? Int
                     if (index != nil)
                     {
                         data = (field.optionSet?.options[index!].value)!
@@ -258,15 +272,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 checkBoxView.field = field as? CheckBoxField
                 checkBoxView.delegate = self
                 var data:FBCheckState = FBCheckState.Unchecked
-                if (field.data != nil)
+                if (field.input != nil)
                 {
-                    if (field.data is FBCheckState)
+                    if (field.input is FBCheckState)
                     {
-                        data = field.data as! FBCheckState
+                        data = field.input as! FBCheckState
                     }
-                    else if (field.data is Bool)
+                    else if (field.input is Bool)
                     {
-                        if ((field.data as! Bool) == true)
+                        if ((field.input as! Bool) == true)
                         {
                             data = FBCheckState.Checked
                         }
@@ -295,7 +309,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 left += width
                 optionSetView.field = field as? OptionSetField
                 optionSetView.delegate = self
-                optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.data as! Int?), required: field.required)
+                optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.input as! Int?), required: field.required)
                 optionSetView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(optionSetView)
@@ -313,7 +327,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 left += width
                 signatureView.field = field as? SignatureField
                 signatureView.delegate = self
-                signatureView.updateDisplay(label: field.caption!, signature:field.data as? UIImage, required: field.required)
+                signatureView.updateDisplay(label: field.caption!, signature:field.input as? UIImage, required: field.required)
                 signatureView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(signatureView)
@@ -332,9 +346,9 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 left += width
                 datePickerView.field = field as? DatePickerField
                 var text:String = ""
-                if (field.data != nil && (field.data as? String) != "")
+                if (field.input != nil && (field.input as? String) != "")
                 {
-                    text = field.data as! String //dateFormatter.string(from: field.data as! Date)
+                    text = field.input as! String //dateFormatter.string(from: field.data as! Date)
                 }
                 datePickerView.updateDisplay(label: field.caption!, text: text, required: field.required)
                 datePickerView.backgroundColor = backgroundColor

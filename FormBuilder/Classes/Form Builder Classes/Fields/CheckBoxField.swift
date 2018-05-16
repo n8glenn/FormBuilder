@@ -19,6 +19,12 @@ class CheckBoxField: InputField
     {
         super.init(line:line, lines:lines)
         
+        self.tag = "#CheckBox"
+        if (FBStyleSet.shared.style(named: self.tag!) != nil)
+        {
+            self.style = FBStyleSet.shared.style(named: self.tag!)
+            self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+        }
         let file = self.line!.section!.form!.file!
         var i:Int = lines.0
         
@@ -28,6 +34,14 @@ class CheckBoxField: InputField
             {
             case FBKeyWord.Value:
                 self.data = (file.lines[i].value.lowercased() == "true")
+                i += 1
+                
+                break
+            case FBKeyWord.Style:
+                if (FBStyleSet.shared.style(named: file.lines[i].value) != nil)
+                {
+                    self.style = FBStyleSet.shared.style(named: file.lines[i].value)
+                }
                 i += 1
                 
                 break

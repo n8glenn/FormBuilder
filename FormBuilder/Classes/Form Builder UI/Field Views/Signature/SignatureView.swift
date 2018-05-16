@@ -189,9 +189,9 @@ class SignatureView: FieldView, SignViewDelegate
         var image:UIImage? = nil;
         let signView:SignView = UIView.fromNib(withName: "SignView")!
         signView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: height)
-        if ((self.field!.data != nil) && (self.field!.data as? String) != "")
+        if (self.field!.input != nil)
         {
-            image = self.field!.data as! UIImage?
+            image = self.field!.input as! UIImage?
         }
         signView.updateDisplay()
         if (image != nil)
@@ -224,13 +224,13 @@ class SignatureView: FieldView, SignViewDelegate
     func signatureUpdated(image: UIImage)
     {
         self.imageView!.image = image
-        self.field!.data = image
+        self.field!.input = image
     }
     
     func cleared()
     {
         self.imageView!.image = UIImage()
-        self.field!.data = nil
+        self.field!.input = nil
     }
     
     func dismiss()

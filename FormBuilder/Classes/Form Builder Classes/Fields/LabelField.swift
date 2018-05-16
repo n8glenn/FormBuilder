@@ -18,6 +18,34 @@ class LabelField: FBField
     override public init(line:FBLine, lines:(Int, Int))
     {
         super.init(line:line, lines:lines)
+        
+        self.tag = "#Label"
+        if (FBStyleSet.shared.style(named: self.tag!) != nil)
+        {
+            self.style = FBStyleSet.shared.style(named: self.tag!)
+            self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+        }
+
+        var i:Int = lines.0
+        let file = self.line!.section!.form!.file!
+        while (i <= lines.1)
+        {
+            switch (file.lines[i].keyword)
+            {
+            case FBKeyWord.Style:
+                if (FBStyleSet.shared.style(named: file.lines[i].value) != nil)
+                {
+                    self.style = FBStyleSet.shared.style(named: file.lines[i].value)
+                }
+                i += 1
+                
+                break
+            default:
+                i += 1
+                
+                break
+            }
+        }
     }
 
     var viewName:String

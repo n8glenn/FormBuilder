@@ -230,11 +230,12 @@ class ContactFormViewController: FormViewController
     }
     
     // dismiss this form without saving any data (our object should not be altered in any way)
+    /*
     override func discard()
     {
         // cancel changes and dismiss form, this should leave the object displayed in the form as is
     }
-
+    */
     // -- End of the form delegate methods ------
     
     override func didReceiveMemoryWarning()

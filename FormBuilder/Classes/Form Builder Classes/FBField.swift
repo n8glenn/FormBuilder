@@ -40,6 +40,8 @@ public class FBField: NSObject
     //          replicated if allowed by the section it's in.
     
     public var id:String = ""
+    public var hasInput:Bool = false
+    public var hasData:Bool = false
     var tag:String? = "#Field"
     var style:FBStyleClass? = nil
     public var line:FBLine?
@@ -68,7 +70,19 @@ public class FBField: NSObject
             // do nothing
         }
     }
-    
+
+    public var input:Any?
+    {
+        get
+        {
+            return nil
+        }
+        set(newValue)
+        {
+            // do nothing
+        }
+    }
+
     public var data:Any?
     {
         get
@@ -263,6 +277,11 @@ public class FBField: NSObject
         let exception:FBException = FBException()
         exception.field = self
         return exception
+    }
+    
+    public func clear()
+    {
+        // do nothing here
     }
     
     func equals(value:String) -> Bool

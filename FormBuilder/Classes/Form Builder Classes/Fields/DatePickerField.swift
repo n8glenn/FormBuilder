@@ -21,6 +21,13 @@ class DatePickerField: InputField
     {
         super.init(line:line, lines:lines)
         
+        self.tag = "#DatePicker"
+        if (FBStyleSet.shared.style(named: self.tag!) != nil)
+        {
+            self.style = FBStyleSet.shared.style(named: self.tag!)
+            self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
+        }
+
         var i:Int = lines.0
         let file = self.line!.section!.form!.file!
         
@@ -35,6 +42,14 @@ class DatePickerField: InputField
                 break
             case FBKeyWord.DateMode:
                 self.dateType = FBField.dateTypeWith(string: file.lines[i].value)
+                i += 1
+                
+                break
+            case FBKeyWord.Style:
+                if (FBStyleSet.shared.style(named: file.lines[i].value) != nil)
+                {
+                    self.style = FBStyleSet.shared.style(named: file.lines[i].value)
+                }
                 i += 1
                 
                 break

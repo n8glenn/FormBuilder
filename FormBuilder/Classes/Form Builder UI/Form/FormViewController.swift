@@ -222,6 +222,7 @@ open class FormViewController: UIViewController,
         {
             if (self.modified)
             {
+                self.update()
                 self.save()
             }
             self.setForm(mode: FBFormMode.View)
@@ -233,11 +234,14 @@ open class FormViewController: UIViewController,
         // user wants to cancel and discard changes
         if (self.form?.mode == FBFormMode.Edit)
         {
+            for field in self.form!.fields()
+            {
+                field.clear()
+            }
             self.form?.mode = FBFormMode.View
             self.populate()
             self.updateDisplay()
         }
-        self.discard()
     }
 
     open func populate()
@@ -283,18 +287,28 @@ open class FormViewController: UIViewController,
         present(alert, animated: true, completion: nil)
     }
     
+    func update()
+    {
+        for field in self.form!.fields()
+        {
+            field.data = field.input
+        }
+    }
+    
     open func save()
     {
         // this should be overridden in the child form.
         assert(false, "This method must be overriden by the subclass")
     }
     
+    /*
     open func discard()
     {
         // this should be overridden in the child form.
         assert(false, "This method must be overriden by the subclass")
     }
-        
+    */
+    
     func collapse(section: Int)
     {
         self.form!.sections[section].collapsed = true

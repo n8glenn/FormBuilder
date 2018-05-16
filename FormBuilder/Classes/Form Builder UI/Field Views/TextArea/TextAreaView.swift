@@ -102,7 +102,7 @@ class TextAreaView: FieldView, UITextViewDelegate
                 return
             }
         }
-        self.field?.data = self.textView!.text
+        self.field?.input = self.textView!.text
     }
     
     override func layoutSubviews()
@@ -141,6 +141,4 @@ class TextAreaView: FieldView, UITextViewDelegate
             break
         }
     }
-
-
 }

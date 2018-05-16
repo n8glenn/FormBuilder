@@ -154,7 +154,7 @@ class ComboBoxFieldView: FieldView
                                     with: field!.optionSet!.optionArray(),
                                     done: { (selectedIndex) -> () in
                                         self.dropDownLabel?.text = (self.field?.optionSet?.options[selectedIndex].value)!
-                                        self.field!.data = selectedIndex
+                                        self.field!.input = selectedIndex
         }) {
             
         }

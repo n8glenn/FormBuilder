@@ -72,7 +72,7 @@ section                             // start the first section
 		id Street
 		field
 			id Street
-            style #Field
+            style #MyText
 			type text
 			caption Street
 			required true

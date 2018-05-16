@@ -15,7 +15,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
     @IBOutlet var requiredView:RequiredView?
     @IBOutlet var clearButton:UIButton?
     
-    var image:UIImage?
+    //var image:UIImage?
     var field:ImagePickerField?
     var imagePicker:UIImagePickerController?
     
@@ -30,10 +30,10 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         }
         else
         {
-            if (self.image != nil)
+            if (self.field!.input != nil)
             {
                 let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
-                let resized:UIImage = self.image!.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
+                let resized:UIImage = (self.field!.input! as! UIImage).resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
 
                 return resized.size.height + (margin * 2) + border
             }
@@ -56,10 +56,10 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
                                        y: margin,
                                        width: self.frame.width - (margin * 2),
                                        height: self.field!.labelHeight)
-            if (self.image != nil)
+            if (self.field!.input != nil)
             {
                 let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
-                let resized:UIImage = self.image!.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
+                let resized:UIImage = (self.field!.input! as! UIImage).resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
 
                 self.button!.frame = CGRect(x: self.frame.width - (resized.size.width + (margin * 2) + self.field!.requiredWidth),
                                         y: margin,
@@ -105,20 +105,23 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         self.addSubview(self.label!)
         if (image != nil)
         {
-            self.image = image!
+            self.field!.input = image!
         }
         self.label?.font = self.field!.style!.font
         self.label?.text = label
         self.button = UIButton()
-        if (self.image != nil)
+        if (image != nil)
         {
             let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
-            let resized:UIImage = self.image!.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
+            let resized:UIImage = image!.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
             self.button?.setImage(resized, for: UIControlState.normal)
-            self.clearButton = UIButton()
-            self.clearButton?.addTarget(self, action: #selector(clearPressed), for: UIControlEvents.touchUpInside)
-            self.clearButton?.setImage(UIImage.init(named: "trash", in: bundle, compatibleWith: nil), for: UIControlState.normal)
-            self.addSubview(self.clearButton!)
+            if (self.field!.editing)
+            {
+                self.clearButton = UIButton()
+                self.clearButton?.addTarget(self, action: #selector(clearPressed), for: UIControlEvents.touchUpInside)
+                self.clearButton?.setImage(UIImage.init(named: "trash", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+                self.addSubview(self.clearButton!)
+            }
         }
         else
         {
@@ -174,8 +177,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
     
     @objc @IBAction func clearPressed()
     {
-        self.field!.data = nil
-        self.image = nil
+        self.field!.input = nil
         if (self.delegate != nil)
         {
             self.delegate?.fieldHeightChanged()
@@ -187,13 +189,13 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
-        self.image = image.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
-        self.button?.setImage(self.image, for: UIControlState.normal)
+        self.field!.input = image.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
+        self.button?.setImage((self.field!.input! as! UIImage), for: UIControlState.normal)
         self.button!.frame = CGRect(x: self.button!.frame.origin.x,
                                     y: self.button!.frame.origin.y,
                                     width: image.size.width,
                                     height: image.size.height)
-        self.field?.data = image
+        self.field?.input = image
         self.setNeedsLayout()
         if (self.delegate != nil)
         {
@@ -206,8 +208,8 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
-        self.image = image.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
-        self.button?.setImage(self.image, for: UIControlState.normal)
+        self.field!.input = image.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
+        self.button?.setImage((self.field!.input! as! UIImage), for: UIControlState.normal)
         self.button!.frame = CGRect(x: self.button!.frame.origin.x,
                                     y: self.button!.frame.origin.y,
                                     width: image.size.width,

@@ -158,11 +158,11 @@ class CheckBoxView: FieldView
         self.button?.setNeedsDisplay()
         if (self.button?.state == FBCheckState.Checked)
         {
-            self.field?.data = true 
+            self.field?.input = true
         }
         else
         {
-            self.field?.data = nil
+            self.field?.input = nil
         }
     }    
 }

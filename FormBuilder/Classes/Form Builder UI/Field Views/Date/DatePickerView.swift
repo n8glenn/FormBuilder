@@ -267,14 +267,14 @@ class DatePickerView: FieldView, DateViewDelegate
             break
         }
         self.dateLabel!.text = dateFormatter.string(from: date)
-        self.field!.data = self.dateLabel!.text 
+        self.field!.input = self.dateLabel!.text 
         self.setNeedsLayout()
     }
     
     func cleared()
     {
         self.dateLabel!.text = ""
-        self.field!.data = nil
+        self.field!.input = nil
         self.setNeedsLayout()
     }
 

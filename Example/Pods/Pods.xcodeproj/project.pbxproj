@@ -195,7 +195,6 @@
 		CF55697859D633C852C3586384647EB6 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240CEA0915AA3241F6A49CB65CEC8767 /* NimbleXCTestHandler.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		D03FE239A824BA1476263E4715BE56A5 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE8BD0E387BCE71EF2B2A25E621EA9 /* ImagePickerView.swift */; };
 		D1DB50C2F460EF6B46939E8C559B4EC4 /* Pods-FormBuilder_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CD589C90AB4DC0227C7641E53A9019 /* Pods-FormBuilder_Tests-dummy.m */; };
-		D21DAFE7B485417D4C74F7CBDD118035 /* Style.css in Sources */ = {isa = PBXBuildFile; fileRef = DC1FE2D77D3190238B1FC0EA4264F26D /* Style.css */; };
 		D492F1A86D5F973DA3DCF0F98C64D584 /* Quick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9D7EA20C39A55A1EF0C23094895A75 /* Quick-dummy.m */; };
 		D63F015F847E0450CB505BB48788A581 /* SwiftCssTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95894AE68C94EE96761133EA20E3812E /* SwiftCssTheme.swift */; };
 		D9E62C41794D0B5D2CD68CA92C4BA836 /* mach_excServer.c in Sources */ = {isa = PBXBuildFile; fileRef = 679FFD5386CAB1887F96D8FF6D84B7B8 /* mach_excServer.c */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -484,7 +483,6 @@
 		D950A25D9F02DFC135F6C07240A60868 /* FTPopOverMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FTPopOverMenu.swift; sourceTree = "<group>"; };
 		D954E7E4D336837086313DAE758F7F32 /* Functional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functional.swift; path = Sources/Nimble/Utils/Functional.swift; sourceTree = "<group>"; };
 		DA1C091F24DDB14D7DA0311038B373F5 /* Popover.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
-		DC1FE2D77D3190238B1FC0EA4264F26D /* Style.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		DE7B648309CB0D33780939B9A3879385 /* String+Height.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
 		DE960FDA70783D86C4832257093317D2 /* Predicate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Predicate.swift; path = Sources/Nimble/Matchers/Predicate.swift; sourceTree = "<group>"; };
 		E12CA2EC6B59BE12F3427AB1E04EB149 /* Pods-FormBuilder_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FormBuilder_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -572,7 +570,6 @@
 		09BDC545E2E6E8A2F495CEEE97321559 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				DC1FE2D77D3190238B1FC0EA4264F26D /* Style.css */,
 				A4217DF2FD4348AFF4563D7006E61C54 /* Parser */,
 			);
 			name = Style;
@@ -1426,7 +1423,6 @@
 				FBC6DE2C49365E499C732FB21BF5AE22 /* SignatureViewController.m in Sources */,
 				BB0FECD1256DE01A8BFD0722F8CE5001 /* SignView.swift in Sources */,
 				94824FDB90D53A5922F8507A173D54D2 /* String+Height.swift in Sources */,
-				D21DAFE7B485417D4C74F7CBDD118035 /* Style.css in Sources */,
 				4FE36DDD1A3245C9609ACC8C41A05A64 /* SwiftCSS.swift in Sources */,
 				D63F015F847E0450CB505BB48788A581 /* SwiftCssTheme.swift in Sources */,
 				39D9D528394C7A0C2D848BD5043548D0 /* SwiftDeviceCss.swift in Sources */,
