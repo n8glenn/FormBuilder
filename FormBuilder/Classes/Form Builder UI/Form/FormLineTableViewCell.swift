@@ -199,7 +199,14 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 textFieldView.frame = cellFrame
                 left += width
                 textFieldView.field = field as? TextField
-                textFieldView.updateDisplay(label: field.caption!, text: field.input as? String ?? "", required: field.required)
+                if (field.editing)
+                {
+                    textFieldView.updateDisplay(label: field.caption!, text: field.input as? String ?? "", required: field.required)
+                }
+                else
+                {
+                    textFieldView.updateDisplay(label: field.caption!, text: field.data as? String ?? "", required: field.required)
+                }
                 textFieldView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(textFieldView)
@@ -219,9 +226,13 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 textAreaView.field = field as? TextAreaField
                 textAreaView.delegate = self
                 var text:String = ""
-                if (field.input != nil)
+                if (field.editing)
                 {
-                    text = field.input as! String
+                    text = field.input as? String ?? ""
+                }
+                else
+                {
+                    text = field.data as? String ?? ""
                 }
                 textAreaView.updateDisplay(label: field.caption!, text: text, required: field.required)
                 textAreaView.backgroundColor = backgroundColor
@@ -243,13 +254,28 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 comboboxFieldView.field = field as? ComboBoxField
                 comboboxFieldView.delegate = self
                 var data:String = ""
-                if (field.input != nil)
+                if (field.editing)
                 {
-                    var index:Int?
-                    index = field.input as? Int
-                    if (index != nil)
+                    if (field.input != nil)
                     {
-                        data = (field.optionSet?.options[index!].value)!
+                        var index:Int?
+                        index = field.input as? Int
+                        if (index != nil)
+                        {
+                            data = (field.optionSet?.options[index!].value)!
+                        }
+                    }
+                }
+                else
+                {
+                    if (field.data != nil)
+                    {
+                        var index:Int?
+                        index = field.data as? Int
+                        if (index != nil)
+                        {
+                            data = (field.optionSet?.options[index!].value)!
+                        }
                     }
                 }
                 comboboxFieldView.updateDisplay(label: field.caption!, text: data, required: field.required)
@@ -272,21 +298,45 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 checkBoxView.field = field as? CheckBoxField
                 checkBoxView.delegate = self
                 var data:FBCheckState = FBCheckState.Unchecked
-                if (field.input != nil)
+                if (field.editing)
                 {
-                    if (field.input is FBCheckState)
+                    if (field.input != nil)
                     {
-                        data = field.input as! FBCheckState
-                    }
-                    else if (field.input is Bool)
-                    {
-                        if ((field.input as! Bool) == true)
+                        if (field.input is FBCheckState)
                         {
-                            data = FBCheckState.Checked
+                            data = field.input as! FBCheckState
                         }
-                        else
+                        else if (field.input is Bool)
                         {
-                            data = FBCheckState.Unchecked
+                            if ((field.input as! Bool) == true)
+                            {
+                                data = FBCheckState.Checked
+                            }
+                            else
+                            {
+                                data = FBCheckState.Unchecked
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (field.data != nil)
+                    {
+                        if (field.data is FBCheckState)
+                        {
+                            data = field.data as! FBCheckState
+                        }
+                        else if (field.data is Bool)
+                        {
+                            if ((field.data as! Bool) == true)
+                            {
+                                data = FBCheckState.Checked
+                            }
+                            else
+                            {
+                                data = FBCheckState.Unchecked
+                            }
                         }
                     }
                 }
@@ -309,7 +359,14 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 left += width
                 optionSetView.field = field as? OptionSetField
                 optionSetView.delegate = self
-                optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.input as! Int?), required: field.required)
+                if (field.editing)
+                {
+                    optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.input as! Int?), required: field.required)
+                }
+                else
+                {
+                    optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.data as! Int?), required: field.required)
+                }
                 optionSetView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(optionSetView)
@@ -327,7 +384,14 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 left += width
                 signatureView.field = field as? SignatureField
                 signatureView.delegate = self
-                signatureView.updateDisplay(label: field.caption!, signature:field.input as? UIImage, required: field.required)
+                if (field.editing)
+                {
+                    signatureView.updateDisplay(label: field.caption!, signature:field.input as? UIImage, required: field.required)
+                }
+                else
+                {
+                    signatureView.updateDisplay(label: field.caption!, signature:field.data as? UIImage, required: field.required)
+                }
                 signatureView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
                 self.contentView.addSubview(signatureView)
@@ -346,9 +410,19 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 left += width
                 datePickerView.field = field as? DatePickerField
                 var text:String = ""
-                if (field.input != nil && (field.input as? String) != "")
+                if (field.editing)
                 {
-                    text = field.input as! String //dateFormatter.string(from: field.data as! Date)
+                    if (field.input != nil && (field.input as? String) != "")
+                    {
+                        text = field.input as! String //dateFormatter.string(from: field.data as! Date)
+                    }
+                }
+                else
+                {
+                    if (field.data != nil && (field.data as? String) != "")
+                    {
+                        text = field.data as! String //dateFormatter.string(from: field.data as! Date)
+                    }
                 }
                 datePickerView.updateDisplay(label: field.caption!, text: text, required: field.required)
                 datePickerView.backgroundColor = backgroundColor

@@ -39,6 +39,10 @@ class CheckBoxView: FieldView
         self.checkBoxLabel = UILabel()
         self.checkBoxLabel?.numberOfLines = 0
         self.addSubview(self.checkBoxLabel!)
+        self.checkBoxLabel?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.checkBoxLabel?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
+        self.checkBoxLabel?.sizeToFit()
         self.button = CheckView.fromNib(withName: "CheckView")
         self.button?.backgroundColor = UIColor.clear
         self.gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonPressed))

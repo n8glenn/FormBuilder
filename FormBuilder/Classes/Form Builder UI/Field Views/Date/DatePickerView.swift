@@ -157,6 +157,9 @@ class DatePickerView: FieldView, DateViewDelegate
         self.label = UILabel()
         self.label?.numberOfLines = 0
         self.addSubview(self.label!)
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
         self.button = UIButton()
         self.button?.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchUpInside)
         self.addSubview(self.button!)

@@ -53,13 +53,23 @@ class TextAreaView: FieldView, UITextViewDelegate
         self.label?.numberOfLines = 0
         self.label?.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.addSubview(self.label!)
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
+        self.label?.text = label
+        self.label?.sizeToFit()
         self.textView = UITextView()
         self.addSubview(self.textView!)
+        self.textView?.font = UIFont(name: self.field?.style!.value(forKey: "input-font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "input-font-size") as! CGFloat)
+        self.textView?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "input-foreground-color") as! String)
+        self.textView?.text = text
+        self.textView?.sizeToFit()
         self.requiredView = RequiredView()
         self.addSubview(self.requiredView!)
         
-        self.label?.font = self.field!.style!.font
-        self.textView?.font = self.field!.style!.font
+        //self.label?.font = self.field!.style!.font
+        //self.textView?.font = self.field!.style!.font
         if (self.field!.editing)
         {
             // set this field to edit mode
@@ -75,8 +85,6 @@ class TextAreaView: FieldView, UITextViewDelegate
             self.requiredView?.isHidden = true
         }
         
-        self.label?.text = label
-        self.textView?.text = text
         
         for requirement in self.field!.requirements!
         {
@@ -123,7 +131,7 @@ class TextAreaView: FieldView, UITextViewDelegate
             self.textView?.frame = CGRect(x: margin,
                                           y: (margin * 2) + self.field!.labelHeight,
                                           width: self.field!.textWidth,
-                                          height: self.field!.textHeight)
+                                          height: self.field!.textHeight - self.field!.borderHeight)
             break
         case FBOrientation.ReverseVertical:
             self.textView?.frame = CGRect(x: margin,

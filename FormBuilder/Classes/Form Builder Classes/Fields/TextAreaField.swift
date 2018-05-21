@@ -109,7 +109,14 @@ class TextAreaField: InputField
     {
         get
         {
-            return ((self.data as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.font))!
+            if (self.editing)
+            {
+                return ((self.input as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.font))!
+            }
+            else
+            {
+                return ((self.data as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.font))!
+            }
         }
     }
     

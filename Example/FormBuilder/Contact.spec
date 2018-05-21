@@ -65,7 +65,6 @@ section                             // start the first section
 		style #Line                 // the default line style class
 		field                       // here we specify the fields for this line, each line is composed of one or more fields.
 			id AddressHeading       // the id for this field.
-			style #Field            // the default field style class
 			type heading            // this is a heading field.
 			caption Address         // this field has a label of "Address"
 	line

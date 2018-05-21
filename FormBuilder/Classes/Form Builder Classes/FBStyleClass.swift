@@ -37,7 +37,7 @@ public class FBStyleClass: NSObject
     {
         get
         {
-            let name:String = self.value(forKey: "font-face") as? String ?? "system"
+            let name:String = self.value(forKey: "font-family") as? String ?? "Helvetica"
             let size:CGFloat = self.value(forKey: "font-size") as? CGFloat ?? 17.0
             return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: 17.0)
         }

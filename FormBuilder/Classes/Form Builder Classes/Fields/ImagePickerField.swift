@@ -95,8 +95,16 @@ class ImagePickerField: InputField
         get
         {
             return self.caption!.height(withConstrainedWidth:
-                self.width - (((self.style?.value(forKey: "margin") as! CGFloat) * 2) + self.borderWidth),
+                self.labelWidth,
                                         font: self.style!.font)
+        }
+    }
+    
+    override var labelWidth: CGFloat
+    {
+        get
+        {
+            return (self.width / 2.0) - (((self.style?.value(forKey: "margin") as! CGFloat) * 2) + self.borderWidth)
         }
     }
 }

@@ -106,8 +106,11 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
         self.addSubview(self.label!)
         self.requiredView = RequiredView()
         self.addSubview(self.requiredView!)
-        self.label?.font = self.field!.style!.font
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
         self.label!.text = label
+        self.label?.sizeToFit()
         var count:Int = 0
         for option in self.field!.optionSet!.options
         {
@@ -117,8 +120,11 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
             self.addSubview(optionView)
             optionView.setNeedsDisplay()
             let label:UILabel = UILabel()
-            label.font = self.field!.style!.font
+            label.font = UIFont(name: self.field?.style!.value(forKey: "input-font-family") as! String,
+                                      size: self.field?.style!.value(forKey: "input-font-size") as! CGFloat)
+            label.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "input-foreground-color") as! String)
             label.text = option.value
+            label.sizeToFit()
             self.optionLabels.append(label)
             let button = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
             button.delegate = self

@@ -30,6 +30,7 @@ class SectionHeaderView: UIView
     var addItems:Array<String> = Array<String>()
     var index:Int?
     var section:FBSection?
+    var style:FBStyleClass?
     weak var delegate:SectionHeaderDelegate?
     
     func updateDisplay(index:Int, section:FBSection)
@@ -37,13 +38,19 @@ class SectionHeaderView: UIView
         let bundle = Bundle.init(for: self.classForCoder)
         section.headerView = self
         self.section = section
-        self.backgroundColor = UIColor.init(hexString: self.section?.style?.value(forKey: "border-color") as! String)
+        self.style = FBStyleSet.shared.style(named: "#SectionHeader")
+        self.style!.parent = FBStyleSet.shared.style(named: "#Section")
+        self.backgroundColor = UIColor.init(hexString: self.style!.value(forKey: "border-color") as! String)
         self.backgroundView = UIView()
-        self.backgroundView?.backgroundColor = UIColor.init(hexString: self.section?.style?.value(forKey: "background-color") as! String)
+        self.backgroundView?.backgroundColor = UIColor.init(hexString: self.style!.value(forKey: "background-color") as! String)
         self.addSubview(self.backgroundView!)
         self.label = UILabel()
         self.label?.numberOfLines = 0
+        self.label?.font = UIFont(name: self.style!.value(forKey: "font-family") as! String,
+                                  size: self.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.style!.value(forKey: "foreground-color") as! String)
         self.label?.text = section.title ?? ""
+        self.label?.sizeToFit()
         self.backgroundView?.addSubview(self.label!)
         self.index = index
         self.collapsible = section.collapsible
@@ -120,28 +127,73 @@ class SectionHeaderView: UIView
     
     func height() -> CGFloat
     {
-        let labelHeight:CGFloat = (self.label?.text?.height(withConstrainedWidth: self.frame.width - 120.0, font: (self.label?.font)!))!
-        return ((self.section!.style!.value(forKey: "margin") as! CGFloat) * 2) + labelHeight + (self.section!.style!.value(forKey: "border") as! CGFloat)
+        var labelHeight:CGFloat = self.labelHeight()
+        if (labelHeight < 30.0)
+        {
+            labelHeight = 30.0
+        }
+        return (self.marginWidth() * 2) + labelHeight + self.borderWidth()
     }
 
     override func layoutSubviews()
     {
-        let border:CGFloat = self.section?.style?.value(forKey: "border") as! CGFloat
-        
+        let border:CGFloat = self.style?.value(forKey: "border") as! CGFloat
+        let margin:CGFloat = self.style?.value(forKey: "margin") as! CGFloat
+
         self.backgroundView?.frame = CGRect(x: border, y: 0.0, width: self.frame.width - (border * 2.0), height: self.frame.height - border)
         if (self.collapsible)
         {
-            self.collapseButton!.frame = CGRect(x: 5.0, y: 5.0, width: 30.0, height: 30.0)
+            self.collapseButton!.frame = CGRect(x: margin + border, y: (self.frame.height / 2) - 15.0, width: 30.0, height: 30.0)
         }
-        self.label!.frame = CGRect(x:50.0, y:5.0, width:self.frame.width - 120.0, height: 30.0)
+        var left:CGFloat = margin
+        if (self.collapsible)
+        {
+            left += 30.0 + margin
+        }
+        self.label!.frame = CGRect(x:left, y:(self.frame.height / 2) - (labelHeight() / 2), width:self.labelWidth(), height: self.labelHeight())
         if (self.allowsAdd)
         {
-            self.addButton!.frame = CGRect(x: self.frame.width - 35.0, y: 5.0, width: 30.0, height: 30.0)
+            self.addButton!.frame = CGRect(x: self.frame.width - (border + margin + 30.0), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
         }
         if (self.allowsRemove)
         {
-            self.removeButton!.frame = CGRect(x: self.frame.width - 80.0, y: 5.0, width: 30.0, height: 30.0)
+            self.removeButton!.frame = CGRect(x: self.frame.width - (border + (margin * 2) + 60.0), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
         }
+    }
+    
+    func borderWidth() -> CGFloat
+    {
+        if (self.style == nil) { return 0.0 }
+        return self.style?.value(forKey: "border") as! CGFloat
+    }
+    
+    func marginWidth() -> CGFloat
+    {
+        if (self.style == nil) { return 0.0 }
+        return self.style?.value(forKey: "margin") as! CGFloat
+    }
+    
+    func labelWidth() -> CGFloat
+    {
+        var width:CGFloat = self.backgroundView!.frame.size.width - ((self.marginWidth() * 2) + (self.borderWidth() * 2))
+        if (self.collapsible)
+        {
+            width -= (30.0 + self.marginWidth())
+        }
+        if (self.allowsAdd)
+        {
+            width -= (30.0 + self.marginWidth())
+        }
+        if (self.allowsRemove)
+        {
+            width -= (30.0 + self.marginWidth())
+        }
+        return width
+    }
+    
+    func labelHeight() -> CGFloat
+    {
+        return self.label?.text?.height(withConstrainedWidth: self.labelWidth(), font: self.style!.font) ?? 0.0
     }
     
     @objc @IBAction func collapsePressed()
@@ -191,7 +243,7 @@ class SectionHeaderView: UIView
     {
         if (self.delegate != nil)
         {
-            self.delegate?.removeItem(indexPath: IndexPath(row: self.index!, section: 0), type: FBFieldType.Section)
+            self.delegate?.removeItem(indexPath: IndexPath(row: 0, section: self.index!), type: FBFieldType.Section)
         }
     }
 }

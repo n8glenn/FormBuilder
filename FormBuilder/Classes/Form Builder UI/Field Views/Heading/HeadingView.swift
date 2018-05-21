@@ -21,7 +21,7 @@ class HeadingView: FieldView
         }
         else
         {
-            return ((self.field!.style!.value(forKey: "margin") as! CGFloat) * 2) + self.field!.labelHeight + (self.field!.style!.value(forKey: "border") as! CGFloat)
+            return ((self.field?.style?.value(forKey: "border") as! CGFloat)  * 2) + self.field!.labelHeight + ((self.field?.style?.value(forKey: "border") as! CGFloat))
         }
     }
     
@@ -69,7 +69,11 @@ class HeadingView: FieldView
         self.label = UILabel()
         self.label?.numberOfLines = 0
         self.addSubview(self.label!)
-        self.label?.font = self.field?.style!.font 
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
+        self.label?.sizeToFit()
+
         self.label?.text = label
     }
 }

@@ -50,11 +50,14 @@ class ImageView: FieldView
 
         self.label = UILabel()
         self.addSubview(self.label!)
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
+        self.label?.sizeToFit()
         self.imageView = UIImageView()
         self.image = image.resize(width: Double(self.field!.width - (margin * 2)))
         self.imageView?.image = self.image
         self.addSubview(self.imageView!)
-        self.label?.font = self.field!.style!.font
         self.label?.text = label
     }
 }

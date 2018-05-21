@@ -128,6 +128,14 @@ public class FBField: NSObject
         }
     }
 
+    var borderHeight:CGFloat
+    {
+        get
+        {
+            return (self.style?.value(forKey: "border") as! CGFloat)
+        }
+    }
+    
     var width:CGFloat
     {
         get

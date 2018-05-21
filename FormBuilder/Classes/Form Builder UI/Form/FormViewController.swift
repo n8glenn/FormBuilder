@@ -132,13 +132,15 @@ open class FormViewController: UIViewController,
     {
         let view:SectionHeaderView = UIView.fromNib(withName: self.form!.sections[section].style!.viewFor(type: FBFieldType.Section))!
         view.updateDisplay(index: section, section: self.form!.sections[section])
-        view.delegate = self 
+        view.delegate = self
         return view
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        return (self.form?.visibleSections()[section].headerView?.height()) ?? 40.0
+        let view:SectionHeaderView = UIView.fromNib(withName: self.form!.sections[section].style!.viewFor(type: FBFieldType.Section))!
+        view.updateDisplay(index: section, section: self.form!.sections[section])
+        return view.height() + (self.form?.visibleSections()[section].style?.value(forKey: "border") as! CGFloat) + ((self.form?.visibleSections()[section].style?.value(forKey: "margin") as! CGFloat) * 2)
     }
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool

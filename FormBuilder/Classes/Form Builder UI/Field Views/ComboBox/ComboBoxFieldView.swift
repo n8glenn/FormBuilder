@@ -163,7 +163,11 @@ class ComboBoxFieldView: FieldView
     func updateDisplay(label:String, text:String, required:Bool)
     {
         self.label = UILabel()
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
         self.addSubview(self.label!)
+        self.label!.sizeToFit()
         self.dropDownLabel = UILabel()
         self.addSubview(self.dropDownLabel!)
         self.button = DropDownView.fromNib(withName: "DropDownView")

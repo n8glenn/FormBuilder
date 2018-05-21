@@ -32,7 +32,11 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         {
             if (self.field!.input != nil)
             {
-                let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
+                var width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
+                if (width < 50.0 + border + (margin * 2))
+                {
+                    width = 50.0 + border + (margin * 2)
+                }
                 let resized:UIImage = (self.field!.input! as! UIImage).resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
 
                 return resized.size.height + (margin * 2) + border
@@ -52,13 +56,23 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         switch (self.field!.style!.orientation)
         {
         case FBOrientation.Horizontal:
+            self.label?.frame = CGRect(x: margin,
+                                       y: margin,
+                                       width: self.field!.labelWidth,
+                                       height: self.field!.labelHeight)
+            /*
             self.label!.frame = CGRect(x: margin,
                                        y: margin,
                                        width: self.frame.width - (margin * 2),
                                        height: self.field!.labelHeight)
+            */
             if (self.field!.input != nil)
             {
-                let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
+                var width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
+                if (width < 50.0 + border + (margin * 2))
+                {
+                    width = 50.0 + border + (margin * 2)
+                }
                 let resized:UIImage = (self.field!.input! as! UIImage).resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
 
                 self.button!.frame = CGRect(x: self.frame.width - (resized.size.width + (margin * 2) + self.field!.requiredWidth),
@@ -68,7 +82,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
                 if (self.clearButton != nil)
                 {
                     self.clearButton!.frame = CGRect(x: margin,
-                                                 y: self.frame.height - (50.0 + border + margin),
+                                                 y: (margin + resized.size.height) - 50.0, //self.frame.height - (50.0 + border + margin),
                                                  width: 50.0,
                                                  height: 50.0)
                 }
@@ -102,12 +116,17 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         let bundle = Bundle.init(for: self.classForCoder)
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         self.label = UILabel()
+        self.label?.numberOfLines = 0
+        self.label?.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.addSubview(self.label!)
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
+        self.label?.sizeToFit()
         if (image != nil)
         {
             self.field!.input = image!
         }
-        self.label?.font = self.field!.style!.font
         self.label?.text = label
         self.button = UIButton()
         if (image != nil)
@@ -164,15 +183,6 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         self.imagePicker!.allowsEditing = true
         
         UIApplication.shared.keyWindow?.rootViewController?.present(imagePicker!, animated: true, completion: nil)
-        /*
-        let nav:UINavigationController = UINavigationController.init(rootViewController: imagePickerController)
-        nav.modalPresentationStyle = UIModalPresentationStyle.popover
-        let popover = nav.popoverPresentationController
-        imagePickerController.preferredContentSize = CGSize(width: self.frame.width - 30.0, height: 400.0)
-        popover?.delegate = self
-        popover?.sourceView = self
-        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
-        */
     }
     
     @objc @IBAction func clearPressed()

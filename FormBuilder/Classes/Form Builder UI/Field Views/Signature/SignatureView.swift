@@ -156,6 +156,9 @@ class SignatureView: FieldView, SignViewDelegate
         self.label = UILabel()
         self.label?.numberOfLines = 0
         self.addSubview(self.label!)
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
         self.imageView = UIImageView()
         self.addSubview(self.imageView!)
         self.button = UIButton()
@@ -163,9 +166,9 @@ class SignatureView: FieldView, SignViewDelegate
         self.addSubview(self.button!)
         self.requiredView = RequiredView()
         self.addSubview(self.requiredView!)
-        self.label?.font = self.field!.style!.font
         self.label!.text = label
-        
+        self.label?.sizeToFit()
+
         if (self.field!.editing)
         {
             // set this field to edit mode

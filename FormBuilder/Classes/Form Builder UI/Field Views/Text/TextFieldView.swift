@@ -155,15 +155,23 @@ class TextFieldView: FieldView, UITextFieldDelegate
         self.label = UILabel()
         self.label?.numberOfLines = 0
         self.addSubview(self.label!)
+        self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "font-size") as! CGFloat)
+        self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
+        self.label?.text = label
+        self.label?.sizeToFit()
         self.textField = UITextField()
         self.textField?.delegate = self
         self.textField?.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
         self.addSubview(self.textField!)
+        self.textField?.font = UIFont(name: self.field?.style!.value(forKey: "input-font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "input-font-size") as! CGFloat)
+        self.textField?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "input-foreground-color") as! String)
+        self.textField?.text = text
+        self.textField?.sizeToFit()
         self.requiredView = RequiredView()
         self.addSubview(self.requiredView!)
         
-        self.label?.font = self.field!.style!.font
-        self.textField?.font = self.field!.style!.font
         if (self.field!.editing)
         {
             // set this field to edit mode
@@ -224,9 +232,6 @@ class TextFieldView: FieldView, UITextFieldDelegate
                 break
             }
         }
-
-        self.label?.text = label
-        self.textField?.text = text
         
         for requirement in self.field!.requirements!
         {

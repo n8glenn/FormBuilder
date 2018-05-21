@@ -37,8 +37,9 @@ class InputField: FBField
         set(newValue)
         {
             _data = newValue
-            hasData = (newValue != nil)
             _input = newValue
+            hasData = (newValue != nil)
+            hasInput = (newValue != nil)
             //self.line?.section?.form?.delegate?.updated(field: self, withValue: newValue)
         }
     }
@@ -206,8 +207,8 @@ class InputField: FBField
     
     override public func clear()
     {
-        _input = nil
-        hasInput = false
+        _input = _data
+        hasInput = (_data != nil)
     }
     
     func hasValue() -> Bool
