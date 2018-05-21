@@ -624,7 +624,6 @@
 			isa = PBXGroup;
 			children = (
 				A6C8F695A9846EDDF6F48E0FE26136A2 /* ComboBoxFieldView.swift */,
-				8DA9864E77C0B85470ACC368B32A41F4 /* DropDownView.swift */,
 			);
 			path = ComboBox;
 			sourceTree = "<group>";
@@ -649,11 +648,11 @@
 				417BCFD3F3F631452BF11066AA14CFDB /* ComboBoxFieldView.xib */,
 				E3A23A042BFD5190482EB70BD7BEEA6F /* DatePickerView.xib */,
 				D48E0840430D14AE5005A8E99BDE7069 /* DateView.xib */,
-				AA47063F680015327E65577A26A6E115 /* down.png */,
 				B1A62AAA118991EBC27E9CF8455180BE /* DropDownView.xib */,
+				AA47063F680015327E65577A26A6E115 /* down.png */,
+				CEEFB1D8E3D509875D8AD95D9D250579 /* FTPopOverMenu_Swift */,
 				9AF16924496824502AAA57748CF37429 /* FBPopOverMenu */,
 				ABAB7CEF05FF0C2DF583E17C9DF711D8 /* FormCell.xib */,
-				CEEFB1D8E3D509875D8AD95D9D250579 /* FTPopOverMenu_Swift */,
 				3F577A6878974A2A0AFB1A8673D0639C /* HeadingView.xib */,
 				1EC9DCAAB924C4CACAD36E8DB3968C90 /* ImagePickerView.xib */,
 				649BB68BA39EB65A13ED58C01EDACF47 /* ImageView.xib */,
@@ -951,6 +950,7 @@
 				C84B0689FC3C5816FB3108500B7EC54F /* OptionSetField.swift */,
 				0DA03A0C81E87BF6329C8494BCD5ABEC /* SignatureField.swift */,
 				1F38393718EA072EAD96C9CD82172E47 /* TextAreaField.swift */,
+				8DA9864E77C0B85470ACC368B32A41F4 /* DropDownView.swift */,
 				B2FC018C3B8ED40FD49E2BC78197AEF3 /* TextField.swift */,
 			);
 			path = Fields;
@@ -1302,6 +1302,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 9A702939FB34021AFD9172ECC06CE3AC /* Products */;

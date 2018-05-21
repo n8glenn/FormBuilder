@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cme-TQ-spD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cme-TQ-spD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="k9j-Xj-2Ae" id="P1n-v7-9W1"/>
@@ -29,6 +28,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cme-TQ-spD" secondAttribute="trailing" id="jQz-C4-mBf"/>
+                            <constraint firstItem="cme-TQ-spD" firstAttribute="top" secondItem="Me7-9F-JuU" secondAttribute="top" id="tRe-TW-8Xp"/>
+                            <constraint firstItem="cme-TQ-spD" firstAttribute="bottom" secondItem="Me7-9F-JuU" secondAttribute="bottom" id="vKv-vk-YPQ"/>
+                            <constraint firstItem="cme-TQ-spD" firstAttribute="leading" secondItem="FNd-wG-KOa" secondAttribute="leading" id="y89-dI-aNt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Me7-9F-JuU"/>
                     </view>
                     <connections>

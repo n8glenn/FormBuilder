@@ -80,8 +80,8 @@
 {
     "parent":"#Field";
     "orientation":"vertical";
-    "background-color":"#999999FF";
-    "alternate-background-color":"#999999FF";
+    "background-color":"#eeeeeeFF";
+    "alternate-colors":"false";
 }
 #TextArea
 {

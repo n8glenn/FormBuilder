@@ -181,6 +181,11 @@ open class FormViewController: UIViewController,
         self.modified = false // we just loaded the form so it hasn't been modified yet
     }
     
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
+    {
+        self.updateDisplay()
+    }
+    
     public func updateDisplay()
     {
         // shortcut to update the display after the form has changed.
@@ -302,14 +307,6 @@ open class FormViewController: UIViewController,
         // this should be overridden in the child form.
         assert(false, "This method must be overriden by the subclass")
     }
-    
-    /*
-    open func discard()
-    {
-        // this should be overridden in the child form.
-        assert(false, "This method must be overriden by the subclass")
-    }
-    */
     
     func collapse(section: Int)
     {

@@ -6,6 +6,8 @@
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="clP-1a-3Nw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="clP-1a-3Nw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="RjN-yt-VBy" id="hEg-Cy-gQ5"/>
@@ -28,6 +29,13 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="clP-1a-3Nw" secondAttribute="trailing" id="7Y8-Nm-RFC"/>
+                            <constraint firstItem="clP-1a-3Nw" firstAttribute="bottom" secondItem="agV-8z-mlq" secondAttribute="bottom" id="gZ3-Wj-2wg"/>
+                            <constraint firstItem="clP-1a-3Nw" firstAttribute="leading" secondItem="ybx-no-KEF" secondAttribute="leading" id="uY7-VF-hOx"/>
+                            <constraint firstItem="clP-1a-3Nw" firstAttribute="top" secondItem="agV-8z-mlq" secondAttribute="top" id="zqm-VH-ARW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="agV-8z-mlq"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="clP-1a-3Nw" id="y7m-9x-yMb"/>
@@ -45,9 +53,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fu3-VI-u9i">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fu3-VI-u9i">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,23 +75,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYl-Ir-qNw">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYl-Ir-qNw">
                                                     <rect key="frame" x="307" y="7" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="46" id="pLN-IG-Ioe"/>
+                                                    </constraints>
                                                     <state key="normal" title="Done"/>
                                                     <connections>
                                                         <action selector="doneButtonPressed" destination="Cpy-mq-pZA" eventType="touchUpInside" id="CsF-Cs-Ma6"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8t4-fm-olt">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8t4-fm-olt">
                                                     <rect key="frame" x="16" y="7" width="52" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="52" id="rHH-4M-JDZ"/>
+                                                    </constraints>
                                                     <state key="normal" title="Cancel"/>
                                                     <connections>
                                                         <action selector="cancelButtonPressed" destination="Cpy-mq-pZA" eventType="touchUpInside" id="TNq-Ts-1A0"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8t4-fm-olt" firstAttribute="centerY" secondItem="Dr7-Jt-bX8" secondAttribute="centerY" id="6Dh-jO-i33"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fYl-Ir-qNw" secondAttribute="trailing" constant="6" id="Lab-vR-pG3"/>
+                                                <constraint firstItem="8t4-fm-olt" firstAttribute="baseline" secondItem="fYl-Ir-qNw" secondAttribute="baseline" id="shM-nj-peu"/>
+                                                <constraint firstItem="8t4-fm-olt" firstAttribute="leading" secondItem="Dr7-Jt-bX8" secondAttribute="leadingMargin" id="ucH-Wz-iLb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cancelButton" destination="8t4-fm-olt" id="Kfi-qE-G01"/>
@@ -99,6 +116,13 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fu3-VI-u9i" firstAttribute="leading" secondItem="TDA-1a-3a6" secondAttribute="leading" id="ClC-dj-fDz"/>
+                            <constraint firstItem="fu3-VI-u9i" firstAttribute="bottom" secondItem="oG9-Cx-Mqq" secondAttribute="bottom" id="NfQ-H8-CbT"/>
+                            <constraint firstItem="fu3-VI-u9i" firstAttribute="top" secondItem="oG9-Cx-Mqq" secondAttribute="top" id="hp3-Ov-PSR"/>
+                            <constraint firstAttribute="trailing" secondItem="fu3-VI-u9i" secondAttribute="trailing" id="jlI-TM-er5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oG9-Cx-Mqq"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="fu3-VI-u9i" id="ONO-iN-RxO"/>
@@ -135,23 +159,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B19-JP-UJZ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B19-JP-UJZ">
                                             <rect key="frame" x="307" y="7" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="MWg-N7-do7"/>
+                                            </constraints>
                                             <state key="normal" title="Done"/>
                                             <connections>
                                                 <action selector="doneButtonPressed" destination="xhQ-H8-btP" eventType="touchUpInside" id="WIv-KN-xV3"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-Ys-Iaq">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-Ys-Iaq">
                                             <rect key="frame" x="16" y="7" width="52" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="MTo-KX-OcG"/>
+                                            </constraints>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
                                                 <action selector="cancelButtonPressed" destination="xhQ-H8-btP" eventType="touchUpInside" id="qcv-Vf-w1A"/>
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fbK-Ys-Iaq" firstAttribute="centerY" secondItem="eNF-1G-5An" secondAttribute="centerY" id="48s-u9-nte"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="B19-JP-UJZ" secondAttribute="trailing" constant="6" id="FBI-7z-Vf9"/>
+                                        <constraint firstItem="fbK-Ys-Iaq" firstAttribute="leading" secondItem="eNF-1G-5An" secondAttribute="leadingMargin" id="TXs-Gn-vYV"/>
+                                        <constraint firstItem="fbK-Ys-Iaq" firstAttribute="baseline" secondItem="B19-JP-UJZ" secondAttribute="baseline" id="maf-F1-zm3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cancelButton" destination="fbK-Ys-Iaq" id="lXl-p0-iQw"/>
