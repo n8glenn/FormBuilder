@@ -14,6 +14,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9060AB5820B37F4F002C6E75 /* MyStyle.css in Resources */ = {isa = PBXBuildFile; fileRef = 9060AB5720B37F4F002C6E75 /* MyStyle.css */; };
+		9060AB5A20B3A717002C6E75 /* MySettings.spec in Resources */ = {isa = PBXBuildFile; fileRef = 9060AB5920B3A717002C6E75 /* MySettings.spec */; };
 		90A19A3720A9F23800C2D56B /* Contact.spec in Resources */ = {isa = PBXBuildFile; fileRef = 90A19A3620A9F23800C2D56B /* Contact.spec */; };
 		90B774142097A74800541E04 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B774132097A74800541E04 /* ContactFormViewController.swift */; };
 		90B774162097A8ED00541E04 /* SwiftHUD in Resources */ = {isa = PBXBuildFile; fileRef = 90B774152097A8ED00541E04 /* SwiftHUD */; };
@@ -45,6 +47,8 @@
 		607FACE51AFB9204008FA782 /* FormBuilder_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormBuilder_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		9060AB5720B37F4F002C6E75 /* MyStyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = MyStyle.css; sourceTree = "<group>"; };
+		9060AB5920B3A717002C6E75 /* MySettings.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MySettings.spec; sourceTree = "<group>"; };
 		90A19A3620A9F23800C2D56B /* Contact.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Contact.spec; sourceTree = "<group>"; };
 		90B774132097A74800541E04 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		90B774152097A8ED00541E04 /* SwiftHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftHUD; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 		607FACD21AFB9204008FA782 /* Example for FormBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				9060AB5920B3A717002C6E75 /* MySettings.spec */,
+				9060AB5720B37F4F002C6E75 /* MyStyle.css */,
 				90D82B1D209B8D2400AF2317 /* welcome.png */,
 				90B7741A2097AAF400541E04 /* Address.swift */,
 				90B774172097AAF300541E04 /* Assets.xcassets */,
@@ -265,12 +271,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9060AB5820B37F4F002C6E75 /* MyStyle.css in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				90A19A3720A9F23800C2D56B /* Contact.spec in Resources */,
 				90D82B1E209B8D2400AF2317 /* welcome.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				90B774162097A8ED00541E04 /* SwiftHUD in Resources */,
 				90B7741C2097AAF400541E04 /* Assets.xcassets in Resources */,
+				9060AB5A20B3A717002C6E75 /* MySettings.spec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

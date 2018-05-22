@@ -59,6 +59,8 @@ class TextAreaView: FieldView, UITextViewDelegate
         self.label?.text = label
         self.label?.sizeToFit()
         self.textView = UITextView()
+        self.textView?.keyboardType = self.field?.keyboard ?? .default
+        self.textView?.autocapitalizationType = self.field?.capitalize ?? .words
         self.addSubview(self.textView!)
         self.textView?.font = UIFont(name: self.field?.style!.value(forKey: "input-font-family") as! String,
                                   size: self.field?.style!.value(forKey: "input-font-size") as! CGFloat)
@@ -68,8 +70,6 @@ class TextAreaView: FieldView, UITextViewDelegate
         self.requiredView = RequiredView()
         self.addSubview(self.requiredView!)
         
-        //self.label?.font = self.field!.style!.font
-        //self.textView?.font = self.field!.style!.font
         if (self.field!.editing)
         {
             // set this field to edit mode

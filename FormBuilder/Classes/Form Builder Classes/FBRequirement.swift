@@ -161,7 +161,7 @@ class FBRequirement: NSObject
             case FBRequirementType.Format:
                 if (field.data != nil)
                 {
-                    let format:String = FBSettings.sharedInstance.formats[self.value as! String]!
+                    let format:String = FBSettings.shared.formats[self.value as! String]!
                     let emailTest = NSPredicate(format:"SELF MATCHES %@", format)
                     let valid:Bool = emailTest.evaluate(with: field.data as! String)
                     if (!valid)
@@ -243,7 +243,7 @@ class FBRequirement: NSObject
             case FBRequirementType.Format:
                 if (field.data != nil)
                 {
-                    let format:String = FBSettings.sharedInstance.formats[self.value as! String]!
+                    let format:String = FBSettings.shared.formats[self.value as! String]!
                     let emailTest = NSPredicate(format:"SELF MATCHES %@", format)
                     let valid:Bool = emailTest.evaluate(with: field.data as! String)
                     if (!valid)

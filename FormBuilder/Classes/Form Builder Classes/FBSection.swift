@@ -99,7 +99,8 @@ public class FBSection: NSObject
                 while (i <= lines.1)
                 {
                     if ((file.lines[i].indentLevel > indentLevel) ||
-                        (file.lines[i].spaceLevel > spaceLevel))
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
                     {
                         switch (file.lines[i].keyword)
                         {
@@ -140,7 +141,8 @@ public class FBSection: NSObject
                 while (i <= lines.1)
                 {
                     if ((file.lines[i].indentLevel > indentLevel) ||
-                        (file.lines[i].spaceLevel > spaceLevel))
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
                     {
                         i += 1
                     }

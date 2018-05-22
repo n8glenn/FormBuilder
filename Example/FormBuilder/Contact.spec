@@ -32,6 +32,8 @@
 // Image
 // Label
 // Signature
+// Capitalize
+// Keyboard
 // ====================================
 // the value block is everything after the keyword and before the comment or newline character,
 // excluding the whitespace before the first character and after the last character.
@@ -75,6 +77,9 @@ section                             // start the first section
 			type text
 			caption Street
 			required true
+			capitalize words        // words, sentences, allcharacters, none
+			keyboard default        // default, asciicapable, asciicapablenumberpad, alphabet, numberpad, 
+									// numbersandpunctuation, emailaddress, decimalpad, url, phonepad, namephonepad, twitter, websearch
 	line
 		id City
 		field
@@ -123,6 +128,8 @@ section                             // start the first section
 			required true
 			requirements
 				format email
+			keyboard email
+			capitalize none
 	line
 		id PostalCode
 		visible false
@@ -144,7 +151,7 @@ section                             // start the first section
 			id Country
 			type combobox
 			caption Country
-			option-set Country
+			option-set MyCountry
 			value 1
 			required true
 	line

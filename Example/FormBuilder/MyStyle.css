@@ -1,12 +1,16 @@
 #App
 {
-    "background-color":"#cccdc6FF";
+    "background-color":"#000000FF";
     "border-color":"#cccdc6FF";
     "alternate-background-color":"#ffffffFF";
     "alternate-colors":"true";
     "foreground-color":"#000000FF";
-    "font-face":"system-bold";
+    "font-family":"Helvetica";
     "font-size":12;
+    "foreground-color":"#000000FF";
+    "input-font-size":17;
+    "input-font-family":"Helvetica-Bold";
+    "input-foreground-color":"#666666FF";
     "margin":7.5;
     "border":2.5;
     "orientation":"horizontal";
@@ -30,16 +34,27 @@
 {
     "parent":"#App";
     "font-size":17;
-    "font-family":"system-bold";
+    "font-family":"Helvetica";
 }
 #Section
 {
     "parent":"#Form";
     "background-color":"#f5f5eaFF";
 }
+#SectionHeader
+{
+    "parent":"#Section";
+    "background-color":"#f5f5eaFF";
+    "font-size":27;
+    "font-family":"Helvetica-Bold";
+    "foreground-color":"#666666FF";
+}
 #Line
 {
     "parent":"#Section";
+    "font-size":24;
+    "font-family":"Helvetica-Bold";
+    "foreground-color":"#666666FF";
 }
 #Field
 {
@@ -49,9 +64,24 @@
 {
     "parent":"#Field";
 }
+#Heading
+{
+    "parent":"#Heading";
+    "orientation":"reverse-horizontal";
+    "font-size":30;
+    "font-family":"Helvetica-Bold";
+}
 #TextField
 {
     "parent":"#Field";
+    "orientation":"reverse-horizontal";
+}
+#MyText
+{
+    "parent":"#Field";
+    "orientation":"vertical";
+    "background-color":"#EEEEEEFF";
+    "alternate-background-color":"#EEEEEEFF";
 }
 #TextArea
 {
@@ -82,7 +112,7 @@
 #SignView
 {
     "parent":"#Field";
-    "width":250;
+    "width":450;
     "height":60;
 }
 

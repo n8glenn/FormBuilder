@@ -291,6 +291,10 @@ open class FormViewController: UIViewController,
         let alert:UIAlertController = UIAlertController(title: "Validation Failed", message: message, preferredStyle: UIAlertControllerStyle.actionSheet)
         let alertAction:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(alertAction)
+        if let presenter = alert.popoverPresentationController
+        {
+            presenter.sourceView = self.view!
+        }
         present(alert, animated: true, completion: nil)
     }
     
@@ -367,6 +371,10 @@ open class FormViewController: UIViewController,
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
             alert.addAction(action)
             alert.addAction(cancelAction)
+            if let presenter = alert.popoverPresentationController
+            {
+                presenter.sourceView = self.view!
+            }
             present(alert, animated: true, completion: nil)
             
             break
@@ -403,6 +411,10 @@ open class FormViewController: UIViewController,
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
             alert.addAction(action)
             alert.addAction(cancelAction)
+            if let presenter = alert.popoverPresentationController
+            {
+                presenter.sourceView = self.view!
+            }
             present(alert, animated: true, completion: nil)
             
             break
@@ -438,6 +450,10 @@ open class FormViewController: UIViewController,
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
             alert.addAction(action)
             alert.addAction(cancelAction)
+            if let presenter = alert.popoverPresentationController
+            {
+                presenter.sourceView = self.view!
+            }
             present(alert, animated: true, completion: nil)
             
             break
@@ -462,6 +478,10 @@ open class FormViewController: UIViewController,
             }
             alert.addAction(okAction)
             alert.addAction(cancelAction)
+            if let presenter = alert.popoverPresentationController
+            {
+                presenter.sourceView = self.view!
+            }
             self.present(alert, animated: true, completion: nil)
 
             break

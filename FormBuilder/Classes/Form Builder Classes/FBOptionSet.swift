@@ -45,7 +45,8 @@ class FBOptionSet: NSObject
                 while (i <= lines.1)
                 {
                     if ((file.lines[i].indentLevel > optionIndent) ||
-                        (file.lines[i].spaceLevel > optionSpace))
+                        (file.lines[i].spaceLevel > optionSpace) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
                     {
                         i += 1
                     }
@@ -75,5 +76,25 @@ class FBOptionSet: NSObject
             optionArray.append(option.value)
         }
         return optionArray
+    }
+    
+    public func updateOption(option:FBOption)
+    {
+        for opt in self.options
+        {
+            if (opt.id == option.id)
+            {
+                if (opt.value == option.value)
+                {
+                    return
+                }
+                else
+                {
+                    opt.value = option.value
+                    return
+                }
+            }
+        }
+        self.options.append(option)
     }
 }

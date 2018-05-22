@@ -92,7 +92,8 @@ public class FBLine: NSObject
                 while (i <= lines.1)
                 {
                     if ((file.lines[i].indentLevel > indentLevel) ||
-                        (file.lines[i].spaceLevel > spaceLevel))
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
                     {
                         if (file.lines[i].keyword == FBKeyWord.FieldType)
                         {

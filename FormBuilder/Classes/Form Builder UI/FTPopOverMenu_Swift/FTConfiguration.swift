@@ -25,7 +25,7 @@ public class FTConfiguration : NSObject {
     public var menuSeparatorInset : UIEdgeInsets = UIEdgeInsetsMake(0, FT.DefaultCellMargin, 0, FT.DefaultCellMargin)
     public var cellSelectionStyle : UITableViewCellSelectionStyle = .none
 
-    public static var shared : FTConfiguration {
+    open static var shared : FTConfiguration {
         struct StaticConfig {
             static let instance : FTConfiguration = FTConfiguration()
         }

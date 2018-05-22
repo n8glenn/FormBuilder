@@ -8,12 +8,12 @@
 
 import UIKit
 
-class FBStyleSet: NSObject
+open class FBStyleSet: NSObject
 {
     var classes:Array<FBStyleClass> = Array<FBStyleClass>()
     
     // initialize as a singleton...
-    class var shared:FBStyleSet
+    open class var shared:FBStyleSet
     {
         struct Singleton
         {
@@ -40,18 +40,41 @@ class FBStyleSet: NSObject
         self.load(file: "Style")
     }
     
-    func load(file: String)
+    open func load(file: String)
     {
-        let podBundle = Bundle.init(for: self.classForCoder)
-        let path = podBundle.url(forResource: "Style", withExtension: "css")
+        var path:URL? = nil
+        path = Bundle.main.url(forResource: file, withExtension: "css")
+        if (path == nil)
+        {
+            let bundle = Bundle.init(for: self.classForCoder)
+            path = bundle.url(forResource: file, withExtension: "css")
+        }
+        if (path == nil)
+        {
+            return
+        }
+
         let css = SwiftCSS(CssFileURL: path!)
         for item in css.parsedCss
         {
-            print(item)
-            let style:FBStyleClass = FBStyleClass()
-            style.name = item.key
-            style.properties = item.value as NSDictionary
-            self.classes.append(style)
+            //print(item)
+            if (self.style(named: item.key) == nil)
+            {
+                let style:FBStyleClass = FBStyleClass()
+                style.name = item.key
+                style.properties = item.value as NSDictionary
+                self.classes.append(style)
+            }
+            else
+            {
+                let style:FBStyleClass = self.style(named: item.key)!
+                let properties:NSMutableDictionary = NSMutableDictionary(dictionary: style.properties!)
+                for v in item.value
+                {
+                    properties.setValue(v.value, forKey: v.key)
+                }
+                style.properties = NSDictionary(dictionary: properties)
+            }
         }
         
         // go back and set the parents...
@@ -61,89 +84,6 @@ class FBStyleSet: NSObject
             {
                 style.parent = self.style(named: style.properties!.value(forKey: "parent") as! String)
             }
-        }
-
-        
-        /*
-        if let bundleURL = podBundle.url(forResource: "FormBuilder", withExtension: "bundle") {
-            if let bundle = Bundle.init(url: bundleURL) {
-                //return UINib(nibName: "MyView", bundle: bundle).instantiate(withOwner: self, options: nil)[0] as? MyView
-                let path = bundle.url(forResource: "Style", withExtension: "css")
-                let css = SwiftCSS(CssFileURL: path!)
-                for item in css.parsedCss
-                {
-                    print(item)
-                    let style:FBStyleClass = FBStyleClass()
-                    style.name = item.key
-                    style.properties = item.value as NSDictionary
-                    self.classes.append(style)
-                }
-                
-                // go back and set the parents...
-                for style in self.classes
-                {
-                    if (style.properties!.value(forKey: "parent") != nil)
-                    {
-                        style.parent = self.style(named: style.properties!.value(forKey: "parent") as! String)
-                    }
-                }
-
-                
-            } else {
-                assertionFailure("Could not load the bundle")
-                //return nil
-            }
-        }else {
-            assertionFailure("Could not create a path to the bundle")
-            //return nil
-        }
-        */
-        
-        /*
-        let path = Bundle.main.url(forResource: file, withExtension: "css")
-        
-        let podBundle = Bundle.init(for: self.classForCoder) // Bundle.init(identifier: "FormBuilder")
-        
-        if let bundleURL = podBundle.url(forResource: "Style", withExtension: "css") {
-            
-            if let bundle = Bundle.init(url: bundleURL) {
-                
-                let path = bundle.url(forResource: file, withExtension: "css")
-                //2.Get parsed CSS
-                let css = SwiftCSS(CssFileURL: path!)
-                //3.Use it
-                
-                for item in css.parsedCss
-                {
-                    print(item)
-                    let style:FBStyleClass = FBStyleClass()
-                    style.name = item.key
-                    style.properties = item.value as NSDictionary
-                    self.classes.append(style)
-                }
-                
-                // go back and set the parents...
-                for style in self.classes
-                {
-                    if (style.properties!.value(forKey: "parent") != nil)
-                    {
-                        style.parent = self.style(named: style.properties!.value(forKey: "parent") as! String)
-                    }
-                }
-
-                //let cellNib = UINib(nibName: classNameToLoad, bundle: bundle)
-                //self.collectionView!.registerNib(cellNib, forCellWithReuseIdentifier: classNameToLoad)
-                
-            }else {
-                
-                assertionFailure("Could not load the bundle")
-                
-            }
-            
-        }else {
-            
-            assertionFailure("Could not create a path to the bundle")
-            
-        } */
+        }        
     }
 }

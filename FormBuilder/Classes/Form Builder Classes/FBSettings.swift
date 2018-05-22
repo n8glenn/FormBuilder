@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FBSettings: NSObject
+open class FBSettings: NSObject
 {
     var editable:Bool = true
     //var dateFormat:String = "yyyy-MM-dd"
@@ -18,7 +18,7 @@ class FBSettings: NSObject
     var formats:Dictionary<String, String> = Dictionary<String, String>()
     var optionSet:Dictionary<String, FBOptionSet> = Dictionary<String, FBOptionSet>()
     
-    class var sharedInstance: FBSettings
+    open class var shared: FBSettings
     {
         struct Singleton
         {
@@ -27,10 +27,8 @@ class FBSettings: NSObject
         return Singleton.instance
     }
 
-    public init(file:String)
+    open func load(file: String)
     {
-        super.init()
-        
         let settingsFile:FBFile = FBFile(file: file)
         
         var i:Int = 0
@@ -48,7 +46,8 @@ class FBSettings: NSObject
                 while (i < settingsFile.lines.count)
                 {
                     if ((settingsFile.lines[i].indentLevel > indentLevel) ||
-                        (settingsFile.lines[i].spaceLevel > spaceLevel))
+                        (settingsFile.lines[i].spaceLevel > spaceLevel) ||
+                        (settingsFile.lines[i].keyword == FBKeyWord.None))
                     {
                         if (settingsFile.lines[i].keyword == FBKeyWord.Id)
                         {
@@ -81,7 +80,8 @@ class FBSettings: NSObject
                 while (i < settingsFile.lines.count)
                 {
                     if ((settingsFile.lines[i].indentLevel > indentLevel) ||
-                        (settingsFile.lines[i].spaceLevel > spaceLevel))
+                        (settingsFile.lines[i].spaceLevel > spaceLevel) ||
+                        (settingsFile.lines[i].keyword == FBKeyWord.None))
                     {
                         if ((settingsFile.lines[i].keyword == FBKeyWord.Id) && !inOption)
                         {
@@ -99,7 +99,18 @@ class FBSettings: NSObject
                     }
                 }
                 optionSetRange.1 = i - 1
-                self.optionSet[optionId] = FBOptionSet(field: nil, file: settingsFile, lines: optionSetRange)
+                if (self.optionSet[optionId] == nil)
+                {
+                    self.optionSet[optionId] = FBOptionSet(field: nil, file: settingsFile, lines: optionSetRange)
+                }
+                else
+                {
+                    let optionSet:FBOptionSet = FBOptionSet(field: nil, file: settingsFile, lines: optionSetRange)
+                    for option in optionSet.options
+                    {
+                        self.optionSet[optionId]?.updateOption(option: option)
+                    }
+                }
                 break
             default:
                 i += 1
@@ -107,5 +118,12 @@ class FBSettings: NSObject
                 break
             }
         }
+    }
+    
+    public init(file: String)
+    {
+        super.init()
+
+        self.load(file: file)
     }
 }

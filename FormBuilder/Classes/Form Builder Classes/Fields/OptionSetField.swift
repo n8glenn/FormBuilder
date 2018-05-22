@@ -60,7 +60,7 @@ class OptionSetField: InputField
             case FBKeyWord.OptionSet:
                 if (file.lines[i].value != "")
                 {
-                    self.optionSet = FBSettings.sharedInstance.optionSet[file.lines[i].value]
+                    self.optionSet = FBSettings.shared.optionSet[file.lines[i].value]
                     self.optionSet?.field = self
                     i += 1
                 }
@@ -73,7 +73,8 @@ class OptionSetField: InputField
                     while (i <= lines.1)
                     {
                         if ((file.lines[i].indentLevel > indentLevel) ||
-                            (file.lines[i].spaceLevel > spaceLevel))
+                            (file.lines[i].spaceLevel > spaceLevel) ||
+                            (file.lines[i].keyword == FBKeyWord.None))
                         {
                             i += 1
                         }
@@ -85,8 +86,8 @@ class OptionSetField: InputField
                     optionRange.1 = i - 1
                     if (optionSetId != nil)
                     {
-                        FBSettings.sharedInstance.optionSet[optionSetId!] = FBOptionSet(field: self, file: file, lines: optionRange)
-                        self.optionSet = FBSettings.sharedInstance.optionSet[optionSetId!]
+                        FBSettings.shared.optionSet[optionSetId!] = FBOptionSet(field: self, file: file, lines: optionRange)
+                        self.optionSet = FBSettings.shared.optionSet[optionSetId!]
                     }
                     else
                     {

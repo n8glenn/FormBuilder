@@ -161,6 +161,8 @@ class TextFieldView: FieldView, UITextFieldDelegate
         self.label?.text = label
         self.label?.sizeToFit()
         self.textField = UITextField()
+        self.textField?.keyboardType = self.field?.keyboard ?? .default
+        self.textField?.autocapitalizationType = self.field?.capitalize ?? .words
         self.textField?.delegate = self
         self.textField?.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
         self.addSubview(self.textField!)

@@ -212,6 +212,14 @@ public class FBField: NSObject
         {
             switch (file.lines[i].keyword)
             {
+            case FBKeyWord.None:
+                i += 1
+                
+                break
+            case FBKeyWord.Unknown:
+                i += 1
+                
+                break 
             case FBKeyWord.Id:
                 self.id = file.lines[i].value
                 i += 1

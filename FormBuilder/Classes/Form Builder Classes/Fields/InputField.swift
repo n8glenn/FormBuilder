@@ -13,6 +13,8 @@ class InputField: FBField
     private var _textViewHeight:CGFloat = 90.0
     var requirements:Array<FBRequirement>? = Array<FBRequirement>()
     var valid:Bool = true
+    var keyboard:UIKeyboardType = UIKeyboardType.default
+    var capitalize:UITextAutocapitalizationType = UITextAutocapitalizationType.words
     
     private var _required:Bool = false
     override var required:Bool
@@ -40,7 +42,6 @@ class InputField: FBField
             _input = newValue
             hasData = (newValue != nil)
             hasInput = (newValue != nil)
-            //self.line?.section?.form?.delegate?.updated(field: self, withValue: newValue)
         }
     }
 
@@ -161,7 +162,8 @@ class InputField: FBField
                 while (i <= lines.1)
                 {
                     if ((file.lines[i].indentLevel > indentLevel) ||
-                        (file.lines[i].spaceLevel > spaceLevel))
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
                     {
                         self.requirements?.append(FBRequirement(line: file.lines[i]))
                         i += 1
@@ -171,6 +173,84 @@ class InputField: FBField
                         break
                     }
                 }
+                break
+            case FBKeyWord.Capitalize:
+                switch (file.lines[i].value.lowercased())
+                {
+                case "none":
+                    self.capitalize = .none
+                    break
+                case "allcharacters":
+                    self.capitalize = .allCharacters
+                    break
+                case "sentences":
+                    self.capitalize = .sentences
+                    break
+                case "words":
+                    self.capitalize = .words
+                    break
+                default:
+                    self.capitalize = .words
+                    break
+                }
+                i += 1
+                
+                break
+            case FBKeyWord.Keyboard:
+                switch (file.lines[i].value.lowercased())
+                {
+                case "default":
+                    self.keyboard = .default
+                    break
+                case "asciicapable":
+                    self.keyboard = .asciiCapable
+                    break
+                case "asciicapablenumberpad":
+                    if #available(iOS 10, *)
+                    {
+                        self.keyboard = .asciiCapableNumberPad
+                    }
+                    else
+                    {
+                        self.keyboard = .default
+                    }
+                    break
+                case "alphabet":
+                    self.keyboard = .alphabet
+                    break
+                case "numberpad":
+                    self.keyboard = .numberPad
+                    break
+                case "numbersandpunctuation":
+                    self.keyboard = .numbersAndPunctuation
+                    break
+                case "emailaddress":
+                    self.keyboard = .emailAddress
+                    break
+                case "decimalpad":
+                    self.keyboard = .decimalPad
+                    break
+                case "url":
+                    self.keyboard = .URL
+                    break
+                case "phonepad":
+                    self.keyboard = .phonePad
+                    break
+                case "namephonepad":
+                    self.keyboard = .namePhonePad
+                    break
+                case "twitter":
+                    self.keyboard = .twitter
+                    break
+                case "websearch":
+                    self.keyboard = .webSearch
+                    break 
+                default:
+                    self.keyboard = .default
+                    break
+                }
+                i += 1
+                
                 break
             default:
                 i += 1

@@ -94,7 +94,8 @@ public class FBForm: NSObject
                 var range = (i, i)
                 while ((i < self.file!.lines.count) &&
                     ((self.file!.lines[i].indentLevel > indentLevel) ||
-                        (self.file!.lines[i].spaceLevel > spaceLevel)))
+                        (self.file!.lines[i].spaceLevel > spaceLevel) ||
+                    (self.file!.lines[i].keyword == FBKeyWord.None)))
                 {
                     i += 1
                 }
