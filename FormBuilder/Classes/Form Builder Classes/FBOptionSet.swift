@@ -67,6 +67,18 @@ class FBOptionSet: NSObject
         }
     }
     
+    public func option(named: String) -> FBOption?
+    {
+        for option:FBOption in self.options
+        {
+            if (option.id.lowercased() == named.lowercased())
+            {
+                return option
+            }
+        }
+        return nil
+    }
+    
     public func optionArray()->Array<String>
     {
         var optionArray:Array<String> = Array<String>()
@@ -80,21 +92,14 @@ class FBOptionSet: NSObject
     
     public func updateOption(option:FBOption)
     {
-        for opt in self.options
+        let oldOption = self.option(named: option.id)
+        if (oldOption != nil)
         {
-            if (opt.id == option.id)
-            {
-                if (opt.value == option.value)
-                {
-                    return
-                }
-                else
-                {
-                    opt.value = option.value
-                    return
-                }
-            }
+            oldOption!.value = option.value
         }
-        self.options.append(option)
+        else
+        {
+            self.options.append(option)
+        }
     }
 }

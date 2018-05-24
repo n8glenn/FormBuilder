@@ -100,7 +100,7 @@ section                             // start the first section
             type combobox
             caption State
             option-set State
-            value 1
+            value TX
             required true
 	line
 		id Province
@@ -152,7 +152,7 @@ section                             // start the first section
 			type combobox
 			caption Country
 			option-set MyCountry
-			value 1
+			value US
 			required true
 	line
 		id Delivery
@@ -161,7 +161,7 @@ section                             // start the first section
 			type optionset
 			caption Delivery Type
 			option-set Delivery
-			value 1
+			value UPS
 	line
 		id LikeMe
 		field
@@ -176,7 +176,7 @@ section                             // start the first section
 				option
 					id NO
 					value No, I do not.
-			value 1
+			value YES
 	line
 		id TextFields
 		field

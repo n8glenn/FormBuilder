@@ -258,11 +258,11 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 {
                     if (field.input != nil)
                     {
-                        var index:Int?
-                        index = field.input as? Int
-                        if (index != nil)
+                        var option:FBOption?
+                        option = field.optionSet?.option(named: field.input as! String) ?? nil
+                        if (option != nil)
                         {
-                            data = (field.optionSet?.options[index!].value)!
+                            data = option!.value
                         }
                     }
                 }
@@ -270,11 +270,11 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 {
                     if (field.data != nil)
                     {
-                        var index:Int?
-                        index = field.data as? Int
-                        if (index != nil)
+                        var option:FBOption?
+                        option = field.optionSet?.option(named: field.data as! String) ?? nil
+                        if (option != nil)
                         {
-                            data = (field.optionSet?.options[index!].value)!
+                            data = option!.value //(field.optionSet?.options[index!].value)!
                         }
                     }
                 }
@@ -361,11 +361,11 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 optionSetView.delegate = self
                 if (field.editing)
                 {
-                    optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.input as! Int?), required: field.required)
+                    optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, id: field.input as! String?, required: field.required)
                 }
                 else
                 {
-                    optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, index: (field.data as! Int?), required: field.required)
+                    optionSetView.updateDisplay(label: field.caption!, optionSet: field.optionSet!, id: field.input as! String?, required: field.required)
                 }
                 optionSetView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor

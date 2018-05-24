@@ -65,6 +65,11 @@ public class FBSection: NSObject
         {
             switch (file.lines[i].keyword)
             {
+            case FBKeyWord.Id:
+                self.id = file.lines[i].value
+                i += 1
+                
+                break
             case FBKeyWord.Style:
                 self.tag = file.lines[i].value
                 self.style = FBStyleSet.shared.style(named: self.tag!)

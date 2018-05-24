@@ -154,7 +154,7 @@ class ComboBoxFieldView: FieldView
                                     with: field!.optionSet!.optionArray(),
                                     done: { (selectedIndex) -> () in
                                         self.dropDownLabel?.text = (self.field?.optionSet?.options[selectedIndex].value)!
-                                        self.field!.input = selectedIndex
+                                        self.field!.input = self.field?.optionSet?.options[selectedIndex].id
         }) {
             
         }
@@ -169,6 +169,9 @@ class ComboBoxFieldView: FieldView
         self.addSubview(self.label!)
         self.label!.sizeToFit()
         self.dropDownLabel = UILabel()
+        self.dropDownLabel?.font = UIFont(name: self.field?.style!.value(forKey: "input-font-family") as! String,
+                                  size: self.field?.style!.value(forKey: "input-font-size") as! CGFloat)
+        self.dropDownLabel?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "input-foreground-color") as! String)
         self.addSubview(self.dropDownLabel!)
         self.button = DropDownView.fromNib(withName: "DropDownView")
         self.button!.backgroundColor = UIColor.clear
@@ -178,9 +181,6 @@ class ComboBoxFieldView: FieldView
         self.requiredView = RequiredView()
         self.addSubview(self.requiredView!)
         
-        self.label?.font = self.field!.style!.font
-        self.dropDownLabel?.font = self.field!.style!.font
-
         if (self.field!.editing)
         {
             // set this field to edit mode

@@ -10,12 +10,13 @@ import UIKit
 
 class OptionView: UIView
 {
-
+    var button:UITapGestureRecognizer?
+    var labelButton:UITapGestureRecognizer?
     var selectedImage:UIImage?
     var normalImage:UIImage?
     var disabledImage:UIImage?
     var state:FBCheckState = FBCheckState.Unchecked
-    var text:String?
+    var option:FBOption?
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

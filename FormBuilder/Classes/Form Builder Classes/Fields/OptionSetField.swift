@@ -48,7 +48,7 @@ class OptionSetField: InputField
             switch (file.lines[i].keyword)
             {
             case FBKeyWord.Value:
-                self.data = Int(file.lines[i].value.description)
+                self.data = file.lines[i].value.description
                 i += 1
                 
                 break

@@ -18,6 +18,6 @@ public class Address: NSObject
     var zipcode:String?
     var postalcode:String?
     var business:Bool?
-    var country:Int?
-    var deliveryType:Int?
+    var country:String?
+    var deliveryType:String?
 }

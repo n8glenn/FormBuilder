@@ -36,8 +36,8 @@ class ContactFormViewController: FormViewController
         address.zipcode = "11111"
         address.postalcode = "11111"
         address.business = false
-        address.country = 1
-        address.deliveryType = 1
+        address.country = "US"
+        address.deliveryType = "UPS"
         self.loadSpecification(named: "Contact")
     }
 
@@ -89,9 +89,9 @@ class ContactFormViewController: FormViewController
         {
         case "country": // the user changed the country for this address, oops, we better update the address fields!
             let section:FBSection = field.line!.section!
-            switch (value as! Int)
+            switch (value as! String)
             {
-            case 0:
+            case "CA":
                 // canada
                 section.line(named: "county")?.visible = false
                 section.line(named: "province")?.visible = true
@@ -106,7 +106,7 @@ class ContactFormViewController: FormViewController
                 section.field(withPath: "postalcode")?.required = true
 
                 break
-            case 1:
+            case "ES":
                 // spain
                 section.line(named: "county")?.visible = false
                 section.line(named: "province")?.visible = false
@@ -120,7 +120,7 @@ class ContactFormViewController: FormViewController
                 section.field(withPath: "postalcode")?.required = true
 
                 break
-            case 2:
+            case "OT":
                 // other
                 section.line(named: "county")?.visible = false
                 section.line(named: "province")?.visible = true
@@ -135,7 +135,7 @@ class ContactFormViewController: FormViewController
                 section.field(withPath: "postalcode")?.required = false
 
                 break
-            case 3:
+            case "US":
                 // united states
                 section.line(named: "county")?.visible = true
                 section.line(named: "province")?.visible = false
@@ -225,8 +225,8 @@ class ContactFormViewController: FormViewController
         {
             address.business = false 
         }
-        address.country = self.form?.field(withPath: "address.country")?.data as? Int
-        address.deliveryType = self.form?.field(withPath: "address.delivery")?.data as! Int?
+        address.country = self.form?.field(withPath: "address.country")?.data as? String
+        address.deliveryType = self.form?.field(withPath: "address.delivery")?.data as? String
     }
     
     // dismiss this form without saving any data (our object should not be altered in any way)

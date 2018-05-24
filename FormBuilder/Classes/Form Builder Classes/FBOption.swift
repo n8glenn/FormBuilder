@@ -8,13 +8,13 @@
 
 import UIKit
 
-class FBOption: NSObject
+public class FBOption: NSObject
 {
-    var id:String = ""
+    public var id:String = ""
     var tag:String? = "#Option"
     var style:FBStyleClass? = nil
     var visible:Bool = true
-    var value:String = ""
+    public var value:String = ""
     var field:FBField? = nil
     var range = (0, 0)
     
