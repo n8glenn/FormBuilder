@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerControllerDelegate
+open class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
     @IBOutlet var label:UILabel?
     @IBOutlet var button:UIButton?
@@ -48,7 +48,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         }
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
@@ -111,7 +111,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
 
     }
     
-    func updateDisplay(label:String, image:UIImage?)
+    open func updateDisplay(label:String, image:UIImage?)
     {
         let bundle = Bundle.init(for: self.classForCoder)
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
@@ -194,7 +194,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
@@ -231,7 +231,7 @@ class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePickerC
         }
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    open func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         self.imagePicker?.dismiss(animated: true, completion: nil)
     }

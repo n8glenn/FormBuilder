@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DatePickerView: FieldView, DateViewDelegate
+open class DatePickerView: FieldView, DateViewDelegate
 {
     var field:DatePickerField?
     @IBOutlet var label:UILabel?
@@ -50,7 +50,7 @@ class DatePickerView: FieldView, DateViewDelegate
         }
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
 
@@ -152,7 +152,7 @@ class DatePickerView: FieldView, DateViewDelegate
 
     }
     
-    func updateDisplay(label:String, text:String, required:Bool)
+    open func updateDisplay(label:String, text:String, required:Bool)
     {
         self.label = UILabel()
         self.label?.numberOfLines = 0

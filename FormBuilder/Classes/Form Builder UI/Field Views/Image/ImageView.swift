@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageView: FieldView
+open class ImageView: FieldView
 {
     @IBOutlet var label:UILabel?
     @IBOutlet var imageView:UIImageView?
@@ -30,7 +30,7 @@ class ImageView: FieldView
         }
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
 
@@ -44,7 +44,7 @@ class ImageView: FieldView
                                        height: self.image!.size.height)
     }
     
-    func updateDisplay(label:String, image:UIImage)
+    open func updateDisplay(label:String, image:UIImage)
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
 

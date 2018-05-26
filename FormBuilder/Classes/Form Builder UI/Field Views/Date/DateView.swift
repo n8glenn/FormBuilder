@@ -15,7 +15,7 @@ protocol DateViewDelegate: class
     func dismiss()
 }
 
-class DateView: UIView
+open class DateView: UIView
 {
     @IBOutlet var datePicker:UIDatePicker?
     @IBOutlet var button:UIButton?
@@ -28,7 +28,7 @@ class DateView: UIView
     var maximum:Date? = nil
     weak var delegate:DateViewDelegate?
 
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         self.datePicker!.frame = CGRect(x: 0.0,
                                        y: 0.0,
@@ -42,7 +42,7 @@ class DateView: UIView
         
     }
     
-    func updateDisplay(date:Date, buttonColor:UIColor, dateType:FBDateType)
+    open func updateDisplay(date:Date, buttonColor:UIColor, dateType:FBDateType)
     {
         let bundle = Bundle.init(for: self.classForCoder)
         // create "ok" button

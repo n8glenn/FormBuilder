@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextAreaView: FieldView, UITextViewDelegate
+open class TextAreaView: FieldView, UITextViewDelegate
 {
     @IBOutlet var label:UILabel?
     @IBOutlet var textView:UITextView?
@@ -47,7 +47,7 @@ class TextAreaView: FieldView, UITextViewDelegate
         }
     }
 
-    func updateDisplay(label:String, text:String, required:Bool)
+    open func updateDisplay(label:String, text:String, required:Bool)
     {
         self.label = UILabel()
         self.label?.numberOfLines = 0
@@ -100,7 +100,7 @@ class TextAreaView: FieldView, UITextViewDelegate
         }
     }
     
-    func textViewDidChange(_ textView: UITextView)
+    open func textViewDidChange(_ textView: UITextView)
     {
         if (self.maxLength > 0)
         {
@@ -113,7 +113,7 @@ class TextAreaView: FieldView, UITextViewDelegate
         self.field?.input = self.textView!.text
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
 

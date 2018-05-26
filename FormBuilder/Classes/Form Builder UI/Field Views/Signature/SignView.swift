@@ -15,7 +15,7 @@ protocol SignViewDelegate: class
     func dismiss()
 }
 
-class SignView: UIView
+open class SignView: UIView
 {
     @IBOutlet var signatureView:SwiftSignatureView?
     @IBOutlet var button:UIButton?
@@ -25,7 +25,7 @@ class SignView: UIView
 
     weak var delegate:SignViewDelegate?
     
-    func updateDisplay()
+    open func updateDisplay()
     {
         let bundle = Bundle.init(for: self.classForCoder)
         // create "ok" button
@@ -53,7 +53,7 @@ class SignView: UIView
         self.signatureView!.backgroundColor = UIColor.white
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         self.signatureView?.frame = CGRect(x: 0.0,
                                         y: 0.0,

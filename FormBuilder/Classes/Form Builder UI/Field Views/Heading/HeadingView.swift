@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeadingView: FieldView
+open class HeadingView: FieldView
 {
     @IBOutlet var label:UILabel?
     var field:HeadingField?
@@ -26,7 +26,7 @@ class HeadingView: FieldView
         }
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
 
@@ -65,7 +65,7 @@ class HeadingView: FieldView
         }
     }
 
-    func updateDisplay(label:String)
+    open func updateDisplay(label:String)
     {
         self.label = UILabel()
         self.label?.numberOfLines = 0

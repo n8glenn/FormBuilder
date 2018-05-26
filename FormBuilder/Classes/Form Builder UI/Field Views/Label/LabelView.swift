@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LabelView: FieldView
+open class LabelView: FieldView
 {
     @IBOutlet var label:UILabel?
     var field:LabelField?
@@ -26,7 +26,7 @@ class LabelView: FieldView
         }
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         self.label?.frame = CGRect(x: margin,
@@ -35,7 +35,7 @@ class LabelView: FieldView
                                    height: self.frame.height - (margin * 2))
     }
 
-    func updateDisplay(label:String)
+    open func updateDisplay(label:String)
     {
         self.label = UILabel()
         self.label?.numberOfLines = 0

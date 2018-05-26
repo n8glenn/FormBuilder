@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionSetView: FieldView, UIGestureRecognizerDelegate
+open class OptionSetView: FieldView, UIGestureRecognizerDelegate
 {
     var field:OptionSetField?
     @IBOutlet var label:UILabel?
@@ -100,7 +100,7 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
         }
     }
     
-    func updateDisplay(label:String, optionSet:FBOptionSet, id:String?, required: Bool)
+    open func updateDisplay(label:String, optionSet:FBOptionSet, id:String?, required: Bool)
     {
         var index:Int = 0
         self.selectedId = id
@@ -257,7 +257,7 @@ class OptionSetView: FieldView, UIGestureRecognizerDelegate
         }
     }
 
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         self.label?.font = self.field!.style!.font
         let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0

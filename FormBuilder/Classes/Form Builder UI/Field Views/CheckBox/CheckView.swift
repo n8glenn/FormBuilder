@@ -15,11 +15,11 @@ public enum FBCheckState:Int
     case Checked = 2
 }
 
-class CheckView: UIView
+open class CheckView: UIView
 {
     var state:FBCheckState = FBCheckState.Unchecked
     
-    override func draw(_ rect: CGRect)
+    override open func draw(_ rect: CGRect)
     {
         // Drawing code
         super.draw(rect)

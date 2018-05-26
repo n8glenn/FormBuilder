@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FBOptionSet: NSObject
+open class FBOptionSet: NSObject
 {
     var id:String? = nil
     var range = (0, 0) // this is the range of lines in the spec file relating to this object.

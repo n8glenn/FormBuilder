@@ -13,7 +13,7 @@ protocol CheckBoxFieldDelegate: class
     func checkBoxChanged(field:FBField, state: FBCheckState)
 }
 */
-class CheckBoxView: FieldView
+open class CheckBoxView: FieldView
 {
     @IBOutlet var checkBoxLabel:UILabel?
     @IBOutlet var button:CheckView?
@@ -34,7 +34,7 @@ class CheckBoxView: FieldView
         }
     }
 
-    func updateDisplay(label:String, state:FBCheckState, required:Bool)
+    open func updateDisplay(label:String, state:FBCheckState, required:Bool)
     {
         self.checkBoxLabel = UILabel()
         self.checkBoxLabel?.numberOfLines = 0
@@ -69,7 +69,7 @@ class CheckBoxView: FieldView
         self.checkBoxLabel!.text = label
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         switch (self.field!.style!.orientation)

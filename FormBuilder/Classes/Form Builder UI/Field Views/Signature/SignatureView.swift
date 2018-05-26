@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignatureView: FieldView, SignViewDelegate
+open class SignatureView: FieldView, SignViewDelegate
 {
     var field:SignatureField?
     @IBOutlet var label:UILabel?
@@ -52,7 +52,7 @@ class SignatureView: FieldView, SignViewDelegate
         }
     }
     
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         
@@ -151,7 +151,7 @@ class SignatureView: FieldView, SignViewDelegate
         
     }
 
-    func updateDisplay(label:String, signature:UIImage?, required: Bool)
+    open func updateDisplay(label:String, signature:UIImage?, required: Bool)
     {
         self.label = UILabel()
         self.label?.numberOfLines = 0

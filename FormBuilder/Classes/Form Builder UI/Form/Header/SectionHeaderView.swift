@@ -16,7 +16,7 @@ protocol SectionHeaderDelegate: class
     func removeItem(indexPath:IndexPath, type:FBFieldType)
 }
 
-class SectionHeaderView: UIView
+open class SectionHeaderView: UIView
 {
     @IBOutlet var backgroundView:UIView?
     @IBOutlet var collapseButton:UIButton?
@@ -33,7 +33,7 @@ class SectionHeaderView: UIView
     var style:FBStyleClass?
     weak var delegate:SectionHeaderDelegate?
     
-    func updateDisplay(index:Int, section:FBSection)
+    open func updateDisplay(index:Int, section:FBSection)
     {
         let bundle = Bundle.init(for: self.classForCoder)
         section.headerView = self
@@ -135,7 +135,7 @@ class SectionHeaderView: UIView
         return (self.marginWidth() * 2) + labelHeight + self.borderWidth()
     }
 
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let border:CGFloat = self.style?.value(forKey: "border") as! CGFloat
         let margin:CGFloat = self.style?.value(forKey: "margin") as! CGFloat
