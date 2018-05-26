@@ -22,7 +22,7 @@ class TextAreaField: InputField
         self.tag = "#TextArea"
         if (FBStyleSet.shared.style(named: self.tag!) != nil)
         {
-            self.style = FBStyleSet.shared.style(named: self.tag!)
+            self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
             self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
         }
 
@@ -61,7 +61,7 @@ class TextAreaField: InputField
             case FBKeyWord.Style:
                 if (FBStyleSet.shared.style(named: file.lines[i].value) != nil)
                 {
-                    self.style = FBStyleSet.shared.style(named: file.lines[i].value)
+                    self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: file.lines[i].value)!)
                 }
                 i += 1
                 
@@ -111,11 +111,11 @@ class TextAreaField: InputField
         {
             if (self.editing)
             {
-                return ((self.input as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.font))!
+                return ((self.input as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.inputFont))!
             }
             else
             {
-                return ((self.data as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.font))!
+                return ((self.data as? String)?.height(withConstrainedWidth: self.textWidth, font: self.style!.inputFont))!
             }
         }
     }

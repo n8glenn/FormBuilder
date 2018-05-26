@@ -204,7 +204,7 @@ public class FBField: NSObject
         self.line = line
         self.range = lines
         let file = self.line!.section!.form!.file!
-        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
         self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
         
         var i:Int = lines.0
@@ -231,8 +231,8 @@ public class FBField: NSObject
                 
                 break
             case FBKeyWord.Style:
-                self.tag = file.lines[i].value
-                self.style = FBStyleSet.shared.style(named: self.tag!)
+                //self.tag = file.lines[i].value
+                self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: file.lines[i].value)!)
                 self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
                 i += 1
                 
@@ -282,7 +282,7 @@ public class FBField: NSObject
         self.caption = label
         self.visible = true
         
-        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
         self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
         
         return self

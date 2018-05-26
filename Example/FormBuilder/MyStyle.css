@@ -56,6 +56,14 @@
     "font-family":"Helvetica-Bold";
     "foreground-color":"#666666FF";
 }
+#MyLine
+{
+    "parent":"#Section";
+    "font-size":24;
+    "font-family":"Helvetica-Bold";
+    "foreground-color":"#666666FF";
+    "combobox-view":"MyCombo";
+}
 #Field
 {
     "parent":"#Line";

@@ -95,6 +95,7 @@ section                             // start the first section
 			caption County
 	line
 		id State
+		style #MyLine
 		field
             id State
             type combobox

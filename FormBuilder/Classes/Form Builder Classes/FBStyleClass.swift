@@ -14,6 +14,22 @@ public class FBStyleClass: NSObject
     var name:String? = nil 
     var properties:NSDictionary? = nil
     
+    override public init()
+    {
+        super.init()
+    }
+    
+    public init(withClass: FBStyleClass)
+    {
+        super.init()
+        self.name = withClass.name
+        if (withClass.properties != nil)
+        {
+            self.properties = NSDictionary(dictionary: withClass.properties!)
+        }
+        self.parent = withClass.parent
+    }
+    
     override public func value(forKey: String) -> Any?
     {
         if (properties?.value(forKey: forKey) != nil)
@@ -39,6 +55,16 @@ public class FBStyleClass: NSObject
         {
             let name:String = self.value(forKey: "font-family") as? String ?? "Helvetica"
             let size:CGFloat = self.value(forKey: "font-size") as? CGFloat ?? 17.0
+            return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: 17.0)
+        }
+    }
+    
+    var inputFont:UIFont
+    {
+        get
+        {
+            let name:String = self.value(forKey: "input-font-family") as? String ?? "Helvetica"
+            let size:CGFloat = self.value(forKey: "input-font-size") as? CGFloat ?? 17.0
             return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: 17.0)
         }
     }

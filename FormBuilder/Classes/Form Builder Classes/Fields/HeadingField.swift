@@ -22,7 +22,7 @@ class HeadingField: FBField
         self.tag = "#Heading"
         if (FBStyleSet.shared.style(named: self.tag!) != nil)
         {
-            self.style = FBStyleSet.shared.style(named: self.tag!)
+            self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
             self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
         }
         var i:Int = lines.0
@@ -34,7 +34,7 @@ class HeadingField: FBField
             case FBKeyWord.Style:
                 if (FBStyleSet.shared.style(named: file.lines[i].value) != nil)
                 {
-                    self.style = FBStyleSet.shared.style(named: file.lines[i].value)
+                    self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: file.lines[i].value)!)
                 }
                 i += 1
                 

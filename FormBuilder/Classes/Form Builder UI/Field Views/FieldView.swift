@@ -13,7 +13,7 @@ protocol FieldViewDelegate: class
     func fieldHeightChanged()
 }
 
-class FieldView: UIView
+open class FieldView: UIView
 {
     weak var delegate:FieldViewDelegate?
     

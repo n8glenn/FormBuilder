@@ -30,19 +30,19 @@ class TextAreaView: FieldView, UITextViewDelegate
             switch (self.field!.style!.orientation)
             {
             case FBOrientation.Horizontal:
-                return (margin * 3) + self.field!.textViewHeight + self.field!.labelHeight + border + 30.0
+                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
                 
             case FBOrientation.Vertical:
-                return (margin * 3) + self.field!.textViewHeight + self.field!.labelHeight + border + 30.0
+                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
                 
             case FBOrientation.ReverseHorizontal:
-                return (margin * 3) + self.field!.textViewHeight + self.field!.labelHeight + border + 30.0
+                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
                 
             case FBOrientation.ReverseVertical:
-                return (margin * 3) + self.field!.textViewHeight + self.field!.labelHeight + border + 30.0
+                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
                 
             case FBOrientation.PlaceHolder:
-                return (margin * 3) + self.field!.textViewHeight + self.field!.labelHeight + border + 30.0
+                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
             }
         }
     }

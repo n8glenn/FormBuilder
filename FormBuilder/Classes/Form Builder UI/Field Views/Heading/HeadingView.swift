@@ -21,7 +21,8 @@ class HeadingView: FieldView
         }
         else
         {
-            return ((self.field?.style?.value(forKey: "border") as! CGFloat)  * 2) + self.field!.labelHeight + ((self.field?.style?.value(forKey: "border") as! CGFloat))
+            return ((self.field?.style?.value(forKey: "margin") as! CGFloat)  * 2) +
+                self.field!.labelHeight + ((self.field?.style?.value(forKey: "border") as! CGFloat))
         }
     }
     

@@ -22,7 +22,7 @@ class LabelView: FieldView
         else
         {
             return ((self.field!.style!.value(forKey: "margin") as! CGFloat) * 2.0)
-                + self.field!.labelHeight + (self.field!.style!.value(forKey: "border") as! CGFloat)
+                + self.field!.labelHeight + (self.field!.style!.value(forKey: "border") as! CGFloat) + 1.0
         }
     }
     

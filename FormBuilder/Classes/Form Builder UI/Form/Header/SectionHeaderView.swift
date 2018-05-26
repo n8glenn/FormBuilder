@@ -38,7 +38,7 @@ class SectionHeaderView: UIView
         let bundle = Bundle.init(for: self.classForCoder)
         section.headerView = self
         self.section = section
-        self.style = FBStyleSet.shared.style(named: "#SectionHeader")
+        self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: "#SectionHeader")!)
         self.style!.parent = FBStyleSet.shared.style(named: "#Section")
         self.backgroundColor = UIColor.init(hexString: self.style!.value(forKey: "border-color") as! String)
         self.backgroundView = UIView()

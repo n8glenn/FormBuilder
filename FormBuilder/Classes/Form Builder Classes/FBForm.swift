@@ -67,7 +67,7 @@ public class FBForm: NSObject
     public init(file:String)
     {
         super.init()
-        self.style = FBStyleSet.shared.style(named: self.tag!)
+        self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
         self.style!.parent = FBStyleSet.shared.style(named: "#App") // override the default parents, our styles always descend from the style of the parent object!
         
         self.file = FBFile(file: file)
@@ -78,8 +78,8 @@ public class FBForm: NSObject
             switch (self.file!.lines[i].keyword)
             {
             case FBKeyWord.Style:
-                self.tag = self.file!.lines[i].value
-                self.style = FBStyleSet.shared.style(named: self.tag!)
+                //self.tag = self.file!.lines[i].value
+                self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.file!.lines[i].value)!)
                 i += 1
                 
                 break

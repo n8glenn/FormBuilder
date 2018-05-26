@@ -52,7 +52,7 @@ public class FBOption: NSObject
                 break
             case FBKeyWord.Style:
                 self.tag = file.lines[i].description
-                self.style = FBStyleSet.shared.style(named: self.tag!)
+                self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
                 if (self.field != nil)
                 {
                     self.style!.parent = self.field!.style // override the default parents, our styles always descend from the style of the parent object!

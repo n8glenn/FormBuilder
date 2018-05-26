@@ -243,7 +243,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.ComboBox:
                 // combo box for selecting among predefined options
-                let comboboxFieldView:ComboBoxFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))! //"ComboBoxFieldView")!
+                let comboboxFieldView:ComboBoxFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))! 
                 field.view = comboboxFieldView as FieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,

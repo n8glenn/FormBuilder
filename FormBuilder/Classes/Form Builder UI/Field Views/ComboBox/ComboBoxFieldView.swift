@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComboBoxFieldView: FieldView
+open class ComboBoxFieldView: FieldView
 {
     @IBOutlet var label:UILabel?
     @IBOutlet var dropDownLabel:UILabel?
@@ -48,7 +48,7 @@ class ComboBoxFieldView: FieldView
         }
     }
 
-    override func layoutSubviews()
+    override open func layoutSubviews()
     {
         let labelWidth:CGFloat = (self.label!.text?.width(withConstrainedHeight: self.field!.textHeight, font: self.label!.font))!
         let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
@@ -160,7 +160,7 @@ class ComboBoxFieldView: FieldView
         }
     }
 
-    func updateDisplay(label:String, text:String, required:Bool)
+    open func updateDisplay(label:String, text:String, required:Bool)
     {
         self.label = UILabel()
         self.label?.font = UIFont(name: self.field?.style!.value(forKey: "font-family") as! String,
