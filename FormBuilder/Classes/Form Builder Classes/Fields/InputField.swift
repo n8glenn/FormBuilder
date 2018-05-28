@@ -90,11 +90,11 @@ class InputField: FBField
     {
         get
         {
-            if ((self.line?.section?.form?.mode == FBFormMode.Edit) && self.editable!)
+            if ((self.line?.section?.mode == FBFormMode.Edit) && self.editable!)
             {
                 return FBFormMode.Edit
             }
-            else if (self.line?.section?.form?.mode == FBFormMode.Print)
+            else if (self.line?.section?.mode == FBFormMode.Print)
             {
                 return FBFormMode.Print
             }

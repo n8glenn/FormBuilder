@@ -24,27 +24,20 @@ open class ImagePickerView: FieldView, UINavigationControllerDelegate, UIImagePi
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
         
-        if (self.field!.line!.section!.collapsed)
+        if (self.field!.input != nil)
         {
-            return 0.0
+            var width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
+            if (width < 50.0 + border + (margin * 2))
+            {
+                width = 50.0 + border + (margin * 2)
+            }
+            let resized:UIImage = (self.field!.input! as! UIImage).resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
+
+            return resized.size.height + (margin * 2) + border
         }
         else
         {
-            if (self.field!.input != nil)
-            {
-                var width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
-                if (width < 50.0 + border + (margin * 2))
-                {
-                    width = 50.0 + border + (margin * 2)
-                }
-                let resized:UIImage = (self.field!.input! as! UIImage).resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
-
-                return resized.size.height + (margin * 2) + border
-            }
-            else
-            {
-                return (margin * 2) + border + 50.0
-            }
+            return (margin * 2) + border + 50.0
         }
     }
     

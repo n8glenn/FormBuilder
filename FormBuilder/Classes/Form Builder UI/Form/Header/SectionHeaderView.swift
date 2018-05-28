@@ -10,6 +10,9 @@ import UIKit
 
 protocol SectionHeaderDelegate: class
 {
+    func editSelected(section:Int)
+    func saveSelected(section:Int)
+    func cancelSelected(section:Int)
     func collapse(section:Int)
     func expand(section:Int)
     func addItem(section:Int, type:FBFieldType)
@@ -19,6 +22,8 @@ protocol SectionHeaderDelegate: class
 open class SectionHeaderView: UIView
 {
     @IBOutlet var backgroundView:UIView?
+    @IBOutlet var editButton:UIButton?
+    @IBOutlet var cancelButton:UIButton?
     @IBOutlet var collapseButton:UIButton?
     @IBOutlet var label:UILabel?
     @IBOutlet var addButton:UIButton?
@@ -84,6 +89,32 @@ open class SectionHeaderView: UIView
             self.removeButton?.setImage(UIImage.init(named: "minus", in: bundle, compatibleWith: nil), for: UIControlState.normal)
             self.removeButton?.addTarget(self, action: #selector(removePressed), for: UIControlEvents.touchUpInside)
             self.backgroundView?.addSubview(self.removeButton!)
+        }
+        if (self.section?.editable == true)
+        {
+            self.editButton = UIButton()
+            if (self.section!.mode == FBFormMode.View)
+            {
+                self.editButton?.setImage(UIImage.init(named: "edit", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+            }
+            else
+            {
+                self.editButton?.setImage(UIImage.init(named: "save", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+            }
+            self.editButton?.addTarget(self, action: #selector(editPressed), for: UIControlEvents.touchUpInside)
+            self.backgroundView?.addSubview(self.editButton!)
+            self.cancelButton = UIButton()
+            self.cancelButton?.setImage(UIImage.init(named: "cancel", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+            self.cancelButton?.addTarget(self, action: #selector(cancelPressed), for: UIControlEvents.touchUpInside)
+            self.backgroundView?.addSubview(self.cancelButton!)
+            if (self.section!.mode == FBFormMode.Edit)
+            {
+                self.cancelButton!.isHidden = false
+            }
+            else
+            {
+                self.cancelButton!.isHidden = true
+            }
         }
         for item in section.fieldsToAdd
         {
@@ -159,6 +190,21 @@ open class SectionHeaderView: UIView
         {
             self.removeButton!.frame = CGRect(x: self.frame.width - (border + (margin * 2) + 60.0), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
         }
+        if (self.section?.editable == true)
+        {
+            var buttonOffset:CGFloat = 30.0
+            if (self.allowsAdd)
+            {
+                buttonOffset += 30.0 + margin
+            }
+            if (self.allowsRemove)
+            {
+                buttonOffset += 30.0 + margin
+            }
+            self.editButton!.frame = CGRect(x: self.frame.width - (border + margin + buttonOffset), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
+            self.cancelButton!.frame = CGRect(x: self.frame.width - (border + margin + buttonOffset + 30.0 + margin), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
+
+        }
     }
     
     func borderWidth() -> CGFloat
@@ -194,6 +240,51 @@ open class SectionHeaderView: UIView
     func labelHeight() -> CGFloat
     {
         return self.label?.text?.height(withConstrainedWidth: self.labelWidth(), font: self.style!.font) ?? 0.0
+    }
+    
+    @objc @IBAction func editPressed()
+    {
+        let bundle = Bundle.init(for: self.classForCoder)
+        /*
+        if (self.section!.mode == FBFormMode.Edit)
+        {
+            self.section!.mode = FBFormMode.View
+            self.cancelButton?.isHidden = true
+        }
+        else
+        {
+            self.section!.mode = FBFormMode.Edit
+            self.cancelButton?.isHidden = false
+        }
+        */
+        if (self.section!.mode == FBFormMode.View)
+        {
+            self.editButton?.setImage(UIImage.init(named: "save", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+            if (self.delegate != nil)
+            {
+                self.delegate!.editSelected(section: self.index!)
+            }
+        }
+        else
+        {
+            //self.editButton?.setImage(UIImage.init(named: "edit", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+            if (self.delegate != nil)
+            {
+                self.delegate!.saveSelected(section: self.index!)
+            }
+        }
+    }
+    
+    @objc @IBAction func cancelPressed()
+    {
+        let bundle = Bundle.init(for: self.classForCoder)
+        self.section!.mode = FBFormMode.View
+        self.editButton?.setImage(UIImage.init(named: "edit", in: bundle, compatibleWith: nil), for: UIControlState.normal)
+        self.cancelButton?.isHidden = true
+        if (self.delegate != nil)
+        {
+            self.delegate!.cancelSelected(section: self.index!)
+        }
     }
     
     @objc @IBAction func collapsePressed()

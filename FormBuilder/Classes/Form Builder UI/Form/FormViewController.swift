@@ -12,7 +12,6 @@ open class FormViewController: UIViewController,
     UITableViewDataSource,
     UITableViewDelegate,
     FormLineDelegate,
-    CommandBarDelegate,
     FormDelegate,
     SectionHeaderDelegate
 {
@@ -33,6 +32,7 @@ open class FormViewController: UIViewController,
     @IBOutlet var tableView:UITableView?
     public var form:FBForm? = nil // the form represents the data we went to display, divided up into sections, lines, and fields.
     var modified:Bool = false // has this form been modified?  If so we may need to save it, if not, then why bother?
+    var displayCommandBar:Bool = true // should we display the "edit", "save", "cancel" buttons at the bottom?
     
     open override func viewDidLoad()
     {
@@ -73,31 +73,41 @@ open class FormViewController: UIViewController,
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
+        /*
         if (section + 1 == form!.visibleSections().count)
         {
             return form!.visibleSections()[section].lineCount() + 1
         }
         else
-        {
+        { */
             return form!.visibleSections()[section].lineCount()
-        }
+       /* }  */
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         // we will calculate the height for each field based on the style and data contained in it, and set the height of the containing row accordingly.
+        /*
         if ((indexPath.section + 1 == form!.visibleSections().count) && (indexPath.row + 1 > (form?.visibleSections()[indexPath.section].visibleLines().count)!))
         {
             return 50.0
         }
         else
-        {
-            return (self.form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row].height())!
-        }
+        { */
+            if (self.form?.visibleSections()[indexPath.section].collapsed == true)
+            {
+                return 0.0
+            }
+            else
+            {
+                return (self.form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row].height())!
+            }
+     /*   }  */
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        /*
         if ((indexPath.section + 1 == form!.visibleSections().count) && (indexPath.row + 1 > (form?.visibleSections()[indexPath.section].visibleLines().count)!))
         {
             // create an area at the bottom of the form to hold the "done" and "cancel" buttons.
@@ -117,6 +127,7 @@ open class FormViewController: UIViewController,
         }
         else
         {
+ */
             // create a line of data in the form...
             let cell:FormLineTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FormCell", for: indexPath) as! FormLineTableViewCell
             // Configure the cell...
@@ -125,7 +136,7 @@ open class FormViewController: UIViewController,
             cell.setupFields()
             cell.delegate = self
             return cell
-        }
+     /*   }  */
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -145,15 +156,16 @@ open class FormViewController: UIViewController,
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
+        /*
         if ((indexPath.section + 1 == form!.visibleSections().count) && (indexPath.row + 1 > (form?.visibleSections()[indexPath.section].visibleLines().count)!))
         {
             return false
         }
         else
-        {
+        { */
             let line:FBLine = (form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row])!
             return line.allowsRemove
-        }
+       /* } */
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
@@ -168,8 +180,9 @@ open class FormViewController: UIViewController,
     public func loadSpecification(named:String)
     {
         // load the sections, lines, fields, requirements, layout, etc for this form from a data file.
-        self.form = FBForm(file: named)
-        self.form?.delegate = self
+        //self.form?.delegate = self
+        self.form = FBForm(file: named, delegate:self)
+        formLoaded()
         self.form?.tableView = self.tableView
         self.form?.mode = FBFormMode.View
     }
@@ -202,7 +215,7 @@ open class FormViewController: UIViewController,
     open func fieldValueChanged(field: FBField, value: Any?)
     {
         // this should be overridden in child forms.
-        assert(false, "This method must be overriden by the subclass")
+        // IF you want to provide custonm behavior based on data input.
     }
 
     func isEditing() -> Bool
@@ -216,6 +229,52 @@ open class FormViewController: UIViewController,
         self.updateDisplay()
     }
     
+    func editSelected(section:Int)
+    {
+        self.form?.visibleSections()[section].mode = FBFormMode.Edit
+        self.tableView?.reloadSections([section], with: UITableViewRowAnimation.fade)
+    }
+    
+    func saveSelected(section:Int)
+    {
+        // user wants to save the form
+        let exceptions:Array<FBException> = self.form!.validate()
+        
+        if (exceptions.count > 0)
+        {
+            self.validationFailed(exceptions: exceptions)
+        }
+        else
+        {
+            if (self.modified)
+            {
+                self.update()
+                self.save()
+            }
+            
+            //self.setForm(mode: FBFormMode.View)
+            //self.updateDisplay()
+            self.form?.visibleSections()[section].mode = FBFormMode.View
+            self.tableView?.reloadSections([section], with: UITableViewRowAnimation.fade)
+        }
+    }
+    
+    func cancelSelected(section:Int)
+    {
+        // user wants to cancel and discard changes
+        for field in self.form!.fields()
+        {
+            field.clear()
+        }
+        self.form?.visibleSections()[section].mode = FBFormMode.View
+        //self.form?.mode = FBFormMode.View
+        self.discard()
+        self.populate()
+        //self.updateDisplay()
+        self.tableView?.reloadSections([section], with: UITableViewRowAnimation.fade)
+    }
+    
+    /*
     func saveSelected()
     {
         // user wants to save the form
@@ -233,9 +292,11 @@ open class FormViewController: UIViewController,
                 self.save()
             }
             self.setForm(mode: FBFormMode.View)
+            self.updateDisplay()
         }
     }
-    
+    */
+    /*
     func cancelSelected()
     {
         // user wants to cancel and discard changes
@@ -246,11 +307,13 @@ open class FormViewController: UIViewController,
                 field.clear()
             }
             self.form?.mode = FBFormMode.View
+            self.discard()
             self.populate()
             self.updateDisplay()
         }
     }
-
+    */
+    
     open func populate()
     {
         // this should be overridden by the child form.
@@ -288,7 +351,7 @@ open class FormViewController: UIViewController,
                 }
             }
         }
-        let alert:UIAlertController = UIAlertController(title: "Validation Failed", message: message, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert:UIAlertController = UIAlertController(title: "Validation Failed", message: message, preferredStyle: UIAlertControllerStyle.alert)
         let alertAction:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         alert.addAction(alertAction)
         if let presenter = alert.popoverPresentationController
@@ -312,8 +375,14 @@ open class FormViewController: UIViewController,
         assert(false, "This method must be overriden by the subclass")
     }
     
+    open func discard()
+    {
+        // cancel changes and dismiss form, this should leave the object displayed in the form as is
+    }
+
     func collapse(section: Int)
     {
+        // collapse a collapsible section
         self.form!.sections[section].collapsed = true
         var indexSet:IndexSet = IndexSet()
         indexSet.insert(section)
@@ -322,6 +391,7 @@ open class FormViewController: UIViewController,
     
     func expand(section: Int)
     {
+        // expand a collapsed section
         self.form!.sections[section].collapsed = false
         var indexSet:IndexSet = IndexSet()
         indexSet.insert(section)
@@ -330,6 +400,7 @@ open class FormViewController: UIViewController,
 
     func addItem(section: Int, type: FBFieldType)
     {
+        // add a new section, or item to a section.
         switch (type)
         {
         case FBFieldType.Section:
@@ -465,10 +536,11 @@ open class FormViewController: UIViewController,
 
     func removeItem(indexPath: IndexPath, type: FBFieldType)
     {
+        // remove a section or an item from a section
         switch (type)
         {
         case FBFieldType.Section:
-            let alert:UIAlertController = UIAlertController(title: "Remove", message: "Remove this section?", preferredStyle: UIAlertControllerStyle.actionSheet)
+            let alert:UIAlertController = UIAlertController(title: "Remove", message: "Remove this section?", preferredStyle: UIAlertControllerStyle.alert)
             let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (UIAlertAction) in
                 self.form!.sections.remove(at: indexPath.section)
                 self.tableView!.reloadData()

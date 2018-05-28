@@ -18,32 +18,25 @@ open class TextFieldView: FieldView, UITextFieldDelegate
     
     override func height() -> CGFloat
     {
-        if (self.field!.line!.section!.collapsed)
-        {
-            return 0.0
-        }
-        else
-        {
-            let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
-            let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
+        let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
+        let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
 
-            switch (self.field!.style!.orientation)
-            {
-            case FBOrientation.Horizontal:
-                return (margin * 2) + self.field!.labelHeight + border
-                
-            case FBOrientation.Vertical:
-                return (margin * 3) + self.field!.labelHeight + self.field!.textHeight + border
-                
-            case FBOrientation.ReverseHorizontal:
-                return (margin * 2) + self.field!.labelHeight + border
-                
-            case FBOrientation.ReverseVertical:
-                return (margin * 3) + field!.labelHeight + field!.textHeight + border
-                
-            case FBOrientation.PlaceHolder:
-                return (margin * 2) + self.field!.labelHeight + border
-            }
+        switch (self.field!.style!.orientation)
+        {
+        case FBOrientation.Horizontal:
+            return (margin * 2) + self.field!.labelHeight + border
+            
+        case FBOrientation.Vertical:
+            return (margin * 3) + self.field!.labelHeight + self.field!.textHeight + border
+            
+        case FBOrientation.ReverseHorizontal:
+            return (margin * 2) + self.field!.labelHeight + border
+            
+        case FBOrientation.ReverseVertical:
+            return (margin * 3) + field!.labelHeight + field!.textHeight + border
+            
+        case FBOrientation.PlaceHolder:
+            return (margin * 2) + self.field!.labelHeight + border
         }
     }
     

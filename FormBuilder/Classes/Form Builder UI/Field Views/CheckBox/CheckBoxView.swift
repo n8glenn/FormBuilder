@@ -23,15 +23,8 @@ open class CheckBoxView: FieldView
     
     override func height() -> CGFloat
     {
-        if (self.field!.line!.section!.collapsed)
-        {
-            return 0.0
-        }
-        else
-        {
-            return ((self.field!.style!.value(forKey: "margin") as! CGFloat) * 2)
+        return ((self.field!.style!.value(forKey: "margin") as! CGFloat) * 2)
                 + self.field!.labelHeight + (self.field!.style!.value(forKey: "border") as! CGFloat)
-        }
     }
 
     open func updateDisplay(label:String, state:FBCheckState, required:Bool)

@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FormBuilder'
-  s.version          = '0.1.0'
-  s.summary          = 'A library to make building data entry forms fast and simple.'
+  s.version          = '0.5.0'
+  s.summary          = 'A swift library to make building data entry forms fast and simple.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This is a library written in swift which is intended to make the creation of data entry forms in iOS fast and easy.  I have tried to abstract out all of the
+boiler plate code so that you can focus on what makes your project unique and avoid unnecessary headaches and duplicated code.  It is highly recommended that you read the instructions document included with the example project so that you can understand how this library works and how to use it in your project.
                        DESC
 
   s.homepage         = 'https://github.com/n8glenn/FormBuilder'
@@ -26,7 +27,7 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'n8glenn' => 'n8glenn@gmail.com' }
   s.source           = { :git => 'https://github.com/n8glenn/FormBuilder.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/n8glenn'
 
   s.ios.deployment_target = '8.0'
 

@@ -125,6 +125,10 @@
 		8D8CA032BE70A91116D1C2DA23323FBB /* FTPopOverMenu_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6F2E210D40357AAD6E30CCB1C3D6FF /* FTPopOverMenu_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E55D6E624F631A050D786E8BB28E3D1 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D685C0D509328CD8778F99DD53A49A48 /* Closures.swift */; };
 		901106E286E959BC06A18F5C6CFFE4BD /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8315675F3D2B2385E834043F85C676 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9093C3EE20BB6C3D000C699B /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3EC20BB6C3D000C699B /* done.png */; };
+		9093C3EF20BB6C3D000C699B /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3ED20BB6C3D000C699B /* edit.png */; };
+		9093C3F220BB9469000C699B /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3F020BB9469000C699B /* save.png */; };
+		9093C3F320BB9469000C699B /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3F120BB9469000C699B /* cancel.png */; };
 		90A19A2D20A9EE9F00C2D56B /* Settings.spec in Resources */ = {isa = PBXBuildFile; fileRef = 90A19A2C20A9EE9F00C2D56B /* Settings.spec */; };
 		90A19A3220A9F0CF00C2D56B /* FBOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2E20A9F0CE00C2D56B /* FBOption.swift */; };
 		90A19A3320A9F0CF00C2D56B /* FBFileLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */; };
@@ -384,6 +388,10 @@
 		8DA9864E77C0B85470ACC368B32A41F4 /* DropDownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		8EF0EA564D82AB46B710DC6096C1EA6B /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
 		8F4384CDA1479E6D88E3486B78FD7485 /* MatcherProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherProtocols.swift; path = Sources/Nimble/Matchers/MatcherProtocols.swift; sourceTree = "<group>"; };
+		9093C3EC20BB6C3D000C699B /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = done.png; path = FormBuilder/Assets/done.png; sourceTree = "<group>"; };
+		9093C3ED20BB6C3D000C699B /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit.png; path = FormBuilder/Assets/edit.png; sourceTree = "<group>"; };
+		9093C3F020BB9469000C699B /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = FormBuilder/Assets/save.png; sourceTree = "<group>"; };
+		9093C3F120BB9469000C699B /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = FormBuilder/Assets/cancel.png; sourceTree = "<group>"; };
 		90A19A2C20A9EE9F00C2D56B /* Settings.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Settings.spec; path = FormBuilder/Assets/Settings.spec; sourceTree = "<group>"; };
 		90A19A2E20A9F0CE00C2D56B /* FBOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBOption.swift; sourceTree = "<group>"; };
 		90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFileLine.swift; sourceTree = "<group>"; };
@@ -631,6 +639,10 @@
 		44FDFABF08F48C27DA2E2B8D32CCB70D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9093C3F120BB9469000C699B /* cancel.png */,
+				9093C3F020BB9469000C699B /* save.png */,
+				9093C3EC20BB6C3D000C699B /* done.png */,
+				9093C3ED20BB6C3D000C699B /* edit.png */,
 				90A19A2C20A9EE9F00C2D56B /* Settings.spec */,
 				32911CB4197C6041B8CFD48C23DABC42 /* Assets.xcassets */,
 				888E112915E6FE743F12FEF927CECDD0 /* BottomCell.xib */,
@@ -1312,6 +1324,7 @@
 				EDA419B5E0F05D436C882798FA039EB2 /* Assets.xcassets in Resources */,
 				9FD784A475A46CAAA808C25E06175617 /* BottomCell.xib in Resources */,
 				560AD49540DE69DC44B88AD98CE59B87 /* camera.png in Resources */,
+				9093C3F320BB9469000C699B /* cancel.png in Resources */,
 				365B1351074AD978116645CAE51D4B9B /* CheckBoxView.xib in Resources */,
 				37C1700789DD5781FB93BB8DB20C3FD9 /* CheckView.xib in Resources */,
 				DA294D522509976BFB5071CB8EFFAE71 /* ComboBoxFieldView.xib in Resources */,
@@ -1324,6 +1337,7 @@
 				BF038408A6C51E155FB71D110E860AB6 /* FormCell.xib in Resources */,
 				8B60EF1A8BE24C1AC298955CBA1B4492 /* FTPopOverMenu_Swift in Resources */,
 				223703668FA9C9A8E8AA048833C4A1B3 /* HeadingView.xib in Resources */,
+				9093C3EE20BB6C3D000C699B /* done.png in Resources */,
 				622DA881F22731EEAFB1C6F571AA1E96 /* ImagePickerView.xib in Resources */,
 				9C2B896DD91A1E7C7FA2A1821A96A208 /* ImageView.xib in Resources */,
 				9232A48C7E03742F3537A2D15A1BE6DE /* LabelView.xib in Resources */,
@@ -1339,9 +1353,11 @@
 				075AC1396E2D7535FF1525C2F6472BF3 /* SignatureView.xib in Resources */,
 				FD8BD524ED4A5406265D7FD42582D714 /* SignView.xib in Resources */,
 				C5766DEFCA6FF85F527CD8AC81FF490F /* SnapKit in Resources */,
+				9093C3EF20BB6C3D000C699B /* edit.png in Resources */,
 				B3F3D5D139BBFF9D87BA13076FBB4AFA /* Style.css in Resources */,
 				BB81E5EE514F3B3145CD7730CDFDDAE5 /* SwiftHUD in Resources */,
 				8170A87700FC41021BF6D413276C6429 /* TextAreaView.xib in Resources */,
+				9093C3F220BB9469000C699B /* save.png in Resources */,
 				FCE4CA6777100E22086F3BCF7835155B /* TextFieldView.xib in Resources */,
 				52BC7A27C9E4D0CCD29EF313F7FE1CB2 /* trash-white.png in Resources */,
 				4D3138C5F37113EAB3064DA00A9CDF66 /* trash.png in Resources */,

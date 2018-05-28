@@ -18,32 +18,25 @@ open class TextAreaView: FieldView, UITextViewDelegate
     
     override func height() -> CGFloat
     {
-        if (self.field!.line!.section!.collapsed)
-        {
-            return 0.0
-        }
-        else
-        {
-            let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
-            let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
+        let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
+        let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
 
-            switch (self.field!.style!.orientation)
-            {
-            case FBOrientation.Horizontal:
-                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
-                
-            case FBOrientation.Vertical:
-                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
-                
-            case FBOrientation.ReverseHorizontal:
-                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
-                
-            case FBOrientation.ReverseVertical:
-                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
-                
-            case FBOrientation.PlaceHolder:
-                return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
-            }
+        switch (self.field!.style!.orientation)
+        {
+        case FBOrientation.Horizontal:
+            return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
+            
+        case FBOrientation.Vertical:
+            return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
+            
+        case FBOrientation.ReverseHorizontal:
+            return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
+            
+        case FBOrientation.ReverseVertical:
+            return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
+            
+        case FBOrientation.PlaceHolder:
+            return (margin * 3) + self.field!.textAreaHeight + self.field!.labelHeight + border + 30.0
         }
     }
 

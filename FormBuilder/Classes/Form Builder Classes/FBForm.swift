@@ -38,7 +38,6 @@ public class FBForm: NSObject
     
     var tag:String? = "#Form"
     var style:FBStyleClass? = nil
-    //public var fields:Array<FBField> = Array<FBField>()
     public var sections:Array<FBSection> = Array<FBSection>()
     var mode:FBFormMode = FBFormMode.View
     var width:CGFloat = 0.0
@@ -64,9 +63,10 @@ public class FBForm: NSObject
 
     weak var delegate:FormDelegate?
     
-    public init(file:String)
+    public init(file:String, delegate:FormDelegate)
     {
         super.init()
+        self.delegate = delegate
         self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: self.tag!)!)
         self.style!.parent = FBStyleSet.shared.style(named: "#App") // override the default parents, our styles always descend from the style of the parent object!
         
@@ -106,10 +106,6 @@ public class FBForm: NSObject
                 i += 1
                 break
             }
-        }
-        if (delegate != nil)
-        {
-            delegate?.formLoaded()
         }
     }
     

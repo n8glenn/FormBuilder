@@ -141,7 +141,7 @@ class FBRequirement: NSObject
             case FBRequirementType.Minimum:
                 if (field.data != nil)
                 {
-                    if ((field.data as! String).count < (self.value as! Int))
+                    if ((field.data as! String).count < Int(self.value as! String) ?? 0)
                     {
                         return false
                     }
@@ -150,7 +150,7 @@ class FBRequirement: NSObject
             case FBRequirementType.Maximum:
                 if (field.data != nil)
                 {
-                    if ((field.data as! String).count > (self.value as! Int))
+                    if ((field.data as! String).count > Int(self.value as! String) ?? 0)
                     {
                         return false
                     }

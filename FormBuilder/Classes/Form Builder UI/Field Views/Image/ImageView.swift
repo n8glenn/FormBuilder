@@ -20,14 +20,7 @@ open class ImageView: FieldView
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         let border:CGFloat = self.field?.style?.value(forKey: "border") as? CGFloat ?? 1.5
 
-        if (self.field!.line!.section!.collapsed)
-        {
-            return 0.0
-        }
-        else
-        {
-            return self.field!.labelHeight + (self.imageView?.image?.size.height ?? 20.0) + (margin * 3) + border
-        }
+        return self.field!.labelHeight + (self.imageView?.image?.size.height ?? 20.0) + (margin * 3) + border
     }
     
     override open func layoutSubviews()

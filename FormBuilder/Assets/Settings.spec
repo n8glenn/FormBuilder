@@ -1022,11 +1022,23 @@ option-set
 option-set
 	id TimeZone
 	option
-		id USPS
-		value Express Mail
+		id HST
+		value Hawaii-Aleutian Standard Time
 	option
-		id UPS
-		value UPS
+		id AKST
+		value Alaska Standard Time
 	option
-		id FEDEX
-		value Fed Ex
+		id PST
+		value Pacific Standard Time
+	option
+		id MST
+ 		value Mountain Standard Time
+	option
+		id CST
+ 		value Central Standard Time
+	option
+		id EST
+ 		value Eastern Standard Time
+	option
+		id AST
+ 		value Atlantic Standard Time

@@ -21,19 +21,30 @@ open class OptionSetView: FieldView, UIGestureRecognizerDelegate
     
     override func height() -> CGFloat
     {
-        if (self.field!.line!.section!.collapsed)
+        let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
+        let border:CGFloat = (self.field?.style?.value(forKey: "border") as? CGFloat) ?? 5.0
+        
+        switch (self.field!.style!.orientation)
         {
-            return 0.0
-        }
-        else
-        {
-            let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
-            let border:CGFloat = (self.field?.style?.value(forKey: "border") as? CGFloat) ?? 5.0
-            
-            switch (self.field!.style!.orientation)
+        case FBOrientation.Horizontal:
+            if (self.field!.editing)
             {
-            case FBOrientation.Horizontal:
-                if (self.field!.editing)
+                return (margin * 3) + (self.field!.labelHeight * 2) + border
+            }
+            else
+            {
+                return (margin * 2) + self.field!.labelHeight + border
+            }
+            
+        case FBOrientation.Vertical:
+            if (self.field!.editing)
+            {
+                return (margin * CGFloat(self.field?.optionSet?.options.count ?? 0 + 2)) +
+                    (self.field!.labelHeight * CGFloat(self.field?.optionSet?.options.count ?? 0 + 1)) + border
+            }
+            else
+            {
+                if (self.field!.data != nil)
                 {
                     return (margin * 3) + (self.field!.labelHeight * 2) + border
                 }
@@ -41,54 +52,26 @@ open class OptionSetView: FieldView, UIGestureRecognizerDelegate
                 {
                     return (margin * 2) + self.field!.labelHeight + border
                 }
-                
-            case FBOrientation.Vertical:
-                if (self.field!.editing)
-                {
-                    return (margin * CGFloat(self.field?.optionSet?.options.count ?? 0 + 2)) +
-                        (self.field!.labelHeight * CGFloat(self.field?.optionSet?.options.count ?? 0 + 1)) + border
-                }
-                else
-                {
-                    if (self.field!.data != nil)
-                    {
-                        return (margin * 3) + (self.field!.labelHeight * 2) + border
-                    }
-                    else
-                    {
-                        return (margin * 2) + self.field!.labelHeight + border
-                    }
-                }
-                
-            case FBOrientation.ReverseHorizontal:
-                if (self.field!.editing)
-                {
-                    return (margin * 3) + (self.field!.labelHeight * 2) + border                }
-                else
-                {
-                    return (margin * 2) + self.field!.labelHeight + border
-                }
-                
-            case FBOrientation.ReverseVertical:
-                if (self.field!.editing)
-                {
-                    return (margin * CGFloat(self.field?.optionSet?.options.count ?? 0 + 2)) +
-                        (self.field!.labelHeight * CGFloat(self.field?.optionSet?.options.count ?? 0 + 1)) + border
-                }
-                else
-                {
-                    if (self.field!.data != nil)
-                    {
-                        return (margin * 3) + (self.field!.labelHeight * 2) + border
-                    }
-                    else
-                    {
-                        return (margin * 2) + self.field!.labelHeight + border
-                    }
-                }
-                
-            case FBOrientation.PlaceHolder:
-                if (self.field!.editing)
+            }
+            
+        case FBOrientation.ReverseHorizontal:
+            if (self.field!.editing)
+            {
+                return (margin * 3) + (self.field!.labelHeight * 2) + border                }
+            else
+            {
+                return (margin * 2) + self.field!.labelHeight + border
+            }
+            
+        case FBOrientation.ReverseVertical:
+            if (self.field!.editing)
+            {
+                return (margin * CGFloat(self.field?.optionSet?.options.count ?? 0 + 2)) +
+                    (self.field!.labelHeight * CGFloat(self.field?.optionSet?.options.count ?? 0 + 1)) + border
+            }
+            else
+            {
+                if (self.field!.data != nil)
                 {
                     return (margin * 3) + (self.field!.labelHeight * 2) + border
                 }
@@ -96,6 +79,16 @@ open class OptionSetView: FieldView, UIGestureRecognizerDelegate
                 {
                     return (margin * 2) + self.field!.labelHeight + border
                 }
+            }
+            
+        case FBOrientation.PlaceHolder:
+            if (self.field!.editing)
+            {
+                return (margin * 3) + (self.field!.labelHeight * 2) + border
+            }
+            else
+            {
+                return (margin * 2) + self.field!.labelHeight + border
             }
         }
     }

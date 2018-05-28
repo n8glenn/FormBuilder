@@ -19,36 +19,29 @@ open class SignatureView: FieldView, SignViewDelegate
     
     override func height() -> CGFloat
     {
-        if (self.field!.line!.section!.collapsed)
-        {
-            return 0.0
-        }
-        else
-        {
-            let style:FBStyleClass = (FBStyleSet.shared.style(named: "#SignView"))!
+        let style:FBStyleClass = (FBStyleSet.shared.style(named: "#SignView"))!
 
-            let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
-            let border:CGFloat = (self.field?.style?.value(forKey: "border") as? CGFloat) ?? 5.0
-            //let signWidth:CGFloat = style.value(forKey: "width") as? CGFloat ?? 200.0
-            let signHeight:CGFloat = style.value(forKey: "height") as? CGFloat ?? 50.0
+        let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
+        let border:CGFloat = (self.field?.style?.value(forKey: "border") as? CGFloat) ?? 5.0
+        //let signWidth:CGFloat = style.value(forKey: "width") as? CGFloat ?? 200.0
+        let signHeight:CGFloat = style.value(forKey: "height") as? CGFloat ?? 50.0
+        
+        switch (self.field!.style!.orientation)
+        {
+        case FBOrientation.Horizontal:
+            return (margin * 3) + signHeight + border
             
-            switch (self.field!.style!.orientation)
-            {
-            case FBOrientation.Horizontal:
-                return (margin * 3) + signHeight + border
-                
-            case FBOrientation.Vertical:
-                return (margin * 3) + self.field!.labelHeight + signHeight + border
-                
-            case FBOrientation.ReverseHorizontal:
-                return (margin * 3) + signHeight + border
-                
-            case FBOrientation.ReverseVertical:
-                return (margin * 3) + self.field!.labelHeight + signHeight + border
-                
-            case FBOrientation.PlaceHolder:
-                return (margin * 3) + signHeight + border
-            }
+        case FBOrientation.Vertical:
+            return (margin * 3) + self.field!.labelHeight + signHeight + border
+            
+        case FBOrientation.ReverseHorizontal:
+            return (margin * 3) + signHeight + border
+            
+        case FBOrientation.ReverseVertical:
+            return (margin * 3) + self.field!.labelHeight + signHeight + border
+            
+        case FBOrientation.PlaceHolder:
+            return (margin * 3) + signHeight + border
         }
     }
     

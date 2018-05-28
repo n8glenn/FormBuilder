@@ -15,15 +15,8 @@ open class LabelView: FieldView
 
     override func height() -> CGFloat
     {
-        if (self.field!.line!.section!.collapsed)
-        {
-            return 0.0
-        }
-        else
-        {
-            return ((self.field!.style!.value(forKey: "margin") as! CGFloat) * 2.0)
+        return ((self.field!.style!.value(forKey: "margin") as! CGFloat) * 2.0)
                 + self.field!.labelHeight + (self.field!.style!.value(forKey: "border") as! CGFloat) + 1.0
-        }
     }
     
     override open func layoutSubviews()

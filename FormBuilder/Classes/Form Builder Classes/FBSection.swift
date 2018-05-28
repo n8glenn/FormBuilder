@@ -23,6 +23,7 @@ public class FBSection: NSObject
     var collapsed:Bool = false
     public var form:FBForm?
     var headerView:SectionHeaderView?
+    var mode:FBFormMode = FBFormMode.View
     var allowsAdd:Bool = false
     var allowsRemove:Bool = false
     var addSection:Bool = false
