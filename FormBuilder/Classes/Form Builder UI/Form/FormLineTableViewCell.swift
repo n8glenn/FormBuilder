@@ -374,7 +374,7 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 break
                 
             case FBFieldType.Signature:
-                let signatureView:SignatureView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                let signatureView:FBSignatureView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
                 field.view = signatureView as FieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,

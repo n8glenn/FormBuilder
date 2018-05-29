@@ -12,7 +12,7 @@
 		0322D87CEDF13C45B507C9030386E6E3 /* UIScreen+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4183A8E98139F3D1B760827BF7B683 /* UIScreen+Frame.swift */; };
 		057041CE9A13A6C63056A31A2F97CE3C /* FTPopOverMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950A25D9F02DFC135F6C07240A60868 /* FTPopOverMenu.swift */; };
 		05DE99C7269A20CEECF08182D158D7A9 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E3A70FE8DF21E725A7566A05F285AD /* DatePickerView.swift */; };
-		075AC1396E2D7535FF1525C2F6472BF3 /* SignatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7987AF27BE076B6D595B781B479C773F /* SignatureView.xib */; };
+		075AC1396E2D7535FF1525C2F6472BF3 /* FBSignatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7987AF27BE076B6D595B781B479C773F /* FBSignatureView.xib */; };
 		0789B26BA0899A569A43181C0842BC69 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C091F24DDB14D7DA0311038B373F5 /* Popover.swift */; };
 		07D5629715FDC30E9C7E1BDAE47D539B /* ImagePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF60E1D62A9D0D9A6D2DA058260989 /* ImagePickerField.swift */; };
 		090CE2F77DF4E368E2145C10E006494B /* FBPopOverMenu in Resources */ = {isa = PBXBuildFile; fileRef = 9AF16924496824502AAA57748CF37429 /* FBPopOverMenu */; };
@@ -38,7 +38,6 @@
 		2F5B367580B08F75FD956E343B95F97B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D786F262665CE8C9113FA91745753 /* Filter.swift */; };
 		2F6154057EDE1AFA83E7E17928724B5E /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412B42533DB00582FF296BB66A2CDE75 /* TextFieldView.swift */; };
 		31C39ED8CB1C9317F1F2840FC919662D /* PostNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0D34DBF4CE55E4FF1BADBA826F9389 /* PostNotification.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
-		31C53BF7665ED14F27240C8E50C98030 /* CommandBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607808AD8FFD79D8171352E416483F44 /* CommandBarTableViewCell.swift */; };
 		32B38992751B96F21324BFC9923BFCBD /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495BFC3F9A44D525D4BFC5B10557E6C3 /* AssertionDispatcher.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		34C06EA6409AF1D68179D72274E959A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D8173434FE00016739EAFDEFEA9313 /* Foundation.framework */; };
 		35CADB1AD8E063A35DF68147F3183206 /* CwlMachBadInstructionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = EF959663D47B18687B5785D72D856CB6 /* CwlMachBadInstructionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -339,7 +338,6 @@
 		5D741E194FDB843BCBFDE34949BE4229 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DFBD1A4D27ECE07CCE38AF3C7BE1467 /* FormLineTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormLineTableViewCell.swift; sourceTree = "<group>"; };
 		605EF2A73B22D3E0863B202A2B7CFDEE /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Sources/Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
-		607808AD8FFD79D8171352E416483F44 /* CommandBarTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommandBarTableViewCell.swift; sourceTree = "<group>"; };
 		613C21AD6E98946BCAA54F25374CE020 /* NMBStringify.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMBStringify.m; path = Sources/NimbleObjectiveC/NMBStringify.m; sourceTree = "<group>"; };
 		637DB7A45FE5BB1290DBA08148286EEA /* Quick-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-prefix.pch"; sourceTree = "<group>"; };
 		645422FB2E7D26E7DD6556CCAC35DAF0 /* BeLogical.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLogical.swift; path = Sources/Nimble/Matchers/BeLogical.swift; sourceTree = "<group>"; };
@@ -362,7 +360,7 @@
 		75B78AC1C0059E66BD95A9F0CD2D24F5 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+CurrentTestBundle.swift"; path = "Sources/Quick/NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		77125F245BAE7809A034657A48A40830 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Nimble/Utils/Errors.swift; sourceTree = "<group>"; };
 		77C2834A0AE71F3E85759885C0557533 /* SatisfyAnyOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAnyOf.swift; path = Sources/Nimble/Matchers/SatisfyAnyOf.swift; sourceTree = "<group>"; };
-		7987AF27BE076B6D595B781B479C773F /* SignatureView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SignatureView.xib; path = FormBuilder/Assets/SignatureView.xib; sourceTree = "<group>"; };
+		7987AF27BE076B6D595B781B479C773F /* FBSignatureView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBSignatureView.xib; path = FormBuilder/Assets/FBSignatureView.xib; sourceTree = "<group>"; };
 		7AB49832AE8BE42E69F212ABCFC21B63 /* Pods-FormBuilder_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FormBuilder_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7CC8DBE433A202DCF807B91BB5557F6D /* BeginWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeginWith.swift; path = Sources/Nimble/Matchers/BeginWith.swift; sourceTree = "<group>"; };
 		7D9A924C203A11767BBF4D9C3737DA5D /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestSuite+QuickTestSuiteBuilder.m"; path = "Sources/QuickObjectiveC/XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
@@ -674,7 +672,7 @@
 				8CFA7409F5ECAFEDD33624A268FB1CEB /* RequiredView.xib */,
 				A0A6A0AB33824508F02605FF24B77E7F /* right.png */,
 				B6DAA695A801C46FBD185ADDA2CBD258 /* SectionHeaderView.xib */,
-				7987AF27BE076B6D595B781B479C773F /* SignatureView.xib */,
+				7987AF27BE076B6D595B781B479C773F /* FBSignatureView.xib */,
 				1D7957EFD6270A1EB2E73E414079B930 /* SignView.xib */,
 				D622AD89A76B3A1053241BCDE44492F7 /* Style.css */,
 				744B2EC79E5016861F1F7611A082C2D4 /* TextAreaView.xib */,
@@ -961,7 +959,6 @@
 		C454D1314E037977362AF8F43403C860 /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				607808AD8FFD79D8171352E416483F44 /* CommandBarTableViewCell.swift */,
 				5DFBD1A4D27ECE07CCE38AF3C7BE1467 /* FormLineTableViewCell.swift */,
 				2B199B2C323CBAC96A87B1EDF02189B1 /* FormViewController.swift */,
 				02A7E424165A4158EECC15956CA7DA6A /* Header */,
@@ -1353,7 +1350,7 @@
 				746FC4A5A9630182962C6D1822A083BA /* RequiredView.xib in Resources */,
 				84351D45D6CD29B7B2F0D28C801A359A /* right.png in Resources */,
 				24FD267D7EBFC936E9DB3A53A1E76714 /* SectionHeaderView.xib in Resources */,
-				075AC1396E2D7535FF1525C2F6472BF3 /* SignatureView.xib in Resources */,
+				075AC1396E2D7535FF1525C2F6472BF3 /* FBSignatureView.xib in Resources */,
 				FD8BD524ED4A5406265D7FD42582D714 /* SignView.xib in Resources */,
 				C5766DEFCA6FF85F527CD8AC81FF490F /* SnapKit in Resources */,
 				9093C3EF20BB6C3D000C699B /* edit.png in Resources */,
@@ -1380,7 +1377,6 @@
 				B7BEF8CD0CCA0C06926FA74DC126BEA7 /* CheckView.swift in Sources */,
 				A0E27575749B46B12A236CB674C0A8BE /* ComboBoxField.swift in Sources */,
 				E236A23624028F32D2469DA5898C6820 /* ComboBoxFieldView.swift in Sources */,
-				31C53BF7665ED14F27240C8E50C98030 /* CommandBarTableViewCell.swift in Sources */,
 				10837414130570D81BAD525BE919073F /* CssLexer.swift in Sources */,
 				C4B01F1D37EB2755AED3229F455F1DC0 /* CssParser.swift in Sources */,
 				87CF1F3761113642B8EB1B95B5ED9A3A /* DatePickerField.swift in Sources */,
@@ -1697,6 +1693,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
@@ -1820,6 +1817,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_VERSION = 4.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;

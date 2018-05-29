@@ -138,7 +138,7 @@ public class FBStyleClass: NSObject
             return self.value(forKey: "datepicker-view") as? String ?? "DatePickerView"
 
         case FBFieldType.Signature:
-            return self.value(forKey: "signature-view") as? String ?? "SignatureView"
+            return self.value(forKey: "signature-view") as? String ?? "FBSignatureView"
 
         case FBFieldType.Unknown:
             return ""

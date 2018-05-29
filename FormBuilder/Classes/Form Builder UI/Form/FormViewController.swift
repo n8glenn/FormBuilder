@@ -165,7 +165,7 @@ open class FormViewController: UIViewController,
         // IF you want to provide custonm behavior based on data input.
     }
 
-    func isEditing() -> Bool
+    func editing() -> Bool
     {
         return self.form?.mode == FBFormMode.Edit
     }

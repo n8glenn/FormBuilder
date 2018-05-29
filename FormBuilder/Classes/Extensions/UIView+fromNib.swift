@@ -59,8 +59,8 @@ extension UIView
         case "RequiredView":
             bundle = Bundle.init(for: RequiredView.self)
             break
-        case "SignatureView":
-            bundle = Bundle.init(for: SignatureView.self)
+        case "FBSignatureView":
+            bundle = Bundle.init(for: FBSignatureView.self)
             break
         case "SignView":
             bundle = Bundle.init(for: SignView.self)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SignatureView: FieldView, SignViewDelegate
+open class FBSignatureView: FieldView, SignViewDelegate
 {
     var field:SignatureField?
     @IBOutlet var label:UILabel?
