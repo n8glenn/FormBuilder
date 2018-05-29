@@ -10,6 +10,8 @@ import UIKit
 
 class SignatureField: InputField
 {
+    var dialog:FBDialog? = nil
+    
     override public init()
     {
         super.init()
@@ -46,6 +48,48 @@ class SignatureField: InputField
                 i += 1
                 
                 break
+            case FBKeyWord.Requirements:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                
+                break
+            case FBKeyWord.Dialog:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                var fieldRange = (i, i)
+
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                fieldRange.1 = i - 1
+                self.dialog = FBDialog(type: FBDialogType.Signature, field: self, lines: fieldRange)
+                
+                break
             default:
                 i += 1
                 
@@ -66,10 +110,17 @@ class SignatureField: InputField
     {
         get
         {
-            return self.caption!.height(withConstrainedWidth:
-                self.width - (((self.style?.value(forKey: "margin") as! CGFloat) * 2) + self.borderWidth),
-                                        font: self.style!.font)
+            return self.caption!.height(withConstrainedWidth: self.labelWidth, font: self.style!.font)
         }
     }
 
+    override var labelWidth: CGFloat
+    {
+        get
+        {
+            let style:FBStyleClass? = self.dialog?.style ?? nil
+            let signatureWidth:CGFloat = style?.value(forKey: "width") as? CGFloat ?? 300.0
+            return self.width - (((self.style?.value(forKey: "margin") as! CGFloat) * 2) + self.borderWidth + signatureWidth)
+        }
+    }
 }

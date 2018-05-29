@@ -40,13 +40,7 @@ open class FormViewController: UIViewController,
 
         let bundle = Bundle.init(for: FormLineTableViewCell.self)
         self.tableView?.register(UINib(nibName: "FormCell", bundle: bundle), forCellReuseIdentifier: "FormCell")
-        self.tableView?.register(UINib(nibName: "BottomCell", bundle: bundle), forCellReuseIdentifier: "BottomCell")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.tableView?.register(UINib(nibName: "BottomCell", bundle: bundle), forCellReuseIdentifier: "BottomCell")
     }
 
     open override func viewWillAppear(_ animated: Bool)
@@ -73,70 +67,32 @@ open class FormViewController: UIViewController,
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // #warning Incomplete implementation, return the number of rows
-        /*
-        if (section + 1 == form!.visibleSections().count)
-        {
-            return form!.visibleSections()[section].lineCount() + 1
-        }
-        else
-        { */
-            return form!.visibleSections()[section].lineCount()
-       /* }  */
+        return form!.visibleSections()[section].lineCount()
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         // we will calculate the height for each field based on the style and data contained in it, and set the height of the containing row accordingly.
-        /*
-        if ((indexPath.section + 1 == form!.visibleSections().count) && (indexPath.row + 1 > (form?.visibleSections()[indexPath.section].visibleLines().count)!))
+        if (self.form?.visibleSections()[indexPath.section].collapsed == true)
         {
-            return 50.0
+            return 0.0
         }
         else
-        { */
-            if (self.form?.visibleSections()[indexPath.section].collapsed == true)
-            {
-                return 0.0
-            }
-            else
-            {
-                return (self.form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row].height())!
-            }
-     /*   }  */
+        {
+            return (self.form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row].height())!
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        /*
-        if ((indexPath.section + 1 == form!.visibleSections().count) && (indexPath.row + 1 > (form?.visibleSections()[indexPath.section].visibleLines().count)!))
-        {
-            // create an area at the bottom of the form to hold the "done" and "cancel" buttons.
-            let cell:CommandBarTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! CommandBarTableViewCell
-            if (self.form?.mode == FBFormMode.View)
-            {
-                cell.doneButton?.setTitle("Edit", for: UIControlState.normal)
-            }
-            else
-            {
-                cell.doneButton?.setTitle("Done", for: UIControlState.normal)
-            }
-            cell.backgroundColor = UIColor.init(hexString: form?.style?.value(forKey: "border-color") as! String)
-            // Configure the cell...
-            cell.delegate = self
-            return cell
-        }
-        else
-        {
- */
-            // create a line of data in the form...
-            let cell:FormLineTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FormCell", for: indexPath) as! FormLineTableViewCell
-            // Configure the cell...
-            cell.line = form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row]
-            cell.backgroundColor = UIColor.init(hexString: form?.style?.value(forKey: "border-color") as! String)
-            cell.setupFields()
-            cell.delegate = self
-            return cell
-     /*   }  */
+        // create a line of data in the form...
+        let cell:FormLineTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FormCell", for: indexPath) as! FormLineTableViewCell
+        // Configure the cell...
+        cell.line = form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row]
+        cell.backgroundColor = UIColor.init(hexString: form?.style?.value(forKey: "border-color") as! String)
+        cell.setupFields()
+        cell.delegate = self
+        return cell
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -156,16 +112,8 @@ open class FormViewController: UIViewController,
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
-        /*
-        if ((indexPath.section + 1 == form!.visibleSections().count) && (indexPath.row + 1 > (form?.visibleSections()[indexPath.section].visibleLines().count)!))
-        {
-            return false
-        }
-        else
-        { */
-            let line:FBLine = (form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row])!
-            return line.allowsRemove
-       /* } */
+        let line:FBLine = (form?.visibleSections()[indexPath.section].visibleLines()[indexPath.row])!
+        return line.allowsRemove
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
@@ -180,7 +128,6 @@ open class FormViewController: UIViewController,
     public func loadSpecification(named:String)
     {
         // load the sections, lines, fields, requirements, layout, etc for this form from a data file.
-        //self.form?.delegate = self
         self.form = FBForm(file: named, delegate:self)
         formLoaded()
         self.form?.tableView = self.tableView
@@ -251,9 +198,6 @@ open class FormViewController: UIViewController,
                 self.update()
                 self.save()
             }
-            
-            //self.setForm(mode: FBFormMode.View)
-            //self.updateDisplay()
             self.form?.visibleSections()[section].mode = FBFormMode.View
             self.tableView?.reloadSections([section], with: UITableViewRowAnimation.fade)
         }
@@ -267,52 +211,10 @@ open class FormViewController: UIViewController,
             field.clear()
         }
         self.form?.visibleSections()[section].mode = FBFormMode.View
-        //self.form?.mode = FBFormMode.View
         self.discard()
         self.populate()
-        //self.updateDisplay()
         self.tableView?.reloadSections([section], with: UITableViewRowAnimation.fade)
     }
-    
-    /*
-    func saveSelected()
-    {
-        // user wants to save the form
-        let exceptions:Array<FBException> = self.form!.validate()
-        
-        if (exceptions.count > 0)
-        {
-            self.validationFailed(exceptions: exceptions)
-        }
-        else
-        {
-            if (self.modified)
-            {
-                self.update()
-                self.save()
-            }
-            self.setForm(mode: FBFormMode.View)
-            self.updateDisplay()
-        }
-    }
-    */
-    /*
-    func cancelSelected()
-    {
-        // user wants to cancel and discard changes
-        if (self.form?.mode == FBFormMode.Edit)
-        {
-            for field in self.form!.fields()
-            {
-                field.clear()
-            }
-            self.form?.mode = FBFormMode.View
-            self.discard()
-            self.populate()
-            self.updateDisplay()
-        }
-    }
-    */
     
     open func populate()
     {

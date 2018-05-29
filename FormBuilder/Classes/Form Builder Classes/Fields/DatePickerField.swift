@@ -10,6 +10,7 @@ import UIKit
 
 class DatePickerField: InputField
 {
+    var dialog:FBDialog? = nil
     var dateType:FBDateType = FBDateType.Date
 
     override public init()
@@ -51,6 +52,48 @@ class DatePickerField: InputField
                     self.style = FBStyleClass(withClass:FBStyleSet.shared.style(named: file.lines[i].value)!)
                 }
                 i += 1
+                
+                break
+            case FBKeyWord.Requirements:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                
+                break
+            case FBKeyWord.Dialog:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                var fieldRange = (i, i)
+                
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                fieldRange.1 = i - 1
+                self.dialog = FBDialog(type: FBDialogType.Date, field: self, lines: fieldRange)
                 
                 break
             default:

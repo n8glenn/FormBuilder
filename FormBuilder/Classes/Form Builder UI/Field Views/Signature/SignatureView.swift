@@ -19,51 +19,73 @@ open class SignatureView: FieldView, SignViewDelegate
     
     override func height() -> CGFloat
     {
-        let style:FBStyleClass = (FBStyleSet.shared.style(named: "#SignView"))!
-
+        let style:FBStyleClass? = self.field!.dialog!.style ?? nil
         let margin:CGFloat = (self.field?.style?.value(forKey: "margin") as? CGFloat) ?? 5.0
         let border:CGFloat = (self.field?.style?.value(forKey: "border") as? CGFloat) ?? 5.0
-        //let signWidth:CGFloat = style.value(forKey: "width") as? CGFloat ?? 200.0
-        let signHeight:CGFloat = style.value(forKey: "height") as? CGFloat ?? 50.0
-        
+        let height:CGFloat = style?.value(forKey: "height") as? CGFloat ?? 150.0
+
         switch (self.field!.style!.orientation)
         {
         case FBOrientation.Horizontal:
-            return (margin * 3) + signHeight + border
+            if (self.field!.labelHeight > height)
+            {
+                return (margin * 2) + self.field!.labelHeight + border
+            }
+            else
+            {
+                return (margin * 2) + height + border
+            }
             
         case FBOrientation.Vertical:
-            return (margin * 3) + self.field!.labelHeight + signHeight + border
+            return (margin * 3) + self.field!.labelHeight + height + border
             
         case FBOrientation.ReverseHorizontal:
-            return (margin * 3) + signHeight + border
-            
+            if (self.field!.labelHeight > height)
+            {
+                return (margin * 2) + self.field!.labelHeight + border
+            }
+            else
+            {
+                return (margin * 2) + height + border
+            }
+
         case FBOrientation.ReverseVertical:
-            return (margin * 3) + self.field!.labelHeight + signHeight + border
+            return (margin * 3) + self.field!.labelHeight + height + border
             
         case FBOrientation.PlaceHolder:
-            return (margin * 3) + signHeight + border
+            if (self.field!.labelHeight > height)
+            {
+                return (margin * 2) + self.field!.labelHeight + border
+            }
+            else
+            {
+                return (margin * 2) + height + border
+            }
         }
     }
     
     override open func layoutSubviews()
     {
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
+        let style:FBStyleClass? = self.field!.dialog!.style ?? nil
+        let width:CGFloat = style?.value(forKey: "width") as? CGFloat ?? 300.0
+        let height:CGFloat = style?.value(forKey: "height") as? CGFloat ?? 150.0
         
         switch (self.field!.style!.orientation)
         {
         case FBOrientation.Horizontal:
             self.label!.frame = CGRect(x: margin,
-                                       y: margin,
+                                       y: (self.frame.height / 2) - (self.field!.labelHeight / 2),
                                        width: self.frame.width / 2,
                                        height: self.field!.labelHeight)
             self.button!.frame = CGRect(x: margin,
                                         y: margin,
                                         width: self.frame.width - (margin * 2.0),
                                         height: self.frame.height - (margin * 2.0))
-            self.imageView!.frame = CGRect(x: margin + self.label!.frame.size.width,
+            self.imageView!.frame = CGRect(x: self.frame.width - ((margin * 2) + self.field!.requiredWidth + width),
                                         y: margin,
-                                        width: (self.frame.width / 2) - ((margin * 3.0) + self.field!.requiredWidth),
-                                        height: self.frame.height - (margin * 2.0))
+                                        width: width,
+                                        height: height)
             self.requiredView?.frame = CGRect(x: self.frame.width - (margin + self.field!.requiredWidth),
                                               y: (self.frame.height / 2) - (self.field!.requiredHeight / 2),
                                               width: self.field!.requiredWidth,
@@ -80,8 +102,8 @@ open class SignatureView: FieldView, SignViewDelegate
                                         height: self.frame.height - (margin * 2.0))
             self.imageView!.frame = CGRect(x: margin,
                                         y: margin,
-                                        width: self.frame.width - (margin * 2.0),
-                                        height: self.frame.height - (margin * 2.0))
+                                        width: width,
+                                        height: height)
             self.requiredView?.frame = CGRect(x: self.frame.width - (margin + self.field!.requiredWidth),
                                               y: margin + ((self.field!.labelHeight / 2.0) - (self.field!.requiredHeight / 2)),
                                               width: self.field!.requiredWidth,
@@ -97,8 +119,8 @@ open class SignatureView: FieldView, SignViewDelegate
                                         height: self.frame.height - (margin * 2.0))
             self.imageView!.frame = CGRect(x: margin,
                                         y: margin,
-                                        width: self.frame.width - (margin * 2.0),
-                                        height: self.frame.height - (margin * 2.0))
+                                        width: width,
+                                        height: height)
             self.requiredView?.frame = CGRect(x: self.frame.width - (margin + self.field!.requiredWidth),
                                               y: (self.frame.height / 2) - (self.field!.requiredHeight / 2),
                                               width: self.field!.requiredWidth,
@@ -115,8 +137,8 @@ open class SignatureView: FieldView, SignViewDelegate
                                         height: self.frame.height - (margin * 2.0))
             self.imageView!.frame = CGRect(x: margin,
                                         y: margin,
-                                        width: self.frame.width - (margin * 2.0),
-                                        height: self.frame.height - (margin * 2.0))
+                                        width: width,
+                                        height: height)
             self.requiredView?.frame = CGRect(x: self.frame.width - (margin + self.field!.requiredWidth),
                                               y: (margin * 2) + self.field!.labelHeight + (self.field!.labelHeight / 2.0) - (self.field!.requiredHeight / 2),
                                               width: self.field!.requiredWidth,
@@ -133,15 +155,14 @@ open class SignatureView: FieldView, SignViewDelegate
                                         height: self.frame.height - (margin * 2.0))
             self.imageView!.frame = CGRect(x: margin,
                                         y: margin,
-                                        width: self.frame.width - (margin * 2.0),
-                                        height: self.frame.height - (margin * 2.0))
+                                        width: width,
+                                        height: height)
             self.requiredView?.frame = CGRect(x: self.frame.width - (margin + self.field!.requiredWidth),
                                               y: (self.frame.height / 2) - (self.field!.requiredHeight / 2),
                                               width: self.field!.requiredWidth,
                                               height: self.field!.requiredHeight)
             break
         }
-        
     }
 
     open func updateDisplay(label:String, signature:UIImage?, required: Bool)
@@ -154,6 +175,10 @@ open class SignatureView: FieldView, SignViewDelegate
         self.label?.textColor = UIColor.init(hexString: self.field?.style!.value(forKey: "foreground-color") as! String)
         self.imageView = UIImageView()
         self.addSubview(self.imageView!)
+        if (self.field?.input != nil)
+        {
+            self.imageView!.image = self.field!.input as? UIImage
+        }
         self.button = UIButton()
         self.button?.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchUpInside)
         self.addSubview(self.button!)
@@ -178,13 +203,13 @@ open class SignatureView: FieldView, SignViewDelegate
     
     @objc @IBAction func buttonPressed()
     {
-        let style:FBStyleClass = (FBStyleSet.shared.style(named: "#SignaturePopover"))!
-        let width:CGFloat = style.value(forKey: "width") as! CGFloat
-        let height:CGFloat = style.value(forKey: "height") as! CGFloat
-        let backgroundColor:UIColor = UIColor.init(hexString: style.value(forKey: "background-color") as! String)!
+        let style:FBStyleClass? = self.field!.dialog!.style ?? nil
+        let width:CGFloat = style?.value(forKey: "width") as? CGFloat ?? 300.0
+        let height:CGFloat = style?.value(forKey: "height") as? CGFloat ?? 150.0
+        let backgroundColor:UIColor = UIColor.init(hexString: style?.value(forKey: "background-color") as? String ?? "#ffffffFF")!
         var image:UIImage? = nil;
         let signView:SignView = UIView.fromNib(withName: "SignView")!
-        signView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: height)
+        signView.frame = CGRect(x: 0.0, y: 0.0, width: width, height: height + 65.0)
         if (self.field!.input != nil)
         {
             image = self.field!.input as! UIImage?
@@ -194,7 +219,7 @@ open class SignatureView: FieldView, SignViewDelegate
         {
             signView.signatureView?.signature = image
         }
-        signView.backgroundColor = UIColor.white
+        signView.backgroundColor = backgroundColor
         signView.delegate = self
         let rect:CGRect = self.convert(self.bounds, to: nil)
         var popoverType:PopoverType = PopoverType.down

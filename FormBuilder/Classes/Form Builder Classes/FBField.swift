@@ -32,7 +32,7 @@ public enum FBDateType:Int
     case DateTime = 2
 }
 
-public class FBField: NSObject
+open class FBField: NSObject
 {
     // Field -- represents a line of data in the form (although potentially more than one field can
     //          be put on one line, this won't usually be the case)  the field is an item of data to
@@ -236,6 +236,44 @@ public class FBField: NSObject
                 self.style!.parent = self.line!.style // override the default parents, our styles always descend from the style of the parent object!
                 i += 1
                 
+                break
+            case FBKeyWord.Dialog:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                
+                break
+            case FBKeyWord.Requirements:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+
                 break
             case FBKeyWord.FieldType:
                 self.fieldType = FBField.typeWith(string: file.lines[i].value)

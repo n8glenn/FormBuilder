@@ -91,7 +91,7 @@
 {
     "parent":"#ImagePicker";
 }
-#DatePopover
+#DateDialog
 {
     "parent":"#Field";
     "width":300;
@@ -100,11 +100,11 @@
     "foreground-color":"#ffffffFF";
     "button-color":"#444444FF";
 }
-#SignaturePopover
+#SignatureDialog
 {
     "parent":"#Field";
     "width":350;
-    "height":200;
+    "height":100;
     "background-color":"#333333FF";
     "foreground-color":"#ffffffFF";
     "button-color":"#444444FF";

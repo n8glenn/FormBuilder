@@ -129,6 +129,7 @@
 		9093C3EF20BB6C3D000C699B /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3ED20BB6C3D000C699B /* edit.png */; };
 		9093C3F220BB9469000C699B /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3F020BB9469000C699B /* save.png */; };
 		9093C3F320BB9469000C699B /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9093C3F120BB9469000C699B /* cancel.png */; };
+		9093C3F520BCB4EE000C699B /* FBDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9093C3F420BCB4EE000C699B /* FBDialog.swift */; };
 		90A19A2D20A9EE9F00C2D56B /* Settings.spec in Resources */ = {isa = PBXBuildFile; fileRef = 90A19A2C20A9EE9F00C2D56B /* Settings.spec */; };
 		90A19A3220A9F0CF00C2D56B /* FBOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2E20A9F0CE00C2D56B /* FBOption.swift */; };
 		90A19A3320A9F0CF00C2D56B /* FBFileLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */; };
@@ -392,6 +393,7 @@
 		9093C3ED20BB6C3D000C699B /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit.png; path = FormBuilder/Assets/edit.png; sourceTree = "<group>"; };
 		9093C3F020BB9469000C699B /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = FormBuilder/Assets/save.png; sourceTree = "<group>"; };
 		9093C3F120BB9469000C699B /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = FormBuilder/Assets/cancel.png; sourceTree = "<group>"; };
+		9093C3F420BCB4EE000C699B /* FBDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDialog.swift; sourceTree = "<group>"; };
 		90A19A2C20A9EE9F00C2D56B /* Settings.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Settings.spec; path = FormBuilder/Assets/Settings.spec; sourceTree = "<group>"; };
 		90A19A2E20A9F0CE00C2D56B /* FBOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBOption.swift; sourceTree = "<group>"; };
 		90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFileLine.swift; sourceTree = "<group>"; };
@@ -639,12 +641,16 @@
 		44FDFABF08F48C27DA2E2B8D32CCB70D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32911CB4197C6041B8CFD48C23DABC42 /* Assets.xcassets */,
+				CEEFB1D8E3D509875D8AD95D9D250579 /* FTPopOverMenu_Swift */,
+				9AF16924496824502AAA57748CF37429 /* FBPopOverMenu */,
+				A76E879A0CA47E81443EB175F90C2E83 /* SnapKit */,
+				9EE501D7FE35B97A196E10116E3986AF /* SwiftHUD */,
 				9093C3F120BB9469000C699B /* cancel.png */,
 				9093C3F020BB9469000C699B /* save.png */,
 				9093C3EC20BB6C3D000C699B /* done.png */,
 				9093C3ED20BB6C3D000C699B /* edit.png */,
 				90A19A2C20A9EE9F00C2D56B /* Settings.spec */,
-				32911CB4197C6041B8CFD48C23DABC42 /* Assets.xcassets */,
 				888E112915E6FE743F12FEF927CECDD0 /* BottomCell.xib */,
 				9382818A858037C49A39E597243AD874 /* camera.png */,
 				D86C9BA1BFD0D0CA4B245DDC4878C2F6 /* CheckBoxView.xib */,
@@ -654,8 +660,6 @@
 				D48E0840430D14AE5005A8E99BDE7069 /* DateView.xib */,
 				B1A62AAA118991EBC27E9CF8455180BE /* DropDownView.xib */,
 				AA47063F680015327E65577A26A6E115 /* down.png */,
-				CEEFB1D8E3D509875D8AD95D9D250579 /* FTPopOverMenu_Swift */,
-				9AF16924496824502AAA57748CF37429 /* FBPopOverMenu */,
 				ABAB7CEF05FF0C2DF583E17C9DF711D8 /* FormCell.xib */,
 				3F577A6878974A2A0AFB1A8673D0639C /* HeadingView.xib */,
 				1EC9DCAAB924C4CACAD36E8DB3968C90 /* ImagePickerView.xib */,
@@ -672,9 +676,7 @@
 				B6DAA695A801C46FBD185ADDA2CBD258 /* SectionHeaderView.xib */,
 				7987AF27BE076B6D595B781B479C773F /* SignatureView.xib */,
 				1D7957EFD6270A1EB2E73E414079B930 /* SignView.xib */,
-				A76E879A0CA47E81443EB175F90C2E83 /* SnapKit */,
 				D622AD89A76B3A1053241BCDE44492F7 /* Style.css */,
-				9EE501D7FE35B97A196E10116E3986AF /* SwiftHUD */,
 				744B2EC79E5016861F1F7611A082C2D4 /* TextAreaView.xib */,
 				8A872E18DE33499ED2C07018DAF30352 /* TextFieldView.xib */,
 				1415BD52371D6D8C52902E1F6E21FEA3 /* trash.png */,
@@ -972,6 +974,7 @@
 			children = (
 				90A19A3120A9F0CE00C2D56B /* FBFile.swift */,
 				90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */,
+				B2F60C9A581137AA1FDF24F19AD9C01C /* FBSettings.swift */,
 				90A19A2E20A9F0CE00C2D56B /* FBOption.swift */,
 				90A19A3020A9F0CE00C2D56B /* FBOptionSet.swift */,
 				7FE7B42DBE9D0DB01D4A4EAC29245A2D /* FBException.swift */,
@@ -980,8 +983,8 @@
 				43C706E20830A371E21191DF4301CC6B /* FBLine.swift */,
 				100F21DE9363A3EACE267BBEA777C06B /* FBRequirement.swift */,
 				598BC5D903F2C93D1A0264E56A74BE94 /* FBSection.swift */,
-				B2F60C9A581137AA1FDF24F19AD9C01C /* FBSettings.swift */,
 				94F6CC760C370C7B63159A51B8EC6A48 /* FBStyleClass.swift */,
+				9093C3F420BCB4EE000C699B /* FBDialog.swift */,
 				C2AA199F38A742C716662070265A571B /* FBStyleSet.swift */,
 				C1E1BE2EE9A91006B10D27124844D4C2 /* Fields */,
 			);
@@ -1372,6 +1375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A52A2A789ACBA193D1A802EF663770 /* CheckBoxField.swift in Sources */,
+				9093C3F520BCB4EE000C699B /* FBDialog.swift in Sources */,
 				B9A99D960336AD173D34F6088EEADF2C /* CheckBoxView.swift in Sources */,
 				B7BEF8CD0CCA0C06926FA74DC126BEA7 /* CheckView.swift in Sources */,
 				A0E27575749B46B12A236CB674C0A8BE /* ComboBoxField.swift in Sources */,

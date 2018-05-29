@@ -99,25 +99,25 @@ class FBRequirement: NSObject
             {
             case FBRequirementType.Required:
                 /*
-                if ((field.data == nil) || (field.data as! String).isEmpty)
+                if ((field.input == nil) || (field.input as! String).isEmpty)
                 {
                     return false
                 }
                 */
                 break
             case FBRequirementType.Minimum:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
-                    if ((field.data as! NSData).length < (self.value as! Int))
+                    if ((field.input as! NSData).length < (self.value as! Int))
                     {
                         return false
                     }
                 }
                 break
             case FBRequirementType.Maximum:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
-                    if ((field.data as! NSData).length > (self.value as! Int))
+                    if ((field.input as! NSData).length > (self.value as! Int))
                     {
                         return false
                     }
@@ -132,25 +132,25 @@ class FBRequirement: NSObject
             {
             case FBRequirementType.Required:
                 /*
-                if ((field.data == nil) || (field.data as! String).isEmpty)
+                if ((field.input == nil) || (field.input as! String).isEmpty)
                 {
                     return false
                 }
                 */
                 break
             case FBRequirementType.Minimum:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
-                    if ((field.data as! String).count < Int(self.value as! String) ?? 0)
+                    if ((field.input as! String).count < Int(self.value as! String) ?? 0)
                     {
                         return false
                     }
                 }
                 break
             case FBRequirementType.Maximum:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
-                    if ((field.data as! String).count > Int(self.value as! String) ?? 0)
+                    if ((field.input as! String).count > Int(self.value as! String) ?? 0)
                     {
                         return false
                     }
@@ -159,11 +159,11 @@ class FBRequirement: NSObject
             case FBRequirementType.Datatype:
                 break
             case FBRequirementType.Format:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     let format:String = FBSettings.shared.formats[self.value as! String]!
                     let emailTest = NSPredicate(format:"SELF MATCHES %@", format)
-                    let valid:Bool = emailTest.evaluate(with: field.data as! String)
+                    let valid:Bool = emailTest.evaluate(with: field.input as! String)
                     if (!valid)
                     {
                         return false
@@ -171,10 +171,10 @@ class FBRequirement: NSObject
                 }
                 break
             case FBRequirementType.MemberOf:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     var found:Bool = false
-                    let value:String = field.data as! String
+                    let value:String = field.input as! String
                     for member in self.members
                     {
                         if (value == member)
@@ -197,7 +197,7 @@ class FBRequirement: NSObject
             {
             case FBRequirementType.Required:
                 /*
-                if (field.data == nil)
+                if (field.input == nil)
                 {
                     return false
                 }
@@ -212,17 +212,17 @@ class FBRequirement: NSObject
             {
             case FBRequirementType.Required:
                 /*
-                if (field.data == nil)
+                if (field.input == nil)
                 {
                     return false
                 }
                 */
                 break
             case FBRequirementType.Minimum:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     let minDate:Date = self.value as! Date
-                    let date:Date = field.data as! Date
+                    let date:Date = field.input as! Date
                     if (date.compare(minDate) == ComparisonResult.orderedAscending)
                     {
                         return false
@@ -230,10 +230,10 @@ class FBRequirement: NSObject
                 }
                 break
             case FBRequirementType.Maximum:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     let maxDate:Date = self.value as! Date
-                    let date:Date = field.data as! Date
+                    let date:Date = field.input as! Date
                     if (date.compare(maxDate) == ComparisonResult.orderedDescending)
                     {
                         return false
@@ -241,11 +241,11 @@ class FBRequirement: NSObject
                 }
                 break
             case FBRequirementType.Format:
-                if (field.data != nil)
+                if (field.input != nil)
                 {
                     let format:String = FBSettings.shared.formats[self.value as! String]!
                     let emailTest = NSPredicate(format:"SELF MATCHES %@", format)
-                    let valid:Bool = emailTest.evaluate(with: field.data as! String)
+                    let valid:Bool = emailTest.evaluate(with: field.input as! String)
                     if (!valid)
                     {
                         return false

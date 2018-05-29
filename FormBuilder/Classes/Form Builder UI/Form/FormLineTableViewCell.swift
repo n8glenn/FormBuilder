@@ -444,23 +444,6 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
         // Configure the view for the selected state
     }
 
-    // combo box delegate methods
-    /*
-    func comboBoxSelectedIndex(field:FBField, index: Int)
-    {
-
-    }
-    
-    func checkBoxChanged(field: FBField, state: FBCheckState)
-    {
-        
-    }
-    
-    func optionSelected(field: FBField, option: Int)
-    {
-        
-    }
-    */
     func fieldHeightChanged()
     {
         // the height of one of our fields has changed, so notify the table to redraw this cell...

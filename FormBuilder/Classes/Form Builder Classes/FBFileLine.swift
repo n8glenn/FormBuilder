@@ -43,6 +43,7 @@ public enum FBKeyWord:Int
     case Signature = 30
     case Capitalize = 31
     case Keyboard = 32
+    case Dialog = 33
 }
 
 public class FBFileLine: NSObject
@@ -213,7 +214,10 @@ public class FBFileLine: NSObject
                 break
             case "keyboard":
                 self.keyword = FBKeyWord.Keyboard
-                break 
+                break
+            case "dialog":
+                self.keyword = FBKeyWord.Dialog
+                break
             default:
                 self.keyword = FBKeyWord.Unknown
                 break

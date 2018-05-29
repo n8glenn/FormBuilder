@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InputField: FBField
+open class InputField: FBField
 {
     private var _textViewHeight:CGFloat = 90.0
     var requirements:Array<FBRequirement>? = Array<FBRequirement>()
@@ -17,7 +17,7 @@ class InputField: FBField
     var capitalize:UITextAutocapitalizationType = UITextAutocapitalizationType.words
     
     private var _required:Bool = false
-    override var required:Bool
+    override public var required:Bool
     {
         get
         {
@@ -30,7 +30,7 @@ class InputField: FBField
     }
 
     private var _data:Any? = nil
-    override var data:Any?
+    override public var data:Any?
     {
         get
         {
@@ -46,7 +46,7 @@ class InputField: FBField
     }
 
     private var _input:Any? = nil
-    override var input:Any?
+    override public var input:Any?
         {
         get
         {
@@ -173,6 +173,26 @@ class InputField: FBField
                         break
                     }
                 }
+                
+                break
+            case FBKeyWord.Dialog:
+                let indentLevel:Int = file.lines[i].indentLevel
+                let spaceLevel:Int = file.lines[i].spaceLevel
+                i += 1
+                while (i <= lines.1)
+                {
+                    if ((file.lines[i].indentLevel > indentLevel) ||
+                        (file.lines[i].spaceLevel > spaceLevel) ||
+                        (file.lines[i].keyword == FBKeyWord.None))
+                    {
+                        i += 1
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+
                 break
             case FBKeyWord.Capitalize:
                 switch (file.lines[i].value.lowercased())

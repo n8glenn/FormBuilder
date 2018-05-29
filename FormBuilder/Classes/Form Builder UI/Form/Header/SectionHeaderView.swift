@@ -203,7 +203,6 @@ open class SectionHeaderView: UIView
             }
             self.editButton!.frame = CGRect(x: self.frame.width - (border + margin + buttonOffset), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
             self.cancelButton!.frame = CGRect(x: self.frame.width - (border + margin + buttonOffset + 30.0 + margin), y: (self.frame.size.height / 2) - 15.0, width: 30.0, height: 30.0)
-
         }
     }
     
@@ -234,6 +233,14 @@ open class SectionHeaderView: UIView
         {
             width -= (30.0 + self.marginWidth())
         }
+        if (self.section?.editable == true)
+        {
+            width -= (30.0 + self.marginWidth())
+            if (self.section?.mode == FBFormMode.Edit)
+            {
+                width -= (30.0 + self.marginWidth())
+            }
+        }
         return width
     }
     
@@ -245,18 +252,6 @@ open class SectionHeaderView: UIView
     @objc @IBAction func editPressed()
     {
         let bundle = Bundle.init(for: self.classForCoder)
-        /*
-        if (self.section!.mode == FBFormMode.Edit)
-        {
-            self.section!.mode = FBFormMode.View
-            self.cancelButton?.isHidden = true
-        }
-        else
-        {
-            self.section!.mode = FBFormMode.Edit
-            self.cancelButton?.isHidden = false
-        }
-        */
         if (self.section!.mode == FBFormMode.View)
         {
             self.editButton?.setImage(UIImage.init(named: "save", in: bundle, compatibleWith: nil), for: UIControlState.normal)
@@ -267,7 +262,6 @@ open class SectionHeaderView: UIView
         }
         else
         {
-            //self.editButton?.setImage(UIImage.init(named: "edit", in: bundle, compatibleWith: nil), for: UIControlState.normal)
             if (self.delegate != nil)
             {
                 self.delegate!.saveSelected(section: self.index!)

@@ -224,6 +224,8 @@ section                             // start the first section
 			caption Start Date
 			required true
 			date-mode date
+			dialog
+				style #DatePopover
 	line 
 		id MyImage
 		field
@@ -239,6 +241,8 @@ section                             // start the first section
 			type signature
 			caption Sign Here!
 			required true
+			dialog
+				style #SignaturePopover
 
 
 
