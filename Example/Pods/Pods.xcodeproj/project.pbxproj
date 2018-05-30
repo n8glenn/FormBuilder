@@ -48,12 +48,10 @@
 		39D9D528394C7A0C2D848BD5043548D0 /* SwiftDeviceCss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091A3EF1249211D2111797F8BE7EE85A /* SwiftDeviceCss.swift */; };
 		3B3A88E074630B1EBC2139F4F70F0443 /* ThrowAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0094EAAC3C18B000459B228F01637 /* ThrowAssertion.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		3C66D2692E811DAE57A244A67E7AC555 /* BeVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31FA66A5FC0844A36FC1358ACE2220C /* BeVoid.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
-		3C9EF716B9A6E625A3D822C1C0D9C2B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD309FE2AE5B447F4C8EF1A516A3F1C1 /* Main.storyboard */; };
 		3D1A89FDD6B579BAA92AD398E5C019F9 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7B55BBFC51CA440749FF23010D40E /* EndWith.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		3E04D23B2995705A6106D41F3E3E4E33 /* ExpectationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4273097B1D0DCCA1E22978B03474F2F /* ExpectationMessage.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		410CA2887268C9DF37506C15AB24C6B8 /* FBStyleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F6CC760C370C7B63159A51B8EC6A48 /* FBStyleClass.swift */; };
 		419A7CEE85DC3F8661B7486342C81AF7 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7D6328493B73EF741AC61F4CEF01E /* QuickSelectedTestSuiteBuilder.swift */; };
-		41C704269939BCD6A306F6ABA6C0C778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBEBFB3846339FE2618A97B9D6513601 /* LaunchScreen.storyboard */; };
 		41C783192F7ECD485C8C6384D30CBF11 /* CwlDarwinDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6BAD1D6087151AE80585CD387919BA /* CwlDarwinDefinitions.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		42222C59C233EAEBAAA68B7B6403A6B0 /* FBDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A23A042BFD5190482EB70BD7BEEA6F /* FBDatePickerView.xib */; };
 		42EAAE8CFB95F2352FCE036F263263E1 /* CwlCatchException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1429ABADDB303927AEA89A830C740 /* CwlCatchException.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -115,7 +113,7 @@
 		84351D45D6CD29B7B2F0D28C801A359A /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A0A6A0AB33824508F02605FF24B77E7F /* right.png */; };
 		84C73CE4CB82B93D20DF710F9AE28739 /* Pods-FormBuilder_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F39A7E54D96B298E35DCA1F2E90164 /* Pods-FormBuilder_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		854819294D09AF43EE9ABEFB10248997 /* FBSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F60C9A581137AA1FDF24F19AD9C01C /* FBSettings.swift */; };
-		85FF5AA2380216E1584BFF6FAF1389AE /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B199B2C323CBAC96A87B1EDF02189B1 /* FormViewController.swift */; };
+		85FF5AA2380216E1584BFF6FAF1389AE /* FBFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B199B2C323CBAC96A87B1EDF02189B1 /* FBFormViewController.swift */; };
 		87CF1F3761113642B8EB1B95B5ED9A3A /* FBDatePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF2FE4010E044BBC770856C4D7D915F /* FBDatePickerField.swift */; };
 		883F0A98AE8446D59ACD8461B1D12F76 /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A924C203A11767BBF4D9C3737DA5D /* XCTestSuite+QuickTestSuiteBuilder.m */; };
 		8B55BD430033027AD5FF22D630DD9F62 /* DSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 82267A98670DE3E96EAB2047A8872FE0 /* DSL.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -133,6 +131,7 @@
 		90A19A3320A9F0CF00C2D56B /* FBFileLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */; };
 		90A19A3420A9F0CF00C2D56B /* FBOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A3020A9F0CE00C2D56B /* FBOptionSet.swift */; };
 		90A19A3520A9F0CF00C2D56B /* FBFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A19A3120A9F0CE00C2D56B /* FBFile.swift */; };
+		90C3AF1020BF4DCD006E74E4 /* FBFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90C3AF0F20BF4DCD006E74E4 /* FBFormViewController.xib */; };
 		9232A48C7E03742F3537A2D15A1BE6DE /* FBLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744158BBF9DA0BB954A61F04FFF90269 /* FBLabelView.xib */; };
 		94824FDB90D53A5922F8507A173D54D2 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B648309CB0D33780939B9A3879385 /* String+Height.swift */; };
 		94E49367D7353BB61EB131749C9B7035 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C9E93FDAF76CEA15A9E23CC159DED1 /* Callsite.swift */; };
@@ -296,7 +295,7 @@
 		26D7B54C77385B78FFA011C64D94E436 /* AllPass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllPass.swift; path = Sources/Nimble/Matchers/AllPass.swift; sourceTree = "<group>"; };
 		2727DBDF3F41A52F002F6B1992165881 /* Nimble.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Nimble.h; path = Sources/Nimble/Nimble.h; sourceTree = "<group>"; };
 		276BCB343DAD2F145BEFA79A40A2AA35 /* FTPopOverMenuCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FTPopOverMenuCell.swift; sourceTree = "<group>"; };
-		2B199B2C323CBAC96A87B1EDF02189B1 /* FormViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		2B199B2C323CBAC96A87B1EDF02189B1 /* FBFormViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBFormViewController.swift; sourceTree = "<group>"; };
 		2DD6CC02AD6D4C0E7D1169EF9ECB3706 /* ContainElementSatisfying.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContainElementSatisfying.swift; path = Sources/Nimble/Matchers/ContainElementSatisfying.swift; sourceTree = "<group>"; };
 		2E8E430D83F3CC7F72E348A0B222C46F /* QuickTestSuite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickTestSuite.swift; path = Sources/Quick/QuickTestSuite.swift; sourceTree = "<group>"; };
 		301223B3EB74E21CDB1303C459B57231 /* ExampleHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleHooks.swift; path = Sources/Quick/Hooks/ExampleHooks.swift; sourceTree = "<group>"; };
@@ -354,7 +353,6 @@
 		73C1D1A0D20C667FAF4F01C3BA4AC451 /* Behavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Behavior.swift; path = Sources/Quick/Behavior.swift; sourceTree = "<group>"; };
 		744158BBF9DA0BB954A61F04FFF90269 /* FBLabelView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBLabelView.xib; path = FormBuilder/Assets/FBLabelView.xib; sourceTree = "<group>"; };
 		744B2EC79E5016861F1F7611A082C2D4 /* FBTextAreaView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBTextAreaView.xib; path = FormBuilder/Assets/FBTextAreaView.xib; sourceTree = "<group>"; };
-		7530A0646A05DAA358FAAC58CE75D441 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B78AC1C0059E66BD95A9F0CD2D24F5 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+CurrentTestBundle.swift"; path = "Sources/Quick/NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		77125F245BAE7809A034657A48A40830 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Nimble/Utils/Errors.swift; sourceTree = "<group>"; };
 		77C2834A0AE71F3E85759885C0557533 /* SatisfyAnyOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAnyOf.swift; path = Sources/Nimble/Matchers/SatisfyAnyOf.swift; sourceTree = "<group>"; };
@@ -393,6 +391,7 @@
 		90A19A2F20A9F0CE00C2D56B /* FBFileLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFileLine.swift; sourceTree = "<group>"; };
 		90A19A3020A9F0CE00C2D56B /* FBOptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBOptionSet.swift; sourceTree = "<group>"; };
 		90A19A3120A9F0CE00C2D56B /* FBFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBFile.swift; sourceTree = "<group>"; };
+		90C3AF0F20BF4DCD006E74E4 /* FBFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FBFormViewController.xib; path = FormBuilder/Assets/FBFormViewController.xib; sourceTree = "<group>"; };
 		91159A66B51439581BA8B32CB8E4AEBD /* FBOptionSetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBOptionSetView.swift; sourceTree = "<group>"; };
 		9245B48A46AAC45502A6B8A2AB745038 /* HooksPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HooksPhase.swift; path = Sources/Quick/Hooks/HooksPhase.swift; sourceTree = "<group>"; };
 		9382818A858037C49A39E597243AD874 /* camera.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = camera.png; path = FormBuilder/Assets/camera.png; sourceTree = "<group>"; };
@@ -503,7 +502,6 @@
 		F2E26795EA1E1E8EB7061D970350AFE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F32D35AB3A465D37862B33B916D35C34 /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
 		F4C7D6328493B73EF741AC61F4CEF01E /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickSelectedTestSuiteBuilder.swift; path = Sources/Quick/QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
-		F4E671743B94F7451F0BF6B5E060356E /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6B33C6B022DFDC6029FCA572EDA5BEF /* FBCheckBoxField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBCheckBoxField.swift; sourceTree = "<group>"; };
 		FB15B1A31F2D395DED0CD87E0A71412C /* Pods_FormBuilder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5550FB2168466A1199CC67BDA1A232 /* Pods-FormBuilder_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FormBuilder_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -652,8 +650,6 @@
 				CF3768604BB92D4EDE81B3FCE9D29907 /* trash-white.png */,
 				D622AD89A76B3A1053241BCDE44492F7 /* Style.css */,
 				90A19A2C20A9EE9F00C2D56B /* Settings.spec */,
-				CBEBFB3846339FE2618A97B9D6513601 /* LaunchScreen.storyboard */,
-				CD309FE2AE5B447F4C8EF1A516A3F1C1 /* Main.storyboard */,
 				D86C9BA1BFD0D0CA4B245DDC4878C2F6 /* FBCheckBoxView.xib */,
 				ACD016617EDB27E741F717C49C28F079 /* FBCheckView.xib */,
 				417BCFD3F3F631452BF11066AA14CFDB /* FBComboBoxFieldView.xib */,
@@ -673,6 +669,7 @@
 				1D7957EFD6270A1EB2E73E414079B930 /* FBSignView.xib */,
 				744B2EC79E5016861F1F7611A082C2D4 /* FBTextAreaView.xib */,
 				8A872E18DE33499ED2C07018DAF30352 /* FBTextFieldView.xib */,
+				90C3AF0F20BF4DCD006E74E4 /* FBFormViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -954,7 +951,7 @@
 			isa = PBXGroup;
 			children = (
 				5DFBD1A4D27ECE07CCE38AF3C7BE1467 /* FormLineTableViewCell.swift */,
-				2B199B2C323CBAC96A87B1EDF02189B1 /* FormViewController.swift */,
+				2B199B2C323CBAC96A87B1EDF02189B1 /* FBFormViewController.swift */,
 				02A7E424165A4158EECC15956CA7DA6A /* Header */,
 			);
 			path = Form;
@@ -1333,8 +1330,6 @@
 				622DA881F22731EEAFB1C6F571AA1E96 /* FBImagePickerView.xib in Resources */,
 				9C2B896DD91A1E7C7FA2A1821A96A208 /* FBImageView.xib in Resources */,
 				9232A48C7E03742F3537A2D15A1BE6DE /* FBLabelView.xib in Resources */,
-				41C704269939BCD6A306F6ABA6C0C778 /* LaunchScreen.storyboard in Resources */,
-				3C9EF716B9A6E625A3D822C1C0D9C2B4 /* Main.storyboard in Resources */,
 				172DA48AD2ED6987405732B412B14C11 /* minus.png in Resources */,
 				2CB6877994AE756146AE3C3F5287C9E2 /* FBOptionSetView.xib in Resources */,
 				A893166A0A137EDCF77BF76DF547C581 /* FBOptionView.xib in Resources */,
@@ -1353,6 +1348,7 @@
 				FCE4CA6777100E22086F3BCF7835155B /* FBTextFieldView.xib in Resources */,
 				52BC7A27C9E4D0CCD29EF313F7FE1CB2 /* trash-white.png in Resources */,
 				4D3138C5F37113EAB3064DA00A9CDF66 /* trash.png in Resources */,
+				90C3AF1020BF4DCD006E74E4 /* FBFormViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,7 +1385,7 @@
 				CC072496A862BC054FB760C2D5AF71C8 /* FormBuilder-dummy.m in Sources */,
 				46B3B39B8B9875351FE99DE0E383DBBC /* FormLineTableViewCell.swift in Sources */,
 				90A19A3220A9F0CF00C2D56B /* FBOption.swift in Sources */,
-				85FF5AA2380216E1584BFF6FAF1389AE /* FormViewController.swift in Sources */,
+				85FF5AA2380216E1584BFF6FAF1389AE /* FBFormViewController.swift in Sources */,
 				BBA0ACC4065DFE1DCE2F258EB0820511 /* FTConfiguration.swift in Sources */,
 				71EFD0A5543044956931A69D4BE3358C /* FTConstants.swift in Sources */,
 				057041CE9A13A6C63056A31A2F97CE3C /* FTPopOverMenu.swift in Sources */,
@@ -1573,27 +1569,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		CBEBFB3846339FE2618A97B9D6513601 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7530A0646A05DAA358FAAC58CE75D441 /* LaunchScreen.storyboard */,
-			);
-			name = LaunchScreen.storyboard;
-			path = FormBuilder/Assets;
-			sourceTree = "<group>";
-		};
-		CD309FE2AE5B447F4C8EF1A516A3F1C1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4E671743B94F7451F0BF6B5E060356E /* Main.storyboard */,
-			);
-			name = Main.storyboard;
-			path = FormBuilder/Assets;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		1B230D4A47175B0A5ED63DEFA20FCB16 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1673,6 +1648,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1799,6 +1775,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1889,6 +1866,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Target Support Files/Pods-FormBuilder_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -2020,6 +1998,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Target Support Files/Pods-FormBuilder_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

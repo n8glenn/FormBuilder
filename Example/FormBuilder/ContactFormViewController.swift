@@ -9,7 +9,7 @@
 import UIKit
 import FormBuilder
 
-class ContactFormViewController: FormViewController
+class ContactFormViewController: FBFormViewController
 {
 
     let address:Address = Address() // this is the object to be represented on this form.

@@ -566,7 +566,9 @@
 			baseConfigurationReference = 5D320BF4DACE737E5B178476 /* Pods-FormBuilder_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				DEVELOPMENT_TEAM = RM2336EMEF;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				INFOPLIST_FILE = FormBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -582,7 +584,9 @@
 			baseConfigurationReference = B3D902005FE86FE1CE2F2774 /* Pods-FormBuilder_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				DEVELOPMENT_TEAM = RM2336EMEF;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				INFOPLIST_FILE = FormBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -598,10 +602,7 @@
 			baseConfigurationReference = EB78A78DA102820769BE54AA /* Pods-FormBuilder_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = RM2336EMEF;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -620,10 +621,7 @@
 			baseConfigurationReference = 1915943F8CF7891301C71355 /* Pods-FormBuilder_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = RM2336EMEF;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";

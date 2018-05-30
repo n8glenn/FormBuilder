@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class FormViewController: UIViewController,
+open class FBFormViewController: UIViewController,
     UITableViewDataSource,
     UITableViewDelegate,
     FormLineDelegate,
