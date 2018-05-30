@@ -46,7 +46,7 @@ open class FBField: NSObject
     var style:FBStyleClass? = nil
     public var line:FBLine?
     public var fieldType:FBFieldType = FBFieldType.Heading
-    var view:FieldView? = nil
+    var view:FBFieldView? = nil
     public var caption:String? = ""
     public var visible:Bool = true
     var range = (0, 0)

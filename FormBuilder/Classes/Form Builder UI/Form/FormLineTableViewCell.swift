@@ -14,7 +14,7 @@ protocol FormLineDelegate: class
     func lineHeightChanged(line: FBLine)
 }
 
-class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
+class FormLineTableViewCell: UITableViewCell, FBFieldViewDelegate
 {
     var line:FBLine?
     weak var delegate:FormLineDelegate?
@@ -94,15 +94,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.Heading:
                 // header field
-                let headingView:HeadingView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = headingView as FieldView
+                let headingView:FBHeadingView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = headingView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 headingView.frame = cellFrame
                 left += width
-                headingView.field = field as? HeadingField
+                headingView.field = field as? FBHeadingField
                 headingView.updateDisplay(label: field.caption!)
                 headingView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
@@ -112,15 +112,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.Label:
                 // label field
-                let labelView:LabelView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = labelView as FieldView
+                let labelView:FBLabelView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = labelView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 labelView.frame = cellFrame
                 left += width
-                labelView.field = field as? LabelField
+                labelView.field = field as? FBLabelField
                 labelView.updateDisplay(label: field.caption!)
                 labelView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
@@ -130,15 +130,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.Image:
                 // image field
-                let imageView:ImageView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = imageView as FieldView
+                let imageView:FBImageView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = imageView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 imageView.frame = cellFrame
                 left += width
-                imageView.field = field as? ImageField
+                imageView.field = field as? FBImageField
                 imageView.updateDisplay(label: field.caption!, image:UIImage(named:"welcome")!)
                 imageView.backgroundColor = backgroundColor
                 self.contentView.backgroundColor = borderColor
@@ -149,15 +149,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
             case FBFieldType.ImagePicker:
                 // image picker field
                 // image field
-                let imagePickerView:ImagePickerView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = imagePickerView as FieldView
+                let imagePickerView:FBImagePickerView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = imagePickerView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 imagePickerView.frame = cellFrame
                 left += width
-                imagePickerView.field = field as? ImagePickerField
+                imagePickerView.field = field as? FBImagePickerField
                 if (field.editing)
                 {
                     if (field.hasInput)
@@ -190,15 +190,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.Text:
                 // text input field
-                let textFieldView:TextFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = textFieldView as FieldView
+                let textFieldView:FBTextFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = textFieldView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 textFieldView.frame = cellFrame
                 left += width
-                textFieldView.field = field as? TextField
+                textFieldView.field = field as? FBTextField
                 if (field.editing)
                 {
                     textFieldView.updateDisplay(label: field.caption!, text: field.input as? String ?? "", required: field.required)
@@ -215,15 +215,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.TextArea:
                 // text input area
-                let textAreaView:TextAreaView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = textAreaView as FieldView
+                let textAreaView:FBTextAreaView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = textAreaView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 textAreaView.frame = cellFrame
                 left += width
-                textAreaView.field = field as? TextAreaField
+                textAreaView.field = field as? FBTextAreaField
                 textAreaView.delegate = self
                 var text:String = ""
                 if (field.editing)
@@ -243,15 +243,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.ComboBox:
                 // combo box for selecting among predefined options
-                let comboboxFieldView:ComboBoxFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))! 
-                field.view = comboboxFieldView as FieldView
+                let comboboxFieldView:FBComboBoxFieldView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))! 
+                field.view = comboboxFieldView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 comboboxFieldView.frame = cellFrame
                 left += width
-                comboboxFieldView.field = field as? ComboBoxField
+                comboboxFieldView.field = field as? FBComboBoxField
                 comboboxFieldView.delegate = self
                 var data:String = ""
                 if (field.editing)
@@ -287,15 +287,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.CheckBox:
                 // check box to turn an item on or off
-                let checkBoxView:CheckBoxView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = checkBoxView as FieldView
+                let checkBoxView:FBCheckBoxView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = checkBoxView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 checkBoxView.frame = cellFrame
                 left += width
-                checkBoxView.field = field as? CheckBoxField
+                checkBoxView.field = field as? FBCheckBoxField
                 checkBoxView.delegate = self
                 var data:FBCheckState = FBCheckState.Unchecked
                 if (field.editing)
@@ -349,15 +349,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 break
                 
             case FBFieldType.OptionSet:
-                let optionSetView:OptionSetView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = optionSetView as FieldView
+                let optionSetView:FBOptionSetView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = optionSetView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 optionSetView.frame = cellFrame
                 left += width
-                optionSetView.field = field as? OptionSetField
+                optionSetView.field = field as? FBOptionSetField
                 optionSetView.delegate = self
                 if (field.editing)
                 {
@@ -375,14 +375,14 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.Signature:
                 let signatureView:FBSignatureView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = signatureView as FieldView
+                field.view = signatureView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 signatureView.frame = cellFrame
                 left += width
-                signatureView.field = field as? SignatureField
+                signatureView.field = field as? FBSignatureField
                 signatureView.delegate = self
                 if (field.editing)
                 {
@@ -400,15 +400,15 @@ class FormLineTableViewCell: UITableViewCell, FieldViewDelegate
                 
             case FBFieldType.DatePicker:
                 // date picker field
-                let datePickerView:DatePickerView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
-                field.view = datePickerView as FieldView
+                let datePickerView:FBDatePickerView = UIView.fromNib(withName: field.style!.viewFor(type: field.fieldType))!
+                field.view = datePickerView as FBFieldView
                 let cellFrame:CGRect = CGRect(x: left + leftOffset,
                                               y: self.contentView.frame.origin.y,
                                               width: width - (leftOffset + rightOffset),
                                               height: self.contentView.frame.size.height - border)
                 datePickerView.frame = cellFrame
                 left += width
-                datePickerView.field = field as? DatePickerField
+                datePickerView.field = field as? FBDatePickerField
                 var text:String = ""
                 if (field.editing)
                 {

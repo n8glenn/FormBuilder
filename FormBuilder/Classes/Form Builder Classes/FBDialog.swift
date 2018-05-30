@@ -15,7 +15,7 @@ public enum FBDialogType:Int
 
 open class FBDialog: NSObject
 {
-    var field:InputField? = nil
+    var field:FBInputField? = nil
     var tag:String? = nil
     var type:FBDialogType? = nil
     var style:FBStyleClass? = nil
@@ -25,7 +25,7 @@ open class FBDialog: NSObject
         super.init()
     }
     
-    public init(type:FBDialogType, field:InputField, lines:(Int, Int))
+    public init(type:FBDialogType, field:FBInputField, lines:(Int, Int))
     {
         super.init()
         

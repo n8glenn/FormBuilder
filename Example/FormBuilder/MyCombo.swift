@@ -9,7 +9,7 @@
 import UIKit
 import FormBuilder
 
-class MyCombo: ComboBoxFieldView
+class MyCombo: FBComboBoxFieldView
 {
     override func height() -> CGFloat
     {

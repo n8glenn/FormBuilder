@@ -17,59 +17,59 @@ extension UIView
         
         switch nibName
         {
-        case "CheckBoxView":
-            bundle = Bundle.init(for: CheckBoxView.self)
+        case "FBCheckBoxView":
+            bundle = Bundle.init(for: FBCheckBoxView.self)
             break
-        case "CheckView":
-            bundle = Bundle.init(for: CheckView.self)
+        case "FBCheckView":
+            bundle = Bundle.init(for: FBCheckView.self)
             break
-        case "ComboBoxFieldView":
-            bundle = Bundle.init(for: ComboBoxFieldView.self)
+        case "FBComboBoxFieldView":
+            bundle = Bundle.init(for: FBComboBoxFieldView.self)
             break
-        case "DatePickerView":
-            bundle = Bundle.init(for: DatePickerView.self)
+        case "FBDatePickerView":
+            bundle = Bundle.init(for: FBDatePickerView.self)
             break
-        case "DateView":
-            bundle = Bundle.init(for: DateView.self)
+        case "FBDateView":
+            bundle = Bundle.init(for: FBDateView.self)
             break
-        case "DropDownView":
-            bundle = Bundle.init(for: DropDownView.self)
+        case "FBDropDownView":
+            bundle = Bundle.init(for: FBDropDownView.self)
             break
-        case "SectionHeaderView":
-            bundle = Bundle.init(for: SectionHeaderView.self)
+        case "FBSectionHeaderView":
+            bundle = Bundle.init(for: FBSectionHeaderView.self)
             break
-        case "HeadingView":
-            bundle = Bundle.init(for: HeadingView.self)
+        case "FBHeadingView":
+            bundle = Bundle.init(for: FBHeadingView.self)
             break
-        case "ImagePickerView":
-            bundle = Bundle.init(for: ImagePickerView.self)
+        case "FBImagePickerView":
+            bundle = Bundle.init(for: FBImagePickerView.self)
             break
-        case "ImageView":
-            bundle = Bundle.init(for: ImageView.self)
+        case "FBImageView":
+            bundle = Bundle.init(for: FBImageView.self)
             break
-        case "LabelView":
-            bundle = Bundle.init(for: LabelView.self)
+        case "FBLabelView":
+            bundle = Bundle.init(for: FBLabelView.self)
             break
-        case "OptionSetView":
-            bundle = Bundle.init(for: OptionSetView.self)
+        case "FBOptionSetView":
+            bundle = Bundle.init(for: FBOptionSetView.self)
             break
-        case "OptionView":
-            bundle = Bundle.init(for: OptionView.self)
+        case "FBOptionView":
+            bundle = Bundle.init(for: FBOptionView.self)
             break
-        case "RequiredView":
-            bundle = Bundle.init(for: RequiredView.self)
+        case "FBRequiredView":
+            bundle = Bundle.init(for: FBRequiredView.self)
             break
         case "FBSignatureView":
             bundle = Bundle.init(for: FBSignatureView.self)
             break
-        case "SignView":
-            bundle = Bundle.init(for: SignView.self)
+        case "FBSignView":
+            bundle = Bundle.init(for: FBSignView.self)
             break
-        case "TextAreaView":
-            bundle = Bundle.init(for: TextAreaView.self)
+        case "FBTextAreaView":
+            bundle = Bundle.init(for: FBTextAreaView.self)
             break
-        case "TextFieldView":
-            bundle = Bundle.init(for: TextFieldView.self)
+        case "FBTextFieldView":
+            bundle = Bundle.init(for: FBTextFieldView.self)
             break
 
         default:

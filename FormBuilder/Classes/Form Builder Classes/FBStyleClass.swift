@@ -105,37 +105,37 @@ public class FBStyleClass: NSObject
         switch (type)
         {
         case FBFieldType.Section:
-            return self.value(forKey: "section-header-view") as? String ?? "SectionHeaderView"
+            return self.value(forKey: "section-header-view") as? String ?? "FBSectionHeaderView"
 
         case FBFieldType.Heading:
-            return self.value(forKey: "heading-view") as? String ?? "HeadingView"
+            return self.value(forKey: "heading-view") as? String ?? "FBHeadingView"
 
         case FBFieldType.Label:
-            return self.value(forKey: "label-view") as? String ?? "LabelView"
+            return self.value(forKey: "label-view") as? String ?? "FBLabelView"
 
         case FBFieldType.Text:
-            return self.value(forKey: "textfield-view") as? String ?? "TextFieldView"
+            return self.value(forKey: "textfield-view") as? String ?? "FBTextFieldView"
 
         case FBFieldType.TextArea:
-            return self.value(forKey: "textarea-view") as? String ?? "TextAreaView"
+            return self.value(forKey: "textarea-view") as? String ?? "FBTextAreaView"
 
         case FBFieldType.ComboBox:
-            return self.value(forKey: "combobox-view") as? String ?? "ComboBoxFieldView"
+            return self.value(forKey: "combobox-view") as? String ?? "FBComboBoxFieldView"
 
         case FBFieldType.CheckBox:
-            return self.value(forKey: "checkbox-view") as? String ?? "CheckBoxView"
+            return self.value(forKey: "checkbox-view") as? String ?? "FBCheckBoxView"
 
         case FBFieldType.OptionSet:
-            return self.value(forKey: "optionset-view") as? String ?? "OptionSetView"
+            return self.value(forKey: "optionset-view") as? String ?? "FBOptionSetView"
 
         case FBFieldType.Image:
-            return self.value(forKey: "image-view") as? String ?? "ImageView"
+            return self.value(forKey: "image-view") as? String ?? "FBImageView"
 
         case FBFieldType.ImagePicker:
-            return self.value(forKey: "imagepicker-view") as? String ?? "ImagePickerView"
+            return self.value(forKey: "imagepicker-view") as? String ?? "FBImagePickerView"
 
         case FBFieldType.DatePicker:
-            return self.value(forKey: "datepicker-view") as? String ?? "DatePickerView"
+            return self.value(forKey: "datepicker-view") as? String ?? "FBDatePickerView"
 
         case FBFieldType.Signature:
             return self.value(forKey: "signature-view") as? String ?? "FBSignatureView"

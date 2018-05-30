@@ -13,7 +13,7 @@ open class FormViewController: UIViewController,
     UITableViewDelegate,
     FormLineDelegate,
     FormDelegate,
-    SectionHeaderDelegate
+    FBSectionHeaderDelegate
 {
     // --------------------------------------------------------->
     // -- ATTENTION: If you want to use the form builder, you must
@@ -39,8 +39,7 @@ open class FormViewController: UIViewController,
         super.viewDidLoad()
 
         let bundle = Bundle.init(for: FormLineTableViewCell.self)
-        self.tableView?.register(UINib(nibName: "FormCell", bundle: bundle), forCellReuseIdentifier: "FormCell")
-        //self.tableView?.register(UINib(nibName: "BottomCell", bundle: bundle), forCellReuseIdentifier: "BottomCell")
+        self.tableView?.register(UINib(nibName: "FBFormCell", bundle: bundle), forCellReuseIdentifier: "FormCell")
     }
 
     open override func viewWillAppear(_ animated: Bool)
@@ -97,7 +96,7 @@ open class FormViewController: UIViewController,
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let view:SectionHeaderView = UIView.fromNib(withName: self.form!.sections[section].style!.viewFor(type: FBFieldType.Section))!
+        let view:FBSectionHeaderView = UIView.fromNib(withName: self.form!.sections[section].style!.viewFor(type: FBFieldType.Section))!
         view.updateDisplay(index: section, section: self.form!.sections[section])
         view.delegate = self
         return view
@@ -105,7 +104,7 @@ open class FormViewController: UIViewController,
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        let view:SectionHeaderView = UIView.fromNib(withName: self.form!.sections[section].style!.viewFor(type: FBFieldType.Section))!
+        let view:FBSectionHeaderView = UIView.fromNib(withName: self.form!.sections[section].style!.viewFor(type: FBFieldType.Section))!
         view.updateDisplay(index: section, section: self.form!.sections[section])
         return view.height() + (self.form?.visibleSections()[section].style?.value(forKey: "border") as! CGFloat) + ((self.form?.visibleSections()[section].style?.value(forKey: "margin") as! CGFloat) * 2)
     }
@@ -329,10 +328,10 @@ open class FormViewController: UIViewController,
                                             let count:Int = currentSection.lines!.count
                                             let line:FBLine = FBLine().initWith(section: currentSection, id: "Line." + String(count + 1))
                                             line.allowsRemove = true
-                                            let field:ImagePickerField = ImagePickerField().initWith(line: line,
+                                            let field:FBImagePickerField = FBImagePickerField().initWith(line: line,
                                                                                                      id: "Field." + String(count + 1),
                                                                                                      label:enteredText ?? "",
-                                                                                                     type: FBFieldType.ImagePicker) as! ImagePickerField
+                                                                                                     type: FBFieldType.ImagePicker) as! FBImagePickerField
                                             line.fields.insert(field, at: 0)
                                             currentSection.lines?.insert(line, at: count)
                                             self?.tableView!.beginUpdates()
@@ -369,10 +368,10 @@ open class FormViewController: UIViewController,
                                             let count:Int = currentSection.lines!.count
                                             let line:FBLine = FBLine().initWith(section: currentSection, id: "Line." + String(count + 1))
                                             line.allowsRemove = true
-                                            let field:LabelField = LabelField().initWith(line: line,
+                                            let field:FBLabelField = FBLabelField().initWith(line: line,
                                                                                          id: "Field." + String(count + 1),
                                                                                          label:enteredText ?? "",
-                                                                                         type: FBFieldType.Label) as! LabelField
+                                                                                         type: FBFieldType.Label) as! FBLabelField
                                             
                                             line.fields.insert(field, at: 0)
                                             currentSection.lines?.insert(line, at: count)
@@ -409,10 +408,10 @@ open class FormViewController: UIViewController,
                                             let count:Int = currentSection.lines!.count
                                             let line:FBLine = FBLine().initWith(section: currentSection, id: "Line." + String(count + 1))
                                             line.allowsRemove = true
-                                            let field:SignatureField = SignatureField().initWith(line: line,
+                                            let field:FBSignatureField = FBSignatureField().initWith(line: line,
                                                                                                  id: "Field." + String(count + 1),
                                                                                                  label:enteredText ?? "",
-                                                                                                 type: FBFieldType.Signature) as! SignatureField
+                                                                                                 type: FBFieldType.Signature) as! FBSignatureField
                                             line.fields.insert(field, at: 0)
                                             currentSection.lines?.insert(line, at: count)
                                             self?.tableView!.beginUpdates()

@@ -113,64 +113,64 @@ public class FBLine: NSObject
                 case FBFieldType.Section:
                     break
                 case FBFieldType.Heading:
-                    let field:HeadingField = HeadingField(line: self, lines: fieldRange)
+                    let field:FBHeadingField = FBHeadingField(line: self, lines: fieldRange)
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.Label:
-                    let field:LabelField = LabelField(line: self, lines: fieldRange)
+                    let field:FBLabelField = FBLabelField(line: self, lines: fieldRange)
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.Text:
-                    let field:TextField = TextField(line: self, lines: fieldRange)
+                    let field:FBTextField = FBTextField(line: self, lines: fieldRange)
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.TextArea:
-                    let field:TextAreaField = TextAreaField(line: self, lines: fieldRange)
+                    let field:FBTextAreaField = FBTextAreaField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.ComboBox:
-                    let field:ComboBoxField = ComboBoxField(line: self, lines: fieldRange)
+                    let field:FBComboBoxField = FBComboBoxField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.CheckBox:
-                    let field:CheckBoxField = CheckBoxField(line: self, lines: fieldRange)
+                    let field:FBCheckBoxField = FBCheckBoxField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.Image:
-                    let field:ImageField = ImageField(line: self, lines: fieldRange)
+                    let field:FBImageField = FBImageField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.ImagePicker:
-                    let field:ImagePickerField = ImagePickerField(line: self, lines: fieldRange)
+                    let field:FBImagePickerField = FBImagePickerField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.OptionSet:
-                    let field:OptionSetField = OptionSetField(line: self, lines: fieldRange)
+                    let field:FBOptionSetField = FBOptionSetField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.DatePicker:
-                    let field:DatePickerField = DatePickerField(line: self, lines: fieldRange)
+                    let field:FBDatePickerField = FBDatePickerField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
                     break
                 case FBFieldType.Signature:
-                    let field:SignatureField = SignatureField(line: self, lines: fieldRange)
+                    let field:FBSignatureField = FBSignatureField(line: self, lines: fieldRange)
                     field.line = self
                     self.fields.append(field as FBField)
                     
