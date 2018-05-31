@@ -40,8 +40,8 @@ open class FBInputField: FBField
         {
             _data = newValue
             _input = newValue
-            hasData = (newValue != nil)
-            hasInput = (newValue != nil)
+            hasData = self.hasValue() //(newValue != nil)
+            hasInput = self.hasValue() //(newValue != nil)
         }
     }
 
@@ -55,7 +55,7 @@ open class FBInputField: FBField
         set(newValue)
         {
             _input = newValue
-            hasInput = (newValue != nil)
+            hasInput = self.hasValue() //(newValue != nil)
             self.line?.section?.form?.delegate?.updated(field: self, withValue: newValue)
         }
     }
@@ -308,7 +308,7 @@ open class FBInputField: FBField
     override public func clear()
     {
         _input = _data
-        hasInput = (_data != nil)
+        hasInput = self.hasValue()
     }
     
     func hasValue() -> Bool
@@ -322,10 +322,7 @@ open class FBInputField: FBField
         case FBFieldType.CheckBox:
             return ((self.input is Bool) && (self.input as! Bool) == true)
             
-        case FBFieldType.OptionSet, FBFieldType.ComboBox:
-            return (self.input is Int)
-            
-        case FBFieldType.Text, FBFieldType.TextArea:
+        case FBFieldType.OptionSet, FBFieldType.ComboBox, FBFieldType.Text, FBFieldType.TextArea:
             return ((self.input is String) &&
                 !(self.input as! String).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)
             
