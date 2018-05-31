@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FormBuilder'
-  s.version          = '0.5.3'
+  s.version          = '0.5.6'
   s.summary          = 'A swift library to make building data entry forms fast and simple.'
 
 # This description is used to generate tags and improve search results.
