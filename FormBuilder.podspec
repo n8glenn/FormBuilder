@@ -23,7 +23,7 @@ boiler plate code so that you can focus on what makes your project unique and av
                        DESC
 
   s.homepage         = 'https://github.com/n8glenn/FormBuilder'
-  s.screenshots     = 'https://www.dropbox.com/s/517byyh4riws6qc/Screen1.png?dl=0', 'https://www.dropbox.com/s/r5u4sdno3pv2ovs/Screen2.png?dl=0', 'https://www.dropbox.com/s/8r6jkr4viv0ci9j/Screen3.png?dl=0', 'https://www.dropbox.com/s/y757ga2aq0wthnj/Screen4.png?dl=0', 'https://www.dropbox.com/s/i1u261uamwcj5bn/Screen5.png?dl=0'
+  s.screenshots     = 'https://dl.dropboxusercontent.com/s/517byyh4riws6qc/Screen1.png', 'https://dl.dropboxusercontent.com/s/r5u4sdno3pv2ovs/Screen2.png', 'https://dl.dropboxusercontent.com/s/8r6jkr4viv0ci9j/Screen3.png', 'https://dl.dropboxusercontent.com/s/y757ga2aq0wthnj/Screen4.png', 'https://dl.dropboxusercontent.com/s/i1u261uamwcj5bn/Screen5.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'n8glenn' => 'n8glenn@gmail.com' }
   s.source           = { :git => 'https://github.com/n8glenn/FormBuilder.git', :tag => s.version.to_s }
