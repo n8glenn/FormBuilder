@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FormBuilder'
-  s.version          = '0.5.7'
+  s.version          = '0.5.8'
   s.summary          = 'A swift library to make building data entry forms fast and simple.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ boiler plate code so that you can focus on what makes your project unique and av
   s.source           = { :git => 'https://github.com/n8glenn/FormBuilder.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/n8glenn'
 
-  s.ios.deployment_target = '11.3'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'FormBuilder/Classes/**/*'
   
