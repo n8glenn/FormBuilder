@@ -308,7 +308,7 @@ open class FBInputField: FBField
     override public func clear()
     {
         _input = _data
-        hasInput = self.hasValue()
+        hasInput = self.hasValue() //(_data != nil)
     }
     
     func hasValue() -> Bool
