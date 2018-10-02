@@ -1,0 +1,16 @@
+PODS:
+  - FormBuilder (0.5.9)
+
+DEPENDENCIES:
+  - FormBuilder (from `../`)
+
+EXTERNAL SOURCES:
+  FormBuilder:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FormBuilder: 29cf8d4b04560fcb42c068b22ac85d8de22d3899
+
+PODFILE CHECKSUM: 8764d2daf43b1812e158c1acd10ea34270a4232b
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,119 @@
+#App
+{
+    "background-color":"#cccdc6FF";
+    "border-color":"#cccdc6FF";
+    "alternate-background-color":"#ffffffFF";
+    "alternate-colors":"true";
+    "foreground-color":"#000000FF";
+    "font-family":"Helvetica";
+    "font-size":12;
+    "foreground-color":"#000000FF";
+    "input-font-size":17;
+    "input-font-family":"Helvetica-Bold";
+    "input-foreground-color":"#666666FF";
+    "margin":7.5;
+    "border":2.5;
+    "orientation":"horizontal";
+    "date-format":"MM-dd-yyyy";
+    "time-format":"hh:mm:ss a";
+    "date-time-format":"MM-dd-yyyy hh:mm:ss a";
+    "section-header-view":"FBSectionHeaderView";
+    "heading-view":"FBHeadingView";
+    "label-view":"FBLabelView";
+    "text-view":"FBTextFieldView";
+    "textarea-view":"FBTextAreaView";
+    "combobox-view":"FBComboBoxFieldView";
+    "checkbox-view":"FBCheckBoxView";
+    "optionset-view":"FBOptionSetView";
+    "signature-view":"FBSignatureView";
+    "datepicker-view":"FBDatePickerView";
+    "image-view":"FBImageView";
+    "imagepicker-view":"FBImagePickerView";
+}
+#Form
+{
+    "parent":"#App";
+    "font-size":17;
+    "font-family":"Helvetica";
+}
+#Section
+{
+    "parent":"#Form";
+    "background-color":"#f5f5eaFF";
+}
+#SectionHeader
+{
+    "parent":"#Section";
+    "background-color":"#f5f5eaFF";
+    "font-size":30;
+    "font-family":"Helvetica-Bold";
+    "foreground-color":"#666666FF";
+}
+#Line
+{
+    "parent":"#Section";
+    "font-size":24;
+    "font-family":"Helvetica-Bold";
+    "foreground-color":"#666666FF";
+}
+#Field
+{
+    "parent":"#Line";
+}
+#Label
+{
+    "parent":"#Field";
+}
+#Heading
+{
+    "parent":"#Heading";
+    "orientation":"reverse-horizontal";
+    "font-size":30;
+    "font-family":"Helvetica-Bold";
+}
+#TextField
+{
+    "parent":"#Field";
+    "orientation":"reverse-horizontal";
+}
+#MyText
+{
+    "parent":"#Field";
+    "orientation":"vertical";
+    "background-color":"#eeeeeeFF";
+    "alternate-colors":"false";
+}
+#TextArea
+{
+    "parent":"#Field";
+}
+#ImagePicker
+{
+    "parent":"#ImagePicker";
+}
+#DateDialog
+{
+    "parent":"#Field";
+    "width":300;
+    "height":360;
+    "background-color":"#333333FF";
+    "foreground-color":"#ffffffFF";
+    "button-color":"#444444FF";
+}
+#SignatureDialog
+{
+    "parent":"#Field";
+    "width":350;
+    "height":100;
+    "background-color":"#333333FF";
+    "foreground-color":"#ffffffFF";
+    "button-color":"#444444FF";
+}
+#SignView
+{
+    "parent":"#Field";
+    "width":250;
+    "height":60;
+}
+
+/*    comment here */

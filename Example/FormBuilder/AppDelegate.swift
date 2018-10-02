@@ -2,11 +2,12 @@
 //  AppDelegate.swift
 //  FormBuilder
 //
-//  Created by n8glenn on 10/02/2018.
+//  Created by n8glenn on 04/28/2018.
 //  Copyright (c) 2018 n8glenn. All rights reserved.
 //
 
 import UIKit
+import FormBuilder
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FBStyleSet.shared.load(file: "MyStyle")
+        FBSettings.shared.load(file: "MySettings")
         return true
     }
 
