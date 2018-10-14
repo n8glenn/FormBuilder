@@ -142,8 +142,8 @@
 /* Begin PBXFileReference section */
 		00DE73CF2667CB13204DE787CC2D6E3D /* SwiftCssTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftCssTheme.swift; sourceTree = "<group>"; };
 		0234EEF166B61BA7FED1A51B3D72DD84 /* SwiftDeviceCss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftDeviceCss.swift; sourceTree = "<group>"; };
-		02888A3302223FECC5747AFC68EA74B9 /* Style.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = Style.css; path = FormBuilder/Assets/Style.css; sourceTree = "<group>"; };
-		02BF3E86CABA2BFE6540BB63490599C5 /* dictionary.spec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = dictionary.spec; path = FormBuilder/Assets/dictionary.spec; sourceTree = "<group>"; };
+		02888A3302223FECC5747AFC68EA74B9 /* Style.css */ = {isa = PBXFileReference; includeInIndex = 1; name = Style.css; path = FormBuilder/Assets/Style.css; sourceTree = "<group>"; };
+		02BF3E86CABA2BFE6540BB63490599C5 /* dictionary.spec */ = {isa = PBXFileReference; includeInIndex = 1; name = dictionary.spec; path = FormBuilder/Assets/dictionary.spec; sourceTree = "<group>"; };
 		036976810922FDEE83F8CC3D9F6A636C /* FBDropDownView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBDropDownView.xib; path = FormBuilder/Assets/FBDropDownView.xib; sourceTree = "<group>"; };
 		0514511E807C5B4BC2F8C2E657A841A0 /* FormBuilder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FormBuilder-umbrella.h"; sourceTree = "<group>"; };
 		06D6F5A89C938C40FEB0D25373607474 /* FBStyleSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBStyleSet.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		1A146871E7951A29913AC0E450A8BF68 /* FBCheckBoxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBCheckBoxView.swift; sourceTree = "<group>"; };
 		1B736E431E40238AA6352CD16FCE4FDA /* FBOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBOption.swift; sourceTree = "<group>"; };
 		1D61B6991C697B27E907CB20D776A814 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = FormBuilder/Assets/Assets.xcassets; sourceTree = "<group>"; };
-		20D36C4D0457C38416D6B4DD39FE9365 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		20D36C4D0457C38416D6B4DD39FE9365 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		21056CDADAA3B3FC6F233F5C92750E72 /* FormBuilder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FormBuilder.xcconfig; sourceTree = "<group>"; };
 		21CD8544D38830BE5F36F4B009043CA0 /* UIView+fromNib.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+fromNib.swift"; sourceTree = "<group>"; };
 		23960D3FC090A5F499A8C2FEA4D25325 /* trash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = trash.png; path = FormBuilder/Assets/trash.png; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		25A9B6B79DCB8110EDE4B1EF4686E2F2 /* FBFieldView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBFieldView.swift; sourceTree = "<group>"; };
 		25D1A4F4846A303E4C8BE636AA5121C4 /* String+Height.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
 		26D68B40DD1107B4AC59900C16DE0F94 /* FBSectionHeaderView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBSectionHeaderView.xib; path = FormBuilder/Assets/FBSectionHeaderView.xib; sourceTree = "<group>"; };
-		2B7FE9B8332AE5A970A76C78F27AFCE4 /* FBPopOverMenu */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = FBPopOverMenu; path = FormBuilder/Assets/FBPopOverMenu; sourceTree = "<group>"; };
+		2B7FE9B8332AE5A970A76C78F27AFCE4 /* FBPopOverMenu */ = {isa = PBXFileReference; includeInIndex = 1; name = FBPopOverMenu; path = FormBuilder/Assets/FBPopOverMenu; sourceTree = "<group>"; };
 		2B8AB53F6D2C1C46086A6E156C68264C /* FBTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBTextField.swift; sourceTree = "<group>"; };
 		35C590E0034A449CF0FEF9E19F69EBA7 /* FBCheckBoxView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBCheckBoxView.xib; path = FormBuilder/Assets/FBCheckBoxView.xib; sourceTree = "<group>"; };
 		3A2C99BF13EEFDCB4E727D9933330D58 /* FBFileLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBFileLine.swift; sourceTree = "<group>"; };
@@ -179,10 +179,10 @@
 		3E28BE9860ACE0A618EA3097A9246157 /* cancel.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = cancel.png; path = FormBuilder/Assets/cancel.png; sourceTree = "<group>"; };
 		401B8431508552D974AE36293BD2DBC2 /* FBInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBInputField.swift; sourceTree = "<group>"; };
 		42DA65DDA6DF0C1D5753B84A4EE3DFD9 /* FBException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBException.swift; sourceTree = "<group>"; };
-		43BD167CFEDD737860ADFFF2328B986F /* SnapKit */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = SnapKit; path = FormBuilder/Assets/SnapKit; sourceTree = "<group>"; };
+		43BD167CFEDD737860ADFFF2328B986F /* SnapKit */ = {isa = PBXFileReference; includeInIndex = 1; name = SnapKit; path = FormBuilder/Assets/SnapKit; sourceTree = "<group>"; };
 		4425777BE59AE5E32D36AF4BCCC50CBC /* FBTextFieldView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBTextFieldView.xib; path = FormBuilder/Assets/FBTextFieldView.xib; sourceTree = "<group>"; };
 		47F64DD4624AFF61DB6F893135D62586 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4833D616B55321D80EA5FC9E5AD8076B /* FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4833D616B55321D80EA5FC9E5AD8076B /* FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FormBuilder.framework; path = FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AE02FDB4CA4241324224252E1BB894 /* FBSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBSettings.swift; sourceTree = "<group>"; };
 		49EA63F43249633270818B7EA58E76C0 /* FBCheckView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBCheckView.xib; path = FormBuilder/Assets/FBCheckView.xib; sourceTree = "<group>"; };
 		4B025C9871074DD6475713A137BC5706 /* FTPopOverMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FTPopOverMenu.swift; sourceTree = "<group>"; };
@@ -197,12 +197,12 @@
 		58C30731AB1C5F3593EA0466AA711DFA /* down.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = down.png; path = FormBuilder/Assets/down.png; sourceTree = "<group>"; };
 		59B2439A2D4ACA7997FECC5DECCB051D /* FBHeadingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBHeadingView.swift; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5BBB7D718BA255F28D8F6EB6CD8D10FC /* Pods_FormBuilder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BBB7D718BA255F28D8F6EB6CD8D10FC /* Pods_FormBuilder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FormBuilder_Example.framework; path = "Pods-FormBuilder_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3BC1F6D834AC35EDCB53F4E39557D9 /* Pods-FormBuilder_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FormBuilder_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		61EFD388567B444091F6CDC84BEF421A /* FBFormViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBFormViewController.swift; sourceTree = "<group>"; };
 		624BD0292BF9493F6116C49A2DBED186 /* FBCheckView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBCheckView.swift; sourceTree = "<group>"; };
 		663B43E89AA2CDA13CF7B32E2B0FC047 /* trash-white.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "trash-white.png"; path = "FormBuilder/Assets/trash-white.png"; sourceTree = "<group>"; };
-		6A48DEE81C978B9CE72E2BAA8BAF8008 /* Settings.spec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Settings.spec; path = FormBuilder/Assets/Settings.spec; sourceTree = "<group>"; };
+		6A48DEE81C978B9CE72E2BAA8BAF8008 /* Settings.spec */ = {isa = PBXFileReference; includeInIndex = 1; name = Settings.spec; path = FormBuilder/Assets/Settings.spec; sourceTree = "<group>"; };
 		6C271E0F3D9AEA9B4B32E50F39D9D711 /* Pods-FormBuilder_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FormBuilder_Example-umbrella.h"; sourceTree = "<group>"; };
 		6C492FC2AB1BC6E5B0777AB6B4BBAB85 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DDAB4687817C2CF7BB02F9C58B27045 /* Pods-FormBuilder_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FormBuilder_Example-dummy.m"; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		702EAF10A6AFFE3D82C63B2250D0ABFD /* Popover.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		7401CD783B2677CB282888D928595BB4 /* FBOptionView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBOptionView.xib; path = FormBuilder/Assets/FBOptionView.xib; sourceTree = "<group>"; };
 		7439CCD49E576C7FBEC5E27896197C47 /* FBFormCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBFormCell.xib; path = FormBuilder/Assets/FBFormCell.xib; sourceTree = "<group>"; };
-		75D40F6A1F4DF6D0FF15145E7C1014A6 /* SwiftHUD */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = SwiftHUD; path = FormBuilder/Assets/SwiftHUD; sourceTree = "<group>"; };
+		75D40F6A1F4DF6D0FF15145E7C1014A6 /* SwiftHUD */ = {isa = PBXFileReference; includeInIndex = 1; name = SwiftHUD; path = FormBuilder/Assets/SwiftHUD; sourceTree = "<group>"; };
 		7804D31323B37170636C391A00D84D77 /* SwiftCSS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftCSS.swift; sourceTree = "<group>"; };
 		79B644F92E5A581D9BD2A469A04C84BD /* camera.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = camera.png; path = FormBuilder/Assets/camera.png; sourceTree = "<group>"; };
 		7BC562C6DADD38A5DB6E4CFC4DD2E8E8 /* minus.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = minus.png; path = FormBuilder/Assets/minus.png; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 		8E368B071AEBA7D7607860BCF39DF628 /* Pods-FormBuilder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FormBuilder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FB2AA2917300365BDC6AFA77DDC0B45 /* FBDateView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBDateView.xib; path = FormBuilder/Assets/FBDateView.xib; sourceTree = "<group>"; };
 		921D168EFFB70AB61A4C8C3CF29C2BE2 /* Pods-FormBuilder_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FormBuilder_Example.modulemap"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94163E035338FE6587FEFC58720E57E8 /* FBRequiredView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBRequiredView.xib; path = FormBuilder/Assets/FBRequiredView.xib; sourceTree = "<group>"; };
 		9428B7C8D36936BD9900AA4467AF3688 /* FBSignView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBSignView.swift; sourceTree = "<group>"; };
 		94E17F7A96610114426AEC838B3A277C /* FBHeadingView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBHeadingView.xib; path = FormBuilder/Assets/FBHeadingView.xib; sourceTree = "<group>"; };
@@ -246,11 +246,11 @@
 		AF55A62C847F34EA8BFDD31737117005 /* FTPopOverMenu_Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu_Swift.h; sourceTree = "<group>"; };
 		AF567CF48072534F05942D456E2BBFFB /* FBImagePickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBImagePickerView.swift; sourceTree = "<group>"; };
 		B08BAE8EA62B4275F691FA200D000FC1 /* FBSignatureField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBSignatureField.swift; sourceTree = "<group>"; };
-		B47EA4174419E216504E5DAED361ECB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B47EA4174419E216504E5DAED361ECB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		B4C6F92F833A19FBDE8EBABA9FD8042F /* UIImage+width.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+width.swift"; sourceTree = "<group>"; };
-		B50570A4A816F6C1F6B79AADAACBB9EE /* FormBuilder.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = FormBuilder.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B50570A4A816F6C1F6B79AADAACBB9EE /* FormBuilder.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = FormBuilder.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B528FB7F1A75E616AC1F045E6912CA10 /* save.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = save.png; path = FormBuilder/Assets/save.png; sourceTree = "<group>"; };
-		B6D5027D0726491AC2205AB5983A758F /* FTPopOverMenu_Swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = FTPopOverMenu_Swift; path = FormBuilder/Assets/FTPopOverMenu_Swift; sourceTree = "<group>"; };
+		B6D5027D0726491AC2205AB5983A758F /* FTPopOverMenu_Swift */ = {isa = PBXFileReference; includeInIndex = 1; name = FTPopOverMenu_Swift; path = FormBuilder/Assets/FTPopOverMenu_Swift; sourceTree = "<group>"; };
 		BEFDA2194CEB04C156E66D9FF2F16F26 /* FBImagePickerView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBImagePickerView.xib; path = FormBuilder/Assets/FBImagePickerView.xib; sourceTree = "<group>"; };
 		C0A4A5E06076FD7AB35CFA0C46D755CC /* FBTextFieldView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBTextFieldView.swift; sourceTree = "<group>"; };
 		C2BB535E7E0FFA30356174A037FF6E86 /* Pods-FormBuilder_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FormBuilder_Tests.modulemap"; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		E05C386B3478E18760CE965F4E6F9B86 /* FBStyleClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FBStyleClass.swift; sourceTree = "<group>"; };
 		E155B3932B665306A3137890A8A93653 /* FormBuilder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FormBuilder-dummy.m"; sourceTree = "<group>"; };
 		E36570881CEFBEF8E41724C60D21DAFC /* FBComboBoxFieldView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBComboBoxFieldView.xib; path = FormBuilder/Assets/FBComboBoxFieldView.xib; sourceTree = "<group>"; };
-		E3F4F05AAD5F11CBE8A92C0FA138A7BC /* Pods_FormBuilder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3F4F05AAD5F11CBE8A92C0FA138A7BC /* Pods_FormBuilder_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FormBuilder_Tests.framework; path = "Pods-FormBuilder_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FC75F89D3EA3DF87B04E76E1E9AE11 /* FBTextAreaView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = FBTextAreaView.xib; path = FormBuilder/Assets/FBTextAreaView.xib; sourceTree = "<group>"; };
 		E6430E2D1685BFB50C85B921AAE15C7F /* FormLineTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormLineTableViewCell.swift; sourceTree = "<group>"; };
 		E76ADFB32CFE4AD1CF02694F273BC4FE /* Pods-FormBuilder_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FormBuilder_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -325,6 +325,7 @@
 				F8813FAE166DEC35F4E668B22494522E /* FBTextAreaField.swift */,
 				2B8AB53F6D2C1C46086A6E156C68264C /* FBTextField.swift */,
 			);
+			name = Fields;
 			path = Fields;
 			sourceTree = "<group>";
 		};
@@ -333,6 +334,7 @@
 			children = (
 				AC5FC6649341909CBDA33BF91787F543 /* FBSectionHeaderView.swift */,
 			);
+			name = Header;
 			path = Header;
 			sourceTree = "<group>";
 		};
@@ -360,6 +362,7 @@
 				556E80DBB4B5E6E3132914FD0F1DBF36 /* FBDatePickerView.swift */,
 				A86F54A7D2D86E248E771413DE86CC0B /* FBDateView.swift */,
 			);
+			name = Date;
 			path = Date;
 			sourceTree = "<group>";
 		};
@@ -380,6 +383,7 @@
 				6C20DB5D49B8DF83DEA4D4AEDAB15BBA /* Text */,
 				E79F9D916B90396FE291C6614374B06C /* TextArea */,
 			);
+			name = "Field Views";
 			path = "Field Views";
 			sourceTree = "<group>";
 		};
@@ -424,6 +428,7 @@
 			children = (
 				AF567CF48072534F05942D456E2BBFFB /* FBImagePickerView.swift */,
 			);
+			name = ImagePicker;
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
@@ -452,6 +457,7 @@
 				9428B7C8D36936BD9900AA4467AF3688 /* FBSignView.swift */,
 				9F01B2453F8E3EF1CDB4CD8A2FDA8518 /* SwiftSignatureView.swift */,
 			);
+			name = Signature;
 			path = Signature;
 			sourceTree = "<group>";
 		};
@@ -472,6 +478,7 @@
 			children = (
 				8032C1AB61B306EC2BBAC7A46EA87DE8 /* FBLabelView.swift */,
 			);
+			name = Label;
 			path = Label;
 			sourceTree = "<group>";
 		};
@@ -480,6 +487,7 @@
 			children = (
 				135B9B5311178E01D267D5BD2060AF32 /* FBRequiredView.swift */,
 			);
+			name = "Required View";
 			path = "Required View";
 			sourceTree = "<group>";
 		};
@@ -498,6 +506,7 @@
 				E6430E2D1685BFB50C85B921AAE15C7F /* FormLineTableViewCell.swift */,
 				1987EA8CBB9B1D3D0651FCA681FDD936 /* Header */,
 			);
+			name = Form;
 			path = Form;
 			sourceTree = "<group>";
 		};
@@ -506,6 +515,7 @@
 			children = (
 				C0A4A5E06076FD7AB35CFA0C46D755CC /* FBTextFieldView.swift */,
 			);
+			name = Text;
 			path = Text;
 			sourceTree = "<group>";
 		};
@@ -601,6 +611,7 @@
 			children = (
 				D51E3CA858532515C49F5A8FDDEF5403 /* FBImageView.swift */,
 			);
+			name = Image;
 			path = Image;
 			sourceTree = "<group>";
 		};
@@ -610,6 +621,7 @@
 				1A146871E7951A29913AC0E450A8BF68 /* FBCheckBoxView.swift */,
 				624BD0292BF9493F6116C49A2DBED186 /* FBCheckView.swift */,
 			);
+			name = CheckBox;
 			path = CheckBox;
 			sourceTree = "<group>";
 		};
@@ -626,6 +638,7 @@
 			children = (
 				702EAF10A6AFFE3D82C63B2250D0ABFD /* Popover.swift */,
 			);
+			name = Popover;
 			path = Popover;
 			sourceTree = "<group>";
 		};
@@ -635,6 +648,7 @@
 				E9EDFAD943A6B23495E087E0161311A5 /* FBOptionSetView.swift */,
 				A11D56AA89C2D869BB915A80AD2B5620 /* FBOptionView.swift */,
 			);
+			name = OptionSet;
 			path = OptionSet;
 			sourceTree = "<group>";
 		};
@@ -653,6 +667,7 @@
 			children = (
 				59B2439A2D4ACA7997FECC5DECCB051D /* FBHeadingView.swift */,
 			);
+			name = Heading;
 			path = Heading;
 			sourceTree = "<group>";
 		};
@@ -684,6 +699,7 @@
 			children = (
 				A4DA4E686F0C0A7C3C9B6871CA868CC7 /* FBTextAreaView.swift */,
 			);
+			name = TextArea;
 			path = TextArea;
 			sourceTree = "<group>";
 		};
@@ -708,6 +724,7 @@
 				1803A964A7E101BCA221E4311F538847 /* UIControl+Point.swift */,
 				19FC2034D14C471B96433E4E53BF35DA /* UIScreen+Frame.swift */,
 			);
+			name = FTPopOverMenu_Swift;
 			path = FTPopOverMenu_Swift;
 			sourceTree = "<group>";
 		};
@@ -721,6 +738,7 @@
 				0234EEF166B61BA7FED1A51B3D72DD84 /* SwiftDeviceCss.swift */,
 				6FF9FC452AC0FD27600D0726DD50C985 /* UIColorExtension.swift */,
 			);
+			name = Parser;
 			path = Parser;
 			sourceTree = "<group>";
 		};
@@ -729,6 +747,7 @@
 			children = (
 				3A97739B10D7A09E3AAD3CAB405BD60C /* FBComboBoxFieldView.swift */,
 			);
+			name = ComboBox;
 			path = ComboBox;
 			sourceTree = "<group>";
 		};
@@ -824,12 +843,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1000;
-				TargetAttributes = {
-					CB5723EF27209895531403147FB3372A = {
-						LastSwiftMigration = 1000;
-					};
-				};
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1074,6 +1088,38 @@
 			};
 			name = Debug;
 		};
+		135E4F5DD370CF8BD4E35642D8A4EA7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21056CDADAA3B3FC6F233F5C92750E72 /* FormBuilder.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FormBuilder/FormBuilder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FormBuilder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FormBuilder/FormBuilder.modulemap";
+				PRODUCT_MODULE_NAME = FormBuilder;
+				PRODUCT_NAME = FormBuilder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		309E961BAE160A242B32B9AE29C62C2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ADCB0DFE669B49641F85E6F8D40D03C0 /* Pods-FormBuilder_Example.release.xcconfig */;
@@ -1108,38 +1154,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		6EDD535731E67571FE34C9032FCE882A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21056CDADAA3B3FC6F233F5C92750E72 /* FormBuilder.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FormBuilder/FormBuilder-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FormBuilder/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FormBuilder/FormBuilder.modulemap";
-				PRODUCT_MODULE_NAME = FormBuilder;
-				PRODUCT_NAME = FormBuilder;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		896A886A89FA27D0647DA1B7F0E98D23 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1292,12 +1306,11 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		EFCC5D479FB1203BC6425F8BDB5DED5E /* Release */ = {
+		F659C596B58A71BFBE20AC3470DFDB43 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21056CDADAA3B3FC6F233F5C92750E72 /* FormBuilder.xcconfig */;
 			buildSettings = {
@@ -1336,8 +1349,8 @@
 		29A8214E66D79E917C8D097EDA52EA72 /* Build configuration list for PBXNativeTarget "FormBuilder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EDD535731E67571FE34C9032FCE882A /* Debug */,
-				EFCC5D479FB1203BC6425F8BDB5DED5E /* Release */,
+				135E4F5DD370CF8BD4E35642D8A4EA7F /* Debug */,
+				F659C596B58A71BFBE20AC3470DFDB43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

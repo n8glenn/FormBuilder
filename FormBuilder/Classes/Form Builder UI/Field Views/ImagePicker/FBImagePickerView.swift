@@ -186,13 +186,13 @@ open class FBImagePickerView: FBFieldView, UINavigationControllerDelegate, UIIma
             self.delegate?.fieldHeightChanged()
         }
     }
-    
+
     open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
     {
 // Local variable inserted by Swift 4.2 migrator.
 let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
-        let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
+        let image = info[convertFromUIImagePickerControllerInfoKey(.originalImage)] as! UIImage
         let margin:CGFloat = self.field?.style?.value(forKey: "margin") as? CGFloat ?? 5.0
         let width:CGFloat = (self.field?.caption!.width(withConstrainedHeight: (self.field?.labelHeight)!, font: (self.field?.style?.font)!))!
         self.field!.input = image.resize(width: Double(self.field!.width - ((margin * 4) + width + self.field!.requiredWidth)))!
