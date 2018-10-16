@@ -308,6 +308,7 @@ open class FBInputField: FBField
     override public func clear()
     {
         _input = _data
+        self.line?.section?.form?.delegate?.updated(field: self, withValue: _input)
         hasInput = self.hasValue() //(_data != nil)
     }
     

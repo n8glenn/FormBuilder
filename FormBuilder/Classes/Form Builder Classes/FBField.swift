@@ -336,6 +336,7 @@ open class FBField: NSObject
     public func clear()
     {
         // do nothing here
+        NSLog("in field clear")
     }
     
     func equals(value:String) -> Bool

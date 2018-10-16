@@ -207,7 +207,10 @@ open class FBFormViewController: UIViewController,
         // user wants to cancel and discard changes
         for field in self.form!.fields()
         {
-            field.clear()
+            if (field.isKind(of: FBInputField.self))
+            {
+                (field as! FBInputField).clear()
+            }
         }
         self.form?.visibleSections()[section].mode = FBFormMode.View
         self.discard()
