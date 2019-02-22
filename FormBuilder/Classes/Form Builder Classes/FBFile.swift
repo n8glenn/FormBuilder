@@ -52,6 +52,5 @@ public class FBFile: NSObject
         } catch _ as NSError {
             return
         }
-        
     }
 }

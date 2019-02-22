@@ -205,13 +205,13 @@ open class FBDatePickerView: FBFieldView, FBDateViewDelegate
             switch (self.field!.dateType)
             {
             case FBDateType.Date:
-                dateFormatter.dateFormat = style.value(forKey: "date-format") as! String
+                dateFormatter.dateFormat = style.value(forKey: "date-format") as? String
                 break
             case FBDateType.Time:
-                dateFormatter.dateFormat = style.value(forKey: "time-format") as! String
+                dateFormatter.dateFormat = style.value(forKey: "time-format") as? String
                 break
             case FBDateType.DateTime:
-                dateFormatter.dateFormat = style.value(forKey: "date-time-format") as! String
+                dateFormatter.dateFormat = style.value(forKey: "date-time-format") as? String
                 break
             }
             date = dateFormatter.date(from: (self.field!.data as? String)!)!
@@ -253,13 +253,13 @@ open class FBDatePickerView: FBFieldView, FBDateViewDelegate
         switch (self.field!.dateType)
         {
         case FBDateType.Date:
-            dateFormatter.dateFormat = style.value(forKey: "date-format") as! String
+            dateFormatter.dateFormat = style.value(forKey: "date-format") as? String
             break
         case FBDateType.Time:
-            dateFormatter.dateFormat = style.value(forKey: "time-format") as! String
+            dateFormatter.dateFormat = style.value(forKey: "time-format") as? String
             break
         case FBDateType.DateTime:
-            dateFormatter.dateFormat = style.value(forKey: "date-time-format") as! String
+            dateFormatter.dateFormat = style.value(forKey: "date-time-format") as? String
             break
         }
         self.dateLabel!.text = dateFormatter.string(from: date)
